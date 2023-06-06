@@ -9,4 +9,6 @@ class User < ApplicationRecord
   has_many :communities, through: :memberships
   validates :username, presence: true, uniqueness: true
   validates :email, presence: true, uniqueness: true
+  has_many_attached :photos
+
 end
