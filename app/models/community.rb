@@ -4,6 +4,5 @@ class Community < ApplicationRecord
   has_many :memes, through: :challenges
   has_many :users, through: :memberships
   validates :name, presence: true
-  has_many_attached :photo
-
+  has_one_attached :photo
 end
