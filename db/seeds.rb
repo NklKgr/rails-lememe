@@ -54,7 +54,7 @@ meme = Meme.create!(
   challenge: Challenge.last,
   score: 0
 )
-meme.photos.attach(io: file, filename: "#{meme.title}.png", content_type: "image/png")
+meme.photo.attach(io: file, filename: "#{meme.title}.png", content_type: "image/png")
 meme.save
 
 puts "...Meme 1 created"
@@ -66,7 +66,7 @@ meme = Meme.create!(
   challenge: Challenge.last,
   score: 0
 )
-meme.photos.attach(io: file, filename: "#{meme.title}.png", content_type: "image/png")
+meme.photo.attach(io: file, filename: "#{meme.title}.png", content_type: "image/png")
 meme.save
 
 puts "...Meme 2 created"
@@ -79,7 +79,7 @@ meme = Meme.create!(
   challenge: Challenge.last,
   score: 0
 )
-meme.photos.attach(io: file, filename: "#{meme.title}.png", content_type: "image/png")
+meme.photo.attach(io: file, filename: "#{meme.title}.png", content_type: "image/png")
 meme.save
 
 puts "...Meme 3 created"
@@ -91,7 +91,7 @@ meme = Meme.create!(
   challenge: Challenge.last,
   score: 0
 )
-meme.photos.attach(io: file, filename: "#{meme.title}.png", content_type: "image/png")
+meme.photo.attach(io: file, filename: "#{meme.title}.png", content_type: "image/png")
 meme.save
 
 puts "...Meme 4 created"
@@ -103,7 +103,7 @@ meme = Meme.create!(
   challenge: Challenge.last,
   score: 0
 )
-meme.photos.attach(io: file, filename: "#{meme.title}.png", content_type: "image/png")
+meme.photo.attach(io: file, filename: "#{meme.title}.png", content_type: "image/png")
 meme.save
 
 puts "...Meme 5 created"
