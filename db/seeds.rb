@@ -13,6 +13,7 @@ puts "...deleting all data"
 # User.create!(email: "email@email.com", password: "password")
 Meme.destroy_all
 Challenge.destroy_all
+Membership.destroy_all
 Community.destroy_all
 User.destroy_all
 
@@ -46,6 +47,14 @@ challenge.save
 
 puts "...created a challenge"
 
+# # # Memmbership
+membership = Membership.create!(
+  user_id: user.id,
+  community_id: cummunity.id
+)
+membership.save
+
+puts "...created a challenge"
 # # # MEMES
 file = URI.open("https://res.cloudinary.com/dvje7oyen/image/upload/v1686043915/Le%20Meme/1685575227444_n4rrmn.jpg")
 meme = Meme.create!(
