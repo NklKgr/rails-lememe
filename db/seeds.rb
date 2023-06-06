@@ -18,7 +18,7 @@ User.destroy_all
 
 
 # # # Seed data for a Product associated with the User
-user = User.create!(
+User.create!(
   email: "123456@web.de",
   password: "123456",
   username: "memeber01"
