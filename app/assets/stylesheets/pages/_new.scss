@@ -1,0 +1,21 @@
+#meme {
+  // border: 2px solid #333;
+}
+
+.fullwidth {
+  width: 100%;
+  max-width: 500px;
+  max-height: 800px;
+}
+
+#imgFile {
+  display: none;
+}
+
+input[type='text'], input[type='range'] {
+  width: 100%;
+}
+
+h3 > i.fa {
+  margin-right: .2em;
+}
