@@ -1,0 +1,28 @@
+<div class="navbar">
+  <div class="navbar-brand"></div>
+  <div class="navbar-content">
+    <div class="container">
+      <div class="leaderboard-container">
+        <h1 class="leaderboard-title text-center mt-5">Leaderboard</h1>
+        <table class="table table-striped table-hover mt-4">
+          <thead class="table-dark">
+            <tr>
+              <th>Rank</th>
+              <th>Player</th>
+              <th>Score</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @leaderboard.each.with_index(1) do |leaderboard, index| %>
+            <tr>
+              <td><span class="badge bg-secondary"><%= index %></span></td>
+              <td><%= leaderboard.player %></td>
+              <td><%= leaderboard.score %></td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
