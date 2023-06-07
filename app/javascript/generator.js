@@ -84,6 +84,7 @@ var canvasWrapper = document.getElementById('canvasWrapper');
 canvasWrapper.appendChild(canvas);
 canvas.width = 500;
 canvas.height = 500;
+canvas.classList.add(`canvas`);
 var ctx = canvas.getContext('2d');
 var padding = 15;
 var textTop = 'top text';
@@ -98,7 +99,7 @@ image.onload = function (ev) {
   canvas.outerHTML = '';
   canvas = document.createElement('canvas');
   canvasWrapper.appendChild(canvas);
-  ctx = canvas.getContext('2d');
+  ctx = canvas.getContext('2d'); //here happens the magice ;)
   document.getElementById('trueSize').click();
   document.getElementById('trueSize').click();
 
@@ -149,22 +150,38 @@ document.getElementById('trueSize').onchange = function(ev) {
     canvas.classList.add('fullwidth');
   }
 };
+//old download here
+// document.getElementById('export').onclick = function () {
+//     var img = canvas.toDataURL('image/png');
+//     var link = document.createElement("a");
+//     link.download = 'My Meme';
+//     link.href = img;
+//     link.click();
 
-document.getElementById('export').onclick = function () {
-    var img = canvas.toDataURL('image/png');
-    var link = document.createElement("a");
-    link.download = 'My Meme';
-    link.href = img;
-    link.click();
-
-    var win = window.open('', '_blank');
-    win.document.write('<img style="box-shadow: 0 0 1em 0 dimgrey;" src="' + img + '"/>');
-    win.document.write('<h1 style="font-family: Helvetica; font-weight: 300">Right Click > Save As<h1>');
-    win.document.body.style.padding = '1em';
-};
+//     var win = window.open('', '_blank');
+//     win.document.write('<img style="box-shadow: 0 0 1em 0 dimgrey;" src="' + img + '"/>');
+//     win.document.write('<h1 style="font-family: Helvetica; font-weight: 300">Right Click > Save As<h1>');
+//     win.document.body.style.padding = '1em';
+// };
 
 
+// new download here
+const download = document.getElementById('download');
+download.addEventListener('click', function (e) {
+  const link = document.createElement('a');
+  link.download = 'download.png';
+  link.href = canvas.toDataURL();
+  link.click();
+  link.delete;
+});
 
+download.addEventListener('click', function (e) {
+  const link = document.createElement('a');
+  link.download = 'download.png';
+  link.href = canvas.toDataURL();
+  link.click();
+  link.delete;
+});
 
 
 function style(font, size, align, base) {
@@ -266,7 +283,5 @@ document.getElementById('textSizeBottomOut').innerHTML = textSizeBottom;
 
 
 // dragText here
-
-
 
 }) (window, document);
