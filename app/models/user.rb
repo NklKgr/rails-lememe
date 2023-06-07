@@ -20,4 +20,6 @@ class User < ApplicationRecord
     # end
     Meme.joins(challenge: { community: :memberships }).where(memberships: { user_id: id })
   end
+  devise :database_authenticatable, :registerable,
+  :recoverable, :rememberable, :validatable
 end
