@@ -6,16 +6,11 @@ class MemesController < ApplicationController
     @memes = @user.feed
   end
 
-  def upvote
-    @meme = Meme.find(params[:id])
-    @meme.update(score: 5)
-    redirect_to memes_path
-  end
 
-  def downvote
-    @meme.update(score: @meme.score - 1)
-    redirect_to memes_path
-  end
+  # def downvote
+  #   @meme.update(score: @meme.score - 1)
+  #   redirect_to memes_path
+  # end
 
   private
 

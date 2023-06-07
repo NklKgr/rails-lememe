@@ -11,7 +11,8 @@ Rails.application.routes.draw do
     end
   end
   resources :memes, only: %i[index show] do
+    resources :votes, only: %i[create destroy]
   end
-  patch "memes/:id/upvote", to: "memes#upvote", as: :upvote
-  post "memes/:id/downvote", to: "memes#downvote", as: :downvote
+  # patch "memes/:meme_id/votes", to: "votes#upvote", as: :upvote
+  # post "memes/:id/downvote", to: "memes#downvote", as: :downvote
 end

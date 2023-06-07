@@ -18,6 +18,6 @@ class User < ApplicationRecord
     #     challenge.memes
     #   end
     # end
-    Meme.joins(challenge: { community: :memberships }).where(memberships: { user_id: id })
+    Meme.joins(challenge: { community: :memberships }).where(memberships: { user_id: id }).order(created_at: :desc)
   end
 end
