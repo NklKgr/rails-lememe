@@ -2,13 +2,20 @@ class MemesController < ApplicationController
   def index
     @user = current_user
     @memes = @user.feed
+    @communities = current_user.communities
+    @challenges = Challenge.all
 
     query = params[:query]
     if query.present?
-      sql_query = "title ILIKE :query OR score ILIKE :query"
-      @memes = @memes.where(sql_query, query: "%#{params[:query]}%")
+      @communities = Community.where("name ILIKE ?", "%#{params[:query]}%")
+      @memes = @communities.map do |community|
+        community.memes
+      end.flatten
+    else
+      @memes = @user.feed
     end
   end
+
 
   def new
     @meme = Meme.new

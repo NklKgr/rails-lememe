@@ -1,4 +1,14 @@
-<div class="container w-75 d-flex justify-content-center flex-wrap mt-5 flex-column align-items-center">
+
+
+<div class="container w-75 d-flex justify-content-center flex-wrap flex-column align-items-center">
+  <div class="container w-75 d-flex justify-content-center flex-wrap mt-5 flex-column align-items-center">
+      <div class="badge rounded-pill bg-primary mb-3">
+        <% @communities.each do |community| %>
+          <div>
+            <span class="h6"><strong><%= community.name %></span></strong>
+          </div>
+        <% end %>
+  </div>
     <% @memes.each do | meme | %>
     <div class="meme-container">
       <div class="meme-card">
