@@ -16,6 +16,8 @@ class MemesController < ApplicationController
     end
   end
 
+  
+
   private
 
   def meme_params
