@@ -218,7 +218,6 @@ function draw() {
   // draw bottom text
   style('Impact', _textSizeBottom, 'center', 'top');
   var height = ctx.drawBreakingText(bottom, 0, 0, null, 1, 'none').textHeight;
-  console.log(ctx.drawBreakingText(bottom, 0, 0, null, 1, 'none'));
   ctx.drawBreakingText(bottom, canvas.width/2, canvas.height-padding-height, null, 1, 'fill');
   ctx.drawBreakingText(bottom, canvas.width/2, canvas.height-padding-height, null, 1, 'stroke');
 

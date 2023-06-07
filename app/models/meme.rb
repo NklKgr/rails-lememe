@@ -1,5 +1,5 @@
 class Meme < ApplicationRecord
-  belongs_to :user_id
-  belongs_to :challenge_id
+  belongs_to :user
+  belongs_to :challenge
   validates :title, presence: true, length: { maximum: 50 }
 end

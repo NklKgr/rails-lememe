@@ -1,12 +1,11 @@
-<%= javascript_include_tag 'generator.js' %>
 
 
 <h1>Meme Generator</h1>
 
-<div class="box row g-2 container" data-controller="meme-submit">
+<div class="box row g-2 container">
   <div class="col-6">
     <div id="canvasWrapper">
-      <%= image_tag  %>
+      <canvas id="canvas"></canvas>
     </div>
   </div>
 
@@ -74,22 +73,41 @@
         <label for="trueSize"><span>Show true size</span></label>
       </div>
     </div>
+<%#
 
+    <div class="col-6">
+      <form id="canvasForm" method="post" action="/upload" enctype="multipart/form-data">
+        <!-- other form fields -->
+        <input id="title" type="text" placeholder="Title"/>
+        <input type="hidden" id="user_id" name="#">
+        <!-- Hidden field to store the canvas image data -->
+        <input type="hidden" id="canvasData" name="canvas_data">
+        <!-- Submit button -->
+        <input type="submit" value="Upload">
+      </form>
+    </div> %>
 
+    <%# <div class="col-6">
+      <h2 class="pb-2 h4">Create a new Produkt</h2> %>
+      <%#= simple_form_for @meme, html: { multipart: true } do |f| %>
+        <%#= f.input :title %>
+        <%#= f.input :user, as: :hidden, value: current_user.id %>
+        <%#= f.input :challenge, collection: [user.], prompt: "Select a challenge" %>
+        <%#= f.input :photo, as: :hidden, value: this.canvas %>
+        <%#= f.button :submit, "Create Meme", class: "btn btn-lg rounded-bar btn-primary mt-2 w-100"%>
+      <%# end %>
+    <%# </div> %>
 
     <div class="col-6">
       <h3><i class="fa fa-download fa-fw" aria-hidden="true"></i>Export</h3>
-      <p>Coming soon</p>
+      <input id="title" type="text" placeholder="Title"/>
+      <br>
+      <%#= button_to "Select Challenge", challenges_path, class: "btn btn-primary" %>
       <button id="download">Download</button>
+      <button id="createMeme">Upload Meme</button>
     </div>
+      </div>
     </div>
-
-    <button data-action='click->meme-submit#blob'>bliob</button>
-
-    <%=  simple_form_for @meme do |f| %>
-      <%= f.input :challenge, collection: @challenges %>
-      <%= f.input :title, data: { action: 'focus->meme-submit#blobgrab'} %>
-      <%= f.button :submit, "Submit" %>
-    <% end %>
   </div>
 </div>
+<%= javascript_include_tag 'generator.js' %>
