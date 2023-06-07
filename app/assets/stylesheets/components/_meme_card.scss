@@ -1,0 +1,38 @@
+.meme-container {
+  max-width: 600px;
+  width: 100%;
+  margin-bottom: 2rem;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.2);
+  background: #fff;
+}
+
+.meme-card {
+  max-width: inherit;
+  width: inherit;
+  padding: 2rem;
+  img {
+    max-width: inherit;
+    width: inherit;
+  }
+
+  span.meme-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+}
+
+.meme-card-infos {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f9f9f9;
+  padding: 1rem;
+
+  .meme-card-score {
+    padding-right: 1.5rem;
+  }
+
+  .meme-card-vote {
+    flex-grow: 1;
+  }
+}

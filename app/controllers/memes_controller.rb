@@ -1,4 +1,8 @@
 class MemesController < ApplicationController
+  def index
+    @user = current_user
+    @memes = @user.feed
+  end
   def new
     @meme = Meme.new
     @user = current_user
