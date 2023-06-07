@@ -1,0 +1,86 @@
+<%= javascript_include_tag 'generator.js' %>
+
+<h1>Meme Generator</h1>
+
+<div class="box row g-2 container">
+  <div class="col-6">
+    <div id="canvasWrapper">
+    </div>
+  </div>
+
+  <div class="box col-6 row g-2 container">
+    <div class="col-6">
+      <h3><i class="fa fa-picture-o fa-fw" aria-hidden="true"></i>Source Image</h3>
+      <div class="box">
+        <div>
+          <p>From URL</p>
+          <input id="imgURL" class="block" type="text" placeholder="Link to image" />
+          <br>
+          <a href="http://memeful.com/" target="_blank">Memeful.com</a>
+        </div>
+        <div>
+          <p>From Local Disk</p>
+          <label for="imgFile" class="btn"><i class="fa fa-upload fa-fw"></i></label>
+          <input id="imgFile" type="file" accept="image/*"/>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-6">
+      <h3><i class="fa fa-commenting-o fa-fw" aria-hidden="true"></i>Meme Text</h3>
+      <div class="box">
+        <div>
+          <p>Top Text</p>
+          <input id="textTop" type="text" class="block" placeholder="Top text" />
+        </div>
+        <br>
+        <div>
+          <p>Bottom Text</p>
+          <input id="textBottom" type="text" class="block" placeholder="Bottom text" />
+        </div>
+      </div>
+    </div>
+
+
+    <div class="col-6">
+      <h3><i class="fa fa-text-height fa-fw" aria-hidden="true"></i>Text Size</h3>
+      <div class="box">
+        <div>
+          <p>Top Text: <span id="textSizeTopOut">10</span></p>
+          <input id="textSizeTop" type="range" min="2" max="50" step="2" />
+        </div>
+        <div>
+          <p>Bottom Text: <span id="textSizeBottomOut">10</span></p>
+          <input id="textSizeBottom" type="range" min="2" max="50" step="2" />
+        </div>
+      </div>
+    </div>
+
+    <div class="col-6">
+      <h3><i class="fa-solid fa-pen-nib" style="color: #000000;" aria-hidden="true"></i>Pen Size</h3>
+      <label for="color">Color:</label>
+      <input type="color" id="color" value="#000000"> <br>
+      <label for="thickness">Thickness:</label>
+      <input type="range" id="thickness" min="1" max="10" value="1">
+      <span id="thicknessValue">1</span>
+    </div>
+
+    <div class="col-6">
+      <div>
+        <h3><i class="fa fa-eye fa-fw" aria-hidden="true"></i>Preview Size</h3>
+        <input id="trueSize" type="checkbox"/>
+        <label for="trueSize"><span>Show true size</span></label>
+      </div>
+    </div>
+
+
+
+    <div class="col-6">
+      <h3><i class="fa fa-download fa-fw" aria-hidden="true"></i>Export</h3>
+      <p>Coming soon</p>
+      <button id="download">Download</button>
+    </div>
+      </div>
+    </div>
+  </div>
+</div>
