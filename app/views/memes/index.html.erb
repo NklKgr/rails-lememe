@@ -14,8 +14,8 @@
   <div class="row">
 
     <!-- Left Sidebar Content -->
-    <div class="col-md-2" style="background-color: white">
-    <span>My Communities</span>
+    <div class="col-md-2 sidebar-container" style="background-color: white">
+      <h4>My Communities</h4>
       <div>
         <% @communities.each do |community| %>
           <span><strong><%= link_to community.name, memes_path(filter: community.name) %></span></strong>
@@ -45,10 +45,10 @@
       </div>
     </div>
 
-    <div class="col-md-2" style="background-color: white">
+    <div class="col-md-2 sidebar-container" style="background-color: white">
       <!-- Right Sidebar Content -->
       <!-- Add your right sidebar content here -->
-      <p>Leaderboard Placeholder</p>
+      <h4>Leaderboard Placeholder</h4>
     </div>
 
   </div>
