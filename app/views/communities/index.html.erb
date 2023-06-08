@@ -1,0 +1,9 @@
+<div class="container mt-5">
+  <h1 class="text-center mb-4">Le Meme Communities</h1>
+
+  <ul class="list-group text-center">
+    <% @communities.each do |community| %>
+      <li class="list-group-item list-group-item-action"><%= community.name %></li>
+    <% end %>
+  </ul>
+</div>

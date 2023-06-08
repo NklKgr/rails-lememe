@@ -1,2 +1,16 @@
+<!-- app/views/communities/show.html.erb -->
+
 <h1><%= @community.name %></h1>
 <p><%= @community.description %></p>
+
+<h2>Posts</h2>
+
+<% @community.posts.each do |post| %>
+  <div class="post">
+    <h3><%= post.title %></h3>
+    <p><%= post.content %></p>
+    <p>Posted by <%= post.user.username %> on <%= post.created_at.strftime("%B %d, %Y") %></p>
+  </div>
+<% end %>
+
+<%= link_to 'Back to Communities', communities_path %>

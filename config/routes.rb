@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'community', to: 'pages#community'
   post 'posts', to: 'posts#create', as: :create_post
   post 'create', to: 'communities#create', as: 'create_community'
+  get '/communities', to: 'communities#index'
 
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
