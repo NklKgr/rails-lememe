@@ -1,19 +1,55 @@
-<div class="container w-75 d-flex justify-content-center flex-wrap mt-5 flex-column align-items-center">
-    <% @memes.each do | meme | %>
-    <div class="meme-container">
-      <div class="meme-card">
-        <span class="meme-title"><%= meme.title %></span>
-        <%= cl_image_tag meme.photo.key if meme.photo.attached? %>
-      </div>
-      <div class="meme-card-infos">
-          <span class="meme-card-score"><%= meme.score %></span>
-          <div class="meme-card-vote">
-            <button class="upvote"><i class="fa-solid fa-caret-up"></i></button>
-            <button class="downvote"><i class="fa-solid fa-caret-down"></i></button>
+<div class="container w-30 d-flex justify-content-center flex-wrap mt-3 flex-column align-items-center">
+    <% @communities_search.each do |community| %>
+      <div class="badge rounded-pill bg-primary mb-3">
+        <%= link_to community_path(community) do %>
+          <div>
+            <span class="h6"><strong><%= community.name %></span></strong>
           </div>
-          <span class="meme-comments">Comments</span>
-        </div>
+        <% end %>
       </div>
     <% end %>
-  </ul>
+</div>
+
+<div class="container mt-5">
+  <div class="row">
+
+    <!-- Left Sidebar Content -->
+    <div class="col-md-2 sidebar-container" style="background-color: white">
+      <h4>My Communities</h4>
+      <div>
+        <% @communities.each do |community| %>
+          <span><strong><%= link_to community.name, memes_path(filter: community.name) %></span></strong>
+        <% end %>
+      </div>
+    </div>
+
+    <!-- Memes Feed -->
+    <div class="col-md-8">
+      <div class="container w-75 d-flex justify-content-center flex-wrap flex-column align-items-center">
+        <% @memes.each do | meme | %>
+          <div class="meme-container">
+            <div class="meme-card">
+              <span class="meme-title"><%= meme.title %></span>
+              <%= cl_image_tag meme.photo.key if meme.photo.attached? %>
+            </div>
+            <div class="meme-card-infos">
+              <span class="meme-card-score"><%= meme.score %></span>
+              <div class="meme-card-vote">
+                <button class="upvote"><i class="fa-solid fa-caret-up"></i></button>
+                <button class="downvote"><i class="fa-solid fa-caret-down"></i></button>
+              </div>
+              <span class="meme-comments">Comments</span>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="col-md-2 sidebar-container" style="background-color: white">
+      <!-- Right Sidebar Content -->
+      <!-- Add your right sidebar content here -->
+      <h4>Leaderboard Placeholder</h4>
+    </div>
+
+  </div>
 </div>
