@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="container mt-5">
   <div class="row">
 
@@ -26,6 +27,33 @@
               </div>
               <span class="meme-comments">Comments</span>
             </div>
+=======
+
+
+<div class="container w-75 d-flex justify-content-center flex-wrap flex-column align-items-center">
+  <div class="container w-75 d-flex justify-content-center flex-wrap mt-5 flex-column align-items-center">
+      <div class="badge rounded-pill bg-primary mb-3">
+        <% @communities.each do |community| %>
+          <%= link_to community_path(community) do %>
+            <div>
+              <span class="h6"><strong><%= community.name %></span></strong>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+  </div>
+    <% @memes.each do | meme | %>
+    <div class="meme-container">
+      <div class="meme-card">
+        <span class="meme-title"><%= meme.title %></span>
+        <%= cl_image_tag meme.photo.key if meme.photo.attached? %>
+      </div>
+      <div class="meme-card-infos">
+          <span class="meme-card-score"><%= meme.score %></span>
+          <div class="meme-card-vote">
+            <button class="upvote"><i class="fa-solid fa-caret-up"></i></button>
+            <button class="downvote"><i class="fa-solid fa-caret-down"></i></button>
+>>>>>>> master
           </div>
         <% end %>
       </div>
