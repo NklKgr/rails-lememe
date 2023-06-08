@@ -11,18 +11,18 @@ puts "...deleting all data"
 
 # Seed data for a User
 # User.create!(email: "email@email.com", password: "password")
-Meme.destroy_all
-Challenge.destroy_all
-Membership.destroy_all
-Community.destroy_all
-User.destroy_all
+# Meme.destroy_all
+# Challenge.destroy_all
+# Membership.destroy_all
+# Community.destroy_all
+# User.destroy_all
 
 
 # # # Seed data for a Product associated with the User
 User.create!(
-  email: "123456@web.de",
-  password: "123456",
-  username: "memeber01"
+  email: "12345678933@web.de",
+  password: "123456337890",
+  username: "memeber0335"
 )
 
 puts "...created a user"
@@ -49,8 +49,8 @@ puts "...created a challenge"
 
 # # # Memmbership
 membership = Membership.create!(
-  user_id: user.id,
-  community_id: cummunity.id
+  user: User.first,
+  community: Community.last
 )
 membership.save
 

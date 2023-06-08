@@ -7,8 +7,8 @@ Rails.application.routes.draw do
   # root "articles#index"
   resources :communites, only: %i[index show new create edit update] do
     resources :challenges, only: %i[index new create] do
-      resources :memes, only: %i[new create]
+      resources :memes, only: %i[create]
     end
   end
-  resources :memes, only: %i[index show]
+  resources :memes, only: %i[new index show create]
 end

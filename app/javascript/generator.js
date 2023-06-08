@@ -1,5 +1,6 @@
 // CAN\NVAS.js plugin
 // ninivert, december 2016
+
 (function (window, document) {
   /**
   * CAN\VAS Plugin - Adding line breaks to canvas
@@ -74,10 +75,8 @@
 				return false;
 			}
 		}
-
 		return {'textParts': textParts, 'textHeight': textSize*lh*textParts.length};
 	};
-
 
 var canvas = document.createElement('canvas');
 var canvasWrapper = document.getElementById('canvasWrapper');
@@ -91,7 +90,8 @@ var textTop = 'top text';
 var textBottom = 'bottom text';
 var textSizeTop = 10;
 var textSizeBottom = 10;
-var image = document.createElement('img');
+// var image = document.createElement('img');
+var image = document.getElementById('img');
 
 
 image.onload = function (ev) {
@@ -99,6 +99,7 @@ image.onload = function (ev) {
   canvas.outerHTML = '';
   canvas = document.createElement('canvas');
   canvasWrapper.appendChild(canvas);
+  // console.log("generator echo", canvas);
   ctx = canvas.getContext('2d'); //here happens the magice ;)
   document.getElementById('trueSize').click();
   document.getElementById('trueSize').click();
@@ -108,6 +109,7 @@ image.onload = function (ev) {
 
 document.getElementById('imgURL').oninput = function(ev) {
   image.src = this.value;
+  image.crossOrigin = "Anonymous"; ////////////////////////////////////////////here
 };
 
 document.getElementById('imgFile').onchange = function(ev) {
@@ -166,22 +168,22 @@ document.getElementById('trueSize').onchange = function(ev) {
 
 
 // new download here
-const download = document.getElementById('download');
-download.addEventListener('click', function (e) {
-  const link = document.createElement('a');
-  link.download = 'download.png';
-  link.href = canvas.toDataURL();
-  link.click();
-  link.delete;
-});
+// const download = document.getElementById('download');
+// download.addEventListener('click', function (e) {
+//   const link = document.createElement('a');
+//   link.download = 'download.png';
+//   link.href = canvas.toDataURL();
+//   link.click();
+//   link.delete;
+// });
 
-download.addEventListener('click', function (e) {
-  const link = document.createElement('a');
-  link.download = 'download.png';
-  link.href = canvas.toDataURL();
-  link.click();
-  link.delete;
-});
+// download.addEventListener('click', function (e) {
+//   const link = document.createElement('a');
+//   link.download = 'download.png';
+//   link.href = canvas.toDataURL();
+//   link.click();
+//   link.delete;
+// });
 
 
 function style(font, size, align, base) {
@@ -201,6 +203,7 @@ function draw() {
 
   // draw the image
   ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
+  // ctx.drawImage(cl_image_tag(image, 0, 0, canvas.width, canvas.height), 0, 0);
 
   // styles
   ctx.fillStyle = '#fff';
@@ -274,7 +277,9 @@ function draw() {
   }
 }
 
-image.src = 'https://imgflip.com/s/meme/The-Most-Interesting-Man-In-The-World.jpg';
+
+// image.src = 'https://imgflip.com/s/meme/The-Most-Interesting-Man-In-The-World.jpg';
+image.crossOrigin = "Anonymous";
 document.getElementById('textSizeTop').value = textSizeTop;
 document.getElementById('textSizeBottom').value = textSizeBottom;
 document.getElementById('textSizeTopOut').innerHTML = textSizeTop;
