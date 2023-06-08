@@ -29,10 +29,20 @@
   padding: 1rem;
 
   .meme-card-score {
-    padding-right: 1.5rem;
+    margin-right: 1.5rem;
+    background: #3f00ff;
+    padding: 4px 10px;
+    border-radius: 50px;
+    color: #fff;
+    font-weight: 700;
   }
 
   .meme-card-vote {
     flex-grow: 1;
+    display: flex;
+  }
+
+  .clicked-vote {
+    background-color: #230482;
   }
 }
