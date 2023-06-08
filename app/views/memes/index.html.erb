@@ -1,19 +1,41 @@
-<div class="container w-75 d-flex justify-content-center flex-wrap mt-5 flex-column align-items-center">
-    <% @memes.each do | meme | %>
-    <div class="meme-container">
-      <div class="meme-card">
-        <span class="meme-title"><%= meme.title %></span>
-        <%= cl_image_tag meme.photo.key if meme.photo.attached? %>
-      </div>
-      <div class="meme-card-infos">
-          <span class="meme-card-score"><%= meme.score %></span>
-          <div class="meme-card-vote">
-            <button class="upvote"><i class="fa-solid fa-caret-up"></i></button>
-            <button class="downvote"><i class="fa-solid fa-caret-down"></i></button>
+<div class="container mt-5">
+  <div class="row">
+
+    <div class="col-md-2 mt-5" style="background-color: white">
+      <!-- Left Sidebar Content -->
+      <p>My communities</p>
+      <% @communities.each do |community| %>
+
+
+    </div>
+
+    <!-- Memes Feed -->
+    <div class="col-md-8">
+      <div class="container w-75 d-flex justify-content-center flex-wrap mt-5 flex-column align-items-center">
+        <% @memes.each do | meme | %>
+          <div class="meme-container">
+            <div class="meme-card">
+              <span class="meme-title"><%= meme.title %></span>
+              <%= cl_image_tag meme.photo.key if meme.photo.attached? %>
+            </div>
+            <div class="meme-card-infos">
+              <span class="meme-card-score"><%= meme.score %></span>
+              <div class="meme-card-vote">
+                <button class="upvote"><i class="fa-solid fa-caret-up"></i></button>
+                <button class="downvote"><i class="fa-solid fa-caret-down"></i></button>
+              </div>
+              <span class="meme-comments">Comments</span>
+            </div>
           </div>
-          <span class="meme-comments">Comments</span>
-        </div>
+        <% end %>
       </div>
-    <% end %>
-  </ul>
+    </div>
+
+    <div class="col-md-2 mt-5" style="background-color: white">
+      <!-- Right Sidebar Content -->
+      <!-- Add your right sidebar content here -->
+      <p>Leaderboard Placeholder</p>
+    </div>
+
+  </div>
 </div>
