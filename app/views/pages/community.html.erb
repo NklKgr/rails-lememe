@@ -1,0 +1,45 @@
+<main class="container">
+  <div class="row">
+    <div class="col-lg-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Community Guidelines</h5>
+          <p class="card-text">Make sure to follow these guidelines to maintain a healthy community:</p>
+          <ul>
+            <li>Be respectful to others.</li>
+            <li>Avoid posting offensive or inappropriate content.</li>
+            <li>Stay on topic and avoid spamming.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-8">
+      <h1>Welcome to the Le Meme Community!</h1>
+      <p>Join the fun and share your favorite memes with other players.</p>
+
+      <!-- Community Posts -->
+      <% @posts.each do |post| %>
+        <div class="card mb-3">
+          <div class="card-body">
+            <h5 class="card-title"><%= post.title %></h5>
+            <p class="card-text"><%= post.content %></p>
+          </div>
+        </div>
+      <% end %>
+
+      <!-- Add New Post Form -->
+      <div class="sidebar-form">
+        <h3>Create a New Post</h3>
+        <%= simple_form_for @new_post, url: '/posts', local: true do |form| %>
+          <div class="mb-3">
+            <%= form.input :title, label: "Title", input_html: { class: "form-control" } %>
+          </div>
+          <div class="mb-3">
+            <%= form.input :content, label: "Content", as: :text, input_html: { class: "form-control" } %>
+          </div>
+          <%= form.button :submit, "Create Post", class: "btn btn-primary" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</main>

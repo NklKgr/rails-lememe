@@ -1,0 +1,43 @@
+// Sidebar styles
+.sidebar {
+  background-color: #e6e6ff;
+  padding: 20px;
+
+  h5 {
+    color: #4b0082;
+  }
+
+  ul {
+    color: #4b0082;
+  }
+}
+
+// Form styles
+.sidebar-form {
+  margin-top: 20px;
+
+  h3 {
+    color: #4b0082;
+  }
+
+  input[type="text"],
+  textarea {
+    background-color: #f2e6ff;
+    color: #4b0082;
+    border: none;
+    padding: 10px;
+    width: 100%;
+  }
+
+  input[type="submit"] {
+    background-color: #4b0082;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #6600cc;
+    }
+  }
+}

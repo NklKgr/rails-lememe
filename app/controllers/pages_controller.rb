@@ -3,4 +3,10 @@ class PagesController < ApplicationController
 
   def home
   end
+
+  def community
+    @posts = Post.all
+    @new_post = Post.new
+  end
+  
 end
