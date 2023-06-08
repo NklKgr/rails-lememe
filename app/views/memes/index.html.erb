@@ -1,44 +1,55 @@
-
-
-<div class="container w-75 d-flex justify-content-center flex-wrap flex-column align-items-center">
-  <div class="container w-75 d-flex justify-content-center flex-wrap mt-5 flex-column align-items-center">
+<div class="container w-30 d-flex justify-content-center flex-wrap mt-3 flex-column align-items-center">
+    <% @communities_search.each do |community| %>
       <div class="badge rounded-pill bg-primary mb-3">
-        <% @communities.each do |community| %>
-          <%= link_to community_path(community) do %>
-            <div>
-              <span class="h6"><strong><%= community.name %></span></strong>
-            </div>
-          <% end %>
+        <%= link_to community_path(community) do %>
+          <div>
+            <span class="h6"><strong><%= community.name %></span></strong>
+          </div>
         <% end %>
       </div>
-  </div>
-    <% @memes.each do | meme | %>
-    <div class="meme-container">
-      <div class="meme-card">
-        <span class="meme-title"><%= meme.title %></span>
-        <%= cl_image_tag meme.photo.key if meme.photo.attached? %>
-      </div>
-      <div class="meme-card-infos" data-controller="votings">
-          <span data-votings-target="upvotes" class="meme-card-score"><%= meme.score %></span>
-          <div class="meme-card-vote">
-            <% vote = meme.votes.where(user: current_user).first %>
-            <% if meme.voted_by_current_user?(current_user) %>
-              <%= button_to '<i class="fa-solid fa-arrow-up"></i>'.html_safe, meme_vote_path(meme, vote, vote:"up"),
-              method: :patch,
-              remote: true,
-              class: "btn btn-primary me-1 rounded-circle #{ 'clicked-vote' if !vote.nil? && vote.voted == true }" %>
-              <%= button_to '<i class="fa-solid fa-arrow-down"></i>'.html_safe, meme_vote_path(meme, vote, vote:"down"),
-              method: :patch,
-              remote: true,
-              class: "btn btn-primary rounded-circle #{ 'clicked-vote' if !vote.nil? && vote.voted == false }" %>
-            <% else %>
-              <%= button_to '<i class="fa-solid fa-arrow-up"></i>'.html_safe, meme_votes_path(meme, vote:"up"), method: :post, remote: true, class: "btn btn-primary me-1" %>
-              <%= button_to '<i class="fa-solid fa-arrow-down"></i>'.html_safe, meme_votes_path(meme, vote:"down"), method: :post, remote: true, class: "btn btn-primary" %>
-            <% end %>
-          </div>
-          <span class="meme-comments">Comments</span>
-        </div>
-      </div>
     <% end %>
-  </ul>
+</div>
+
+<div class="container mt-5">
+  <div class="row">
+
+    <!-- Left Sidebar Content -->
+    <div class="col-md-2 sidebar-container" style="background-color: white">
+      <h4>My Communities</h4>
+      <div>
+        <% @communities.each do |community| %>
+          <span><strong><%= link_to community.name, memes_path(filter: community.name) %></span></strong>
+        <% end %>
+      </div>
+    </div>
+
+    <!-- Memes Feed -->
+    <div class="col-md-8">
+      <div class="container w-75 d-flex justify-content-center flex-wrap flex-column align-items-center">
+        <% @memes.each do | meme | %>
+          <div class="meme-container">
+            <div class="meme-card">
+              <span class="meme-title"><%= meme.title %></span>
+              <%= cl_image_tag meme.photo.key if meme.photo.attached? %>
+            </div>
+            <div class="meme-card-infos">
+              <span class="meme-card-score"><%= meme.score %></span>
+              <div class="meme-card-vote">
+                <button class="upvote"><i class="fa-solid fa-caret-up"></i></button>
+                <button class="downvote"><i class="fa-solid fa-caret-down"></i></button>
+              </div>
+              <span class="meme-comments">Comments</span>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="col-md-2 sidebar-container" style="background-color: white">
+      <!-- Right Sidebar Content -->
+      <!-- Add your right sidebar content here -->
+      <h4>Leaderboard Placeholder</h4>
+    </div>
+
+  </div>
 </div>

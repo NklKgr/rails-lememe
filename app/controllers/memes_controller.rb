@@ -6,11 +6,19 @@ class MemesController < ApplicationController
     @memes = @user.feed
     @communities = current_user.communities
     @challenges = Challenge.all
+    @communities_search = current_user.communities
+
+    filter = params[:filter]
 
     query = params[:query]
     if query.present?
-      @communities = Community.where("name ILIKE ?", "%#{params[:query]}%")
-      @memes = @communities.map do |community|
+      @communities_search = Community.where("name ILIKE ?", "%#{params[:query]}%")
+      @memes = @communities_search.map do |community|
+        community.memes
+      end.flatten
+    elsif filter.present?
+      @communities_search = Community.where("name ILIKE ?", "%#{params[:filter]}%")
+      @memes = @communities_search.map do |community|
         community.memes
       end.flatten
     else
@@ -38,13 +46,10 @@ class MemesController < ApplicationController
     params.require(:meme).permit(:title, :image)
   end
 
-
   # def downvote
   #   @meme.update(score: @meme.score - 1)
   #   redirect_to memes_path
   # end
-
-  private
 
   def set_meme
     @meme = Meme.find(params[:id])
