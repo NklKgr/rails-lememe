@@ -4,9 +4,9 @@
   <div class="container w-75 d-flex justify-content-center flex-wrap mt-5 flex-column align-items-center">
       <div class="badge rounded-pill bg-primary mb-3">
         <% @communities.each do |community| %>
-          <%= link_to communite_path(community) do %>
+          <%= link_to community_path(community) do %>
             <div>
-              <span class="h6 light"><strong><%= community.name %></span></strong>
+              <span class="h6"><strong><%= community.name %></span></strong>
             </div>
           <% end %>
         <% end %>
