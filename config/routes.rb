@@ -7,10 +7,11 @@ Rails.application.routes.draw do
   # root "articles#index"
   resources :communities, only: %i[index show new create edit update] do
     resources :challenges, only: %i[index new create] do
-      resources :memes, only: %i[new create]
+      resources :memes, only: %i[create]
     end
   end
-  resources :memes, only: %i[index show] do
+
+  resources :memes, only: %i[new index show create] do
     resources :votes, only: %i[create update]
   end
   # patch "memes/:meme_id/votes", to: "votes#upvote", as: :upvote

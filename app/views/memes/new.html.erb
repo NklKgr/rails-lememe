@@ -1,11 +1,14 @@
-<%= javascript_include_tag 'generator.js' %>
-
 <h1>Meme Generator</h1>
-
-<div class="box row g-2 container">
-  <div class="col-6">
+<div class="box row g-2 container" data-controller="meme-submit">
+  <%# <div class="col-6">
     <div id="canvasWrapper">
     </div>
+  </div> %>
+  <div class="col-6" data-action="mouseup->meme-submit#getImageUrl">
+    <div id="canvasWrapper">
+      <%= image_tag "meme_I.jpg", quality: 'auto', width: 500, id: "img", class: 'd-none' %>
+    </div>
+      <%# meme is locally saved and beeing used as reference, to draw the canvas, without beeing displayed %>
   </div>
 
   <div class="box col-6 row g-2 container">
@@ -41,7 +44,6 @@
       </div>
     </div>
 
-
     <div class="col-6">
       <h3><i class="fa fa-text-height fa-fw" aria-hidden="true"></i>Text Size</h3>
       <div class="box">
@@ -73,14 +75,23 @@
       </div>
     </div>
 
-
-
     <div class="col-6">
       <h3><i class="fa fa-download fa-fw" aria-hidden="true"></i>Export</h3>
       <p>Coming soon</p>
       <button id="download">Download</button>
     </div>
+  </div>
+
+  <div>
+    <%=  simple_form_for @meme, html: { multipart: true } do |f| %>
+      <%= f.association :challenge, prompt: "Select a Challenge", collection: @challenges %>
+      <%= f.input :title, prompt: "Select a title" %>
+      <div class="d-none">
+        <input type="text" name="photo" data-meme-submit-target="baseurlphoto">
       </div>
-    </div>
+       <%#= f.input :photo, as: :string, input_html: { data: { meme_submit_target: "baseurlphoto" } } %>
+      <%= f.button :submit, "Submit" %>
+    <% end %>
   </div>
 </div>
+<%= javascript_include_tag 'generator.js' %>
