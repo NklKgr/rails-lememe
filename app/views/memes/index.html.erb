@@ -18,11 +18,23 @@
         <span class="meme-title"><%= meme.title %></span>
         <%= cl_image_tag meme.photo.key if meme.photo.attached? %>
       </div>
-      <div class="meme-card-infos">
-          <span class="meme-card-score"><%= meme.score %></span>
+      <div class="meme-card-infos" data-controller="votings">
+          <span data-votings-target="upvotes" class="meme-card-score"><%= meme.score %></span>
           <div class="meme-card-vote">
-            <button class="upvote"><i class="fa-solid fa-caret-up"></i></button>
-            <button class="downvote"><i class="fa-solid fa-caret-down"></i></button>
+            <% vote = meme.votes.where(user: current_user).first %>
+            <% if meme.voted_by_current_user?(current_user) %>
+              <%= button_to '<i class="fa-solid fa-arrow-up"></i>'.html_safe, meme_vote_path(meme, vote, vote:"up"),
+              method: :patch,
+              remote: true,
+              class: "btn btn-primary me-1 rounded-circle #{ 'clicked-vote' if !vote.nil? && vote.voted == true }" %>
+              <%= button_to '<i class="fa-solid fa-arrow-down"></i>'.html_safe, meme_vote_path(meme, vote, vote:"down"),
+              method: :patch,
+              remote: true,
+              class: "btn btn-primary rounded-circle #{ 'clicked-vote' if !vote.nil? && vote.voted == false }" %>
+            <% else %>
+              <%= button_to '<i class="fa-solid fa-arrow-up"></i>'.html_safe, meme_votes_path(meme, vote:"up"), method: :post, remote: true, class: "btn btn-primary me-1" %>
+              <%= button_to '<i class="fa-solid fa-arrow-down"></i>'.html_safe, meme_votes_path(meme, vote:"down"), method: :post, remote: true, class: "btn btn-primary" %>
+            <% end %>
           </div>
           <span class="meme-comments">Comments</span>
         </div>
