@@ -13,7 +13,7 @@ export default class extends Controller {
     event.preventDefault();
     const id = this.data.get("id")
     const url = `/memes/${id}/upvote`
-    fetch(url, { method: "PATCH" })
+    fetch(url, { method: "PATCPH" })
       .then(response => response.json())
       .then((data) => {
         // this.upvotesTarget.innerHTML = data.votes

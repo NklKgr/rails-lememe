@@ -8,22 +8,20 @@
       <div class="meme-card-infos" data-controller="votings">
           <span data-votings-target="upvotes" class="meme-card-score"><%= meme.score %></span>
           <div class="meme-card-vote">
-            <%# if meme.voted_by_current_user?(current_user) %>
-              <%#= button_to "UP_VOTE", meme_votes_path(meme), method: :post, remote: true, class: "btn btn-primary btn-lg" %>
-            <%# else %>
-              <%#= button_to "DOWN_VOTE", meme_votes_path(meme), method: :post, remote: true %>
-            <%# end %>
             <% vote = meme.votes.where(user: current_user).first %>
             <% if meme.voted_by_current_user?(current_user) %>
-              <%= button_to '<i class="fa-solid fa-arrow-up"></i>'.html_safe, meme_vote_path(meme, vote, vote:"up"), method: :patch, remote: true, class: "btn btn-primary me-1" %>
-              <%= button_to '<i class="fa-solid fa-arrow-down"></i>'.html_safe, meme_vote_path(meme, vote, vote:"down"), method: :patch, remote: true,
-                  class: "btn btn-primary" %>
+              <%= button_to '<i class="fa-solid fa-arrow-up"></i>'.html_safe, meme_vote_path(meme, vote, vote:"up"),
+              method: :patch,
+              remote: true,
+              class: "btn btn-primary me-1 rounded-circle #{ 'clicked-vote' if !vote.nil? && vote.voted == true }" %>
+              <%= button_to '<i class="fa-solid fa-arrow-down"></i>'.html_safe, meme_vote_path(meme, vote, vote:"down"),
+              method: :patch,
+              remote: true,
+              class: "btn btn-primary rounded-circle #{ 'clicked-vote' if !vote.nil? && vote.voted == false }" %>
             <% else %>
               <%= button_to '<i class="fa-solid fa-arrow-up"></i>'.html_safe, meme_votes_path(meme, vote:"up"), method: :post, remote: true, class: "btn btn-primary me-1" %>
               <%= button_to '<i class="fa-solid fa-arrow-down"></i>'.html_safe, meme_votes_path(meme, vote:"down"), method: :post, remote: true, class: "btn btn-primary" %>
             <% end %>
-            <%# <button data-action="click->votings#upvote" class="upvote"><i class="fa-solid fa-caret-up"></i></button>
-            <button class="downvote"><i class="fa-solid fa-caret-down"></i></button> %>
           </div>
           <span class="meme-comments">Comments</span>
         </div>

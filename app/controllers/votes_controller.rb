@@ -4,6 +4,7 @@ class VotesController < ApplicationController
     @vote = Vote.new
     @vote.user = current_user
     @vote.meme = @meme
+
     if params[:vote] == "up" && @vote.save!
       @vote.voted = true
       @meme.update!(score: @meme.score + 1)
@@ -42,6 +43,7 @@ class VotesController < ApplicationController
     end
     @vote.update(voted: new_voted)
     @meme.update(score: @meme.score + score_change)
+
     redirect_to memes_path
   end
 end
