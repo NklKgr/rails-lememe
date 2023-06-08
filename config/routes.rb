@@ -12,3 +12,4 @@ Rails.application.routes.draw do
   end
   resources :memes, only: %i[index show]
 end
+
