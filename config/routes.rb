@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   root to: "pages#home"
   get 'community', to: 'pages#community'
   post 'posts', to: 'posts#create', as: :create_post
+  post 'create', to: 'communities#create', as: 'create_community'
+
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -16,4 +18,6 @@ Rails.application.routes.draw do
   end
   resources :memes, only: %i[index show]
   resources :posts, only: [:index, :create]
+  resources :communities, only: [:new, :create, :show]
+
 end

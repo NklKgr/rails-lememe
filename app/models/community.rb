@@ -5,4 +5,5 @@ class Community < ApplicationRecord
   has_many :users, through: :memberships
   validates :name, presence: true
   has_one_attached :photo
+  attribute :description, :string
 end

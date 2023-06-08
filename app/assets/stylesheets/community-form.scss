@@ -1,0 +1,47 @@
+.community-form {
+  background-color: #f7f7f7;
+  padding: 20px;
+  border-radius: 5px;
+
+  h1 {
+    color: #6c63ff;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  .form-group {
+    margin-bottom: 20px;
+  }
+
+  label {
+    color: #6c63ff;
+    font-weight: bold;
+  }
+
+  input[type="text"],
+  textarea {
+    border: none;
+    background-color: #ebe9ff;
+    padding: 10px;
+    border-radius: 3px;
+    width: 100%;
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 3px #6c63ff;
+    }
+  }
+
+  .btn-primary {
+    background-color: #6c63ff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 3px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #584dff;
+    }
+  }
+}
