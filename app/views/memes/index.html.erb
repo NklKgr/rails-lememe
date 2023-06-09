@@ -15,7 +15,7 @@
 <div class="left-sidebar">
   <h3>My Communities</h3>
   <div>
-    <%= link_to 'All Communites', memes_path, class: "btn btn-primary mb-1 w-100" %>
+    <%= link_to 'Show all', memes_path, class: "btn btn-primary mb-1 w-100" %>
     <% @communities.each do |community| %>
       <span><strong><%= link_to community.name, memes_path(filter: community.name), class: "btn btn-primary mb-1 w-100" %></span></strong>
     <% end %>
