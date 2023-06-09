@@ -78,70 +78,70 @@
 		return {'textParts': textParts, 'textHeight': textSize*lh*textParts.length};
 	};
 
-var canvas = document.createElement('canvas');
-var canvasWrapper = document.getElementById('canvasWrapper');
-canvasWrapper.appendChild(canvas);
-canvas.width = 500;
-canvas.height = 500;
-canvas.classList.add(`canvas`);
-var ctx = canvas.getContext('2d');
-var padding = 15;
-var textTop = 'top text';
-var textBottom = 'bottom text';
-var textSizeTop = 10;
-var textSizeBottom = 10;
-// var image = document.createElement('img');
-var image = document.getElementById('img');
+  let canvas = document.createElement('canvas');//////////////////////////////////////////////////////////////////////////////////////////////here is one canvas created
+  // var canvas = document.getElementById('canvas');
+  var canvasWrapper = document.getElementById('canvasWrapper');
+  canvasWrapper.appendChild(canvas);////////////////////////////////////////////////////////////////////////////////////////////////////////this one creates the canvas that can be painted and written on
+  canvas.width = 500;
+  canvas.height = 500;
+  canvas.classList.add(`canvas`);
+  var ctx = canvas.getContext('2d');
+  var padding = 15;
+  var textTop = 'top text';
+  var textBottom = 'bottom text';
+  var textSizeTop = 10;
+  var textSizeBottom = 10;
+  // var image = document.createElement('img');
+  var image = document.getElementById('img');////////////////////////////////////////////here is the d-none image beeng used
 
 
-image.onload = function (ev) {
-  // delete and recreate canvas do untaint it
-  canvas.outerHTML = '';
-  canvas = document.createElement('canvas');
-  canvasWrapper.appendChild(canvas);
-  // console.log("generator echo", canvas);
-  ctx = canvas.getContext('2d'); //here happens the magice ;)
-  document.getElementById('trueSize').click();
-  document.getElementById('trueSize').click();
-
-  draw();
-};
-
-document.getElementById('imgURL').oninput = function(ev) {
-  image.src = this.value;
-  image.crossOrigin = "Anonymous"; ////////////////////////////////////////////here
-};
-
-document.getElementById('imgFile').onchange = function(ev) {
-  var reader = new FileReader();
-  reader.onload = function(ev) {
-    image.src = reader.result;
+  image.onload = function (ev) {
+    // delete and recreate canvas do untaint it
+    // canvas.outerHTML = ''; /////////////////////////////////////////////////////corretly defined canvas?
+    canvasWrapper.innerHTML = '';
+    // canvas = document.createElement('canvas');///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////here is one canvas created
+    canvasWrapper.appendChild(canvas);
+    // console.log("generator echo", canvas);
+    ctx = canvas.getContext('2d'); //here happens the magice ;)
+    document.getElementById('trueSize').click();
+    document.getElementById('trueSize').click();
+    draw();
   };
-  reader.readAsDataURL(this.files[0]);
-};
+
+  document.getElementById('imgURL').oninput = function(ev) {
+    image.src = this.value;
+  };
+
+  document.getElementById('imgFile').onchange = function(ev) {
+    var reader = new FileReader();
+    reader.onload = function(ev) {
+      image.src = reader.result;
+    };
+    reader.readAsDataURL(this.files[0]);
+  };
 
 
 
-document.getElementById('textTop').oninput = function(ev) {
-  textTop = this.value;
-  draw();
-};
+  document.getElementById('textTop').oninput = function(ev) {
+    textTop = this.value;
+    draw();
+  };
 
-document.getElementById('textBottom').oninput = function(ev) {
-  textBottom = this.value;
-  draw();
-};
+  document.getElementById('textBottom').oninput = function(ev) {
+    textBottom = this.value;
+    draw();
+  };
 
-document.getElementById('textSizeTop').oninput = function(ev) {
-  textSizeTop = parseInt(this.value);
-  draw();
-  document.getElementById('textSizeTopOut').innerHTML = this.value;
-};
-document.getElementById('textSizeBottom').oninput = function(ev) {
-  textSizeBottom = parseInt(this.value);
-  draw();
-  document.getElementById('textSizeBottomOut').innerHTML = this.value;
-};
+  document.getElementById('textSizeTop').oninput = function(ev) {
+    textSizeTop = parseInt(this.value);
+    draw();
+    document.getElementById('textSizeTopOut').innerHTML = this.value;
+  };
+  document.getElementById('textSizeBottom').oninput = function(ev) {
+    textSizeBottom = parseInt(this.value);
+    draw();
+    document.getElementById('textSizeBottomOut').innerHTML = this.value;
+  };
 
 
 
