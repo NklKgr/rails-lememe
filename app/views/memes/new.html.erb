@@ -7,7 +7,6 @@
   <div class="col-6" data-action="mouseup->meme-submit#getImageUrl">
     <div id="canvasWrapper">
       <%= image_tag "meme_I.jpg", quality: 'auto', width: 500, id: "img", class: 'd-none' %>
-            <%#= cl_image_tag "meme_I.jpg", quality: 'auto', width: 500, id: "img", class: 'd-none' %>
     </div>
       <%# meme is locally saved and beeing used as reference, to draw the canvas, without beeing displayed %>
   </div>
@@ -91,8 +90,8 @@
         <input type="text" name="photo" data-meme-submit-target="baseurlphoto">
       </div>
         <%#= f.input :photo, as: :string, input_html: { data: { meme_submit_target: "baseurlphoto" } } %>
-        <%= f.button :submit, "Submit" %>
+      <%= f.button :submit, "Submit" %>
     <% end %>
   </div>
 </div>
-<%= javascript_include_tag 'generator.js' %>
+<%#= javascript_include_tag 'canvas_generator.js' %>

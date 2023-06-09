@@ -50,20 +50,6 @@ class MemesController < ApplicationController
     params.require(:meme).permit(:title, :challenge_id)
   end
 
-  # def decode_and_attach_photo
-  #   decoded_file = Base64.decode64(params[:photo]).split(",")[1]
-  #   {
-  #     io: StringIO.new(decoded_file),
-  #     content_type: "image/png",
-  #     filename: "meme-#{Time.current.to_i}.png"
-  #   }
-  # end
-
-  # def downvote
-  #   @meme.update(score: @meme.score - 1)
-  #   redirect_to memes_path
-  # end
-
   def set_meme
     @meme = Meme.find(params[:id])
   end

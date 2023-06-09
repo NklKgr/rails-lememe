@@ -78,10 +78,10 @@
 		return {'textParts': textParts, 'textHeight': textSize*lh*textParts.length};
 	};
 
-  let canvas = document.createElement('canvas');//////////////////////////////////////////////////////////////////////////////////////////////here is one canvas created
+  let canvas = document.createElement('canvas');/////////////////////////////////////////////////////////////////////////here is one canvas created
   // var canvas = document.getElementById('canvas');
   var canvasWrapper = document.getElementById('canvasWrapper');
-  canvasWrapper.appendChild(canvas);////////////////////////////////////////////////////////////////////////////////////////////////////////this one creates the canvas that can be painted and written on
+  canvasWrapper.appendChild(canvas);/////////////////////////////////////////////////////////////////////////////////////this one creates the canvas that can be painted and written on
   canvas.width = 500;
   canvas.height = 500;
   canvas.classList.add(`canvas`);
@@ -92,14 +92,14 @@
   var textSizeTop = 10;
   var textSizeBottom = 10;
   // var image = document.createElement('img');
-  var image = document.getElementById('img');////////////////////////////////////////////here is the d-none image beeng used
+  var image = document.getElementById('img');////////////////////////////////////////////////////////////////////////////here is the d-none image beeng used
 
 
   image.onload = function (ev) {
     // delete and recreate canvas do untaint it
-    // canvas.outerHTML = ''; /////////////////////////////////////////////////////corretly defined canvas?
+    // canvas.outerHTML = ''; ///////////////////////////////////////////////////////////////////////////////////////////corretly defined canvas?
     canvasWrapper.innerHTML = '';
-    // canvas = document.createElement('canvas');///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////here is one canvas created
+    // canvas = document.createElement('canvas');////////////////////////////////////////////////////////////////////////here is one canvas created
     canvasWrapper.appendChild(canvas);
     // console.log("generator echo", canvas);
     ctx = canvas.getContext('2d'); //here happens the magice ;)
