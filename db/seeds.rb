@@ -23,6 +23,8 @@ User.create!(
   email: "12345678933@web.de",
   password: "123456337890",
   username: "memeber0335"
+)
+
 Meme.destroy_all
 Challenge.destroy_all
 Membership.destroy_all
