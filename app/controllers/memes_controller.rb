@@ -37,7 +37,7 @@ class MemesController < ApplicationController
     @meme.user = current_user
     @meme.photo.attach(data: params[:photo])
     if @meme.save
-      redirect_to root_path, notice: "Meme was successfully created."
+      redirect_to memes_path, notice: "Meme was successfully created."
     else
       puts @meme.errors.full_messages
       render :new
