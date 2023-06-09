@@ -13,14 +13,17 @@ class MemesController < ApplicationController
     query = params[:query]
     if query.present?
       @communities_search = Community.where("name ILIKE ?", "%#{params[:query]}%")
-      @memes = @communities_search.map do |community|
-        community.memes
-      end.flatten
+      @memes = Meme.joins(:challenge).where(challenges: { community_id: @communities_search.pluck(:id) }).order(created_at: :desc)
+      # @memes = @communities_search.map(&:memes)
+      # @communities_search.map do |community|
+      #   community.memes
+      # end.flatten
     elsif filter.present?
       @communities_search = Community.where("name ILIKE ?", "%#{params[:filter]}%")
-      @memes = @communities_search.map do |community|
-        community.memes
-      end.flatten
+      @memes = Meme.joins(:challenge).where(challenges: { community_id: @communities_search.pluck(:id) }).order(created_at: :desc)
+      # @memes = @communities_search.map do |community|
+      #   community.memes
+      # end.flatten
     else
       @memes = @user.feed
     end
@@ -37,7 +40,7 @@ class MemesController < ApplicationController
     @meme.user = current_user
     @meme.photo.attach(data: params[:photo])
     if @meme.save
-      redirect_to memes_path, notice: "Meme was successfully created."
+      redirect_to memes_path(filter: @meme.challenge.community.name), notice: "Meme was successfully created."
     else
       puts @meme.errors.full_messages
       render :new
