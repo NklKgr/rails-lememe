@@ -21,7 +21,7 @@
     <% end %>
   </div>
   <div class="create-meme">
-  <%= link_to new_meme_path do %>
+  <%= link_to new_meme_path, data: { turbo: false } do %>
     <button type="button" class="btn btn-primary w-100"><i class="fa-solid fa-plus"></i> Create a new Meme</button>
   <% end %>
 </div>
