@@ -178,8 +178,8 @@ puts "...created challenge for #{cummunity02.name} - #{challenge03.name}"
 
 # # # Memmbership
 membership = Membership.create!(
-  user: User.first,
-  community: Community.last
+  user_id: user.id,
+  community_id: cummunity.id
 )
 membership.save
 
@@ -203,13 +203,57 @@ membership02 = Membership.create!(
 )
 membership02.save
 
-puts "...created a memebership for #{cummunity02.name} with user: #{user.username}"
+puts "...created a memebership for #{cummunity02.name} with user: #{user2.username}"
 
 ####
 
+membership03 = Membership.create!(
+  user_id: user.id,
+  community_id: cummunity03.id
+)
+membership03.save
 
+puts "...created a memebership for #{cummunity03.name} with user: #{user.username}"
 
+####
 
+membership04 = Membership.create!(
+  user_id: user.id,
+  community_id: cummunity04.id
+)
+membership04.save
+
+puts "...created a memebership for #{cummunity04.name} with user: #{user.username}"
+
+####
+
+membership05 = Membership.create!(
+  user_id: user.id,
+  community_id: cummunity05.id
+)
+membership05.save
+
+puts "...created a memebership for #{cummunity05.name} with user: #{user.username}"
+
+####
+
+membership06 = Membership.create!(
+  user_id: user.id,
+  community_id: cummunity06.id
+)
+membership06.save
+
+puts "...created a memebership for #{cummunity06.name} with user: #{user.username}"
+
+####
+
+membership07 = Membership.create!(
+  user_id: user.id,
+  community_id: cummunity07.id
+)
+membership07.save
+
+puts "...created a memebership for #{cummunity07.name} with user: #{user.username}"
 
 
 # # # MEMES
