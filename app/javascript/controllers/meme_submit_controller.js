@@ -7,13 +7,11 @@ export default class extends Controller {
 
   getImageUrl(event) {
     event.preventDefault();
-    console.log('getImageUrl echo');
+    console.log('hello from get image url')
     let canvas = document.querySelector('canvas');
+    console.log(canvas)
     let baseurl = canvas.toDataURL('image/png');
-    // blobCanvas = canvas.toBlob()
+    console.log(baseurl)
     this.baseurlphotoTarget.value = baseurl;
-    // console.log(baseurl);
-    // console.log(this.baseurlphotoTarget);
-    // console.log(this.baseurlphotoTarget.value);
   };
 };
