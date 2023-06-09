@@ -1,0 +1,22 @@
+.community-tags {
+  display: flex;
+  justify-content: center;
+  padding-top: 2rem;
+
+  .single-tag {
+    margin: 0 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    background-color: $info;
+    color: $light;
+    font-size: .8rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+      background-color: $primary;
+    }
+  }
+}

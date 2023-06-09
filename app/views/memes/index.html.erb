@@ -1,23 +1,21 @@
-<!--
-<div class="container w-30 d-flex justify-content-center flex-wrap mt-3 flex-column align-items-center">
+
+<div class="community-tags">
     <% @communities_search.each do |community| %>
-      <div class="badge rounded-pill bg-primary mb-3">
         <%= link_to community_path(community) do %>
-          <div>
-            <span class="h6"><strong><%= community.name %></span></strong>
-          </div>
-        <% end %>
+      <div class="single-tag">
+            <span><%= community.name %></span>
       </div>
+        <% end %>
 
     <% end %>
 </div>
 
--->
 
 <!-- Left Sidebar Content -->
 <div class="left-sidebar">
   <h3>My Communities</h3>
   <div>
+    <%= link_to 'All Communites', memes_path, class: "btn btn-primary mb-1 w-100" %>
     <% @communities.each do |community| %>
       <span><strong><%= link_to community.name, memes_path(filter: community.name), class: "btn btn-primary mb-1 w-100" %></span></strong>
     <% end %>
@@ -33,7 +31,7 @@
   <div class="row justify-content-center">
     <!-- Memes Feed -->
     <div class="col-md-8">
-      <div class="container w-100 d-flex justify-content-center flex-wrap mt-5 flex-column align-items-center">
+      <div class="container w-100 d-flex justify-content-center flex-wrap mt-4 flex-column align-items-center">
     <% @memes.each do | meme | %>
     <div class="meme-container">
       <div class="meme-card">
