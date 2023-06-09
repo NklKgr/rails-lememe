@@ -46,9 +46,9 @@ cummunity = Community.create!(
 cummunity.photo.attach(io: file, filename: "#{cummunity.name}_logo.png", content_type: "image/png")
 cummunity.save!
 
-#####
-
 puts "...created cummunity: #{cummunity.name}"
+
+#####
 
 file = URI.open("https://res.cloudinary.com/dvje7oyen/image/upload/v1686230459/Le%20Meme/download_peprag.jpg")
 cummunity01 = Community.create!(
@@ -58,9 +58,9 @@ cummunity01 = Community.create!(
 cummunity01.photo.attach(io: file, filename: "#{cummunity01.name}_logo.png", content_type: "image/png")
 cummunity01.save!
 
-#####
-
 puts "...created cummunity: #{cummunity01.name}"
+
+#####
 
 file = URI.open("https://res.cloudinary.com/dvje7oyen/image/upload/v1686230450/Le%20Meme/tu-berlin-technische-universitaet-berlin-logo-vector_sjoxc4.png")
 cummunity02 = Community.create!(
@@ -71,6 +71,71 @@ cummunity02.photo.attach(io: file, filename: "#{cummunity02.name}_logo.png", con
 cummunity02.save!
 
 puts "...created cummunity: #{cummunity02.name}"
+
+#####
+
+file = URI.open("https://res.cloudinary.com/dvje7oyen/image/upload/v1686230450/Le%20Meme/tu-berlin-technische-universitaet-berlin-logo-vector_sjoxc4.png")
+cummunity03 = Community.create!(
+  name: 'Beats Berlin',
+  description: 'Perlen aus Deep & Organic House, Chill Electronica und Indie Dance. Englische News. Der perfekte Soundtrack für die Generation Nachhaltig.'
+)
+cummunity03.photo.attach(io: file, filename: "#{cummunity03.name}_logo.png", content_type: "image/png")
+cummunity03.save!
+
+puts "...created cummunity: #{cummunity03.name}"
+
+#####
+
+file = URI.open("https://res.cloudinary.com/dvje7oyen/image/upload/v1686230450/Le%20Meme/tu-berlin-technische-universitaet-berlin-logo-vector_sjoxc4.png")
+cummunity04 = Community.create!(
+  name: 'Soho House',
+  description: 'Soho House is a global private members social club. The original location is at 40 Greek Street, Soho, London. The company now operates clubs, hotels and venues around the world, and in 2015 changed from SOHO House Group to Soho House & Co.'
+)
+cummunity04.photo.attach(io: file, filename: "#{cummunity04.name}_logo.png", content_type: "image/png")
+cummunity04.save!
+
+puts "...created cummunity: #{cummunity04.name}"
+
+#####
+
+file = URI.open("https://res.cloudinary.com/dvje7oyen/image/upload/v1686230450/Le%20Meme/tu-berlin-technische-universitaet-berlin-logo-vector_sjoxc4.png")
+cummunity05 = Community.create!(
+  name: 'Dance Academy',
+  description: 'It is never too late to start dancing or to start again after a long break. Dancing is a great way to meet new people, have fun and of course stay in shape. You will gain a range of positive health benefits, including better flexibility, strength and stamina, and reduced stress. At BDI, we understand that dance doesn’t just help your physical well-being, it can help your self-confidence and your emotional well-being. It just makes you feel like smiling!'
+)
+cummunity05.photo.attach(io: file, filename: "#{cummunity05.name}_logo.png", content_type: "image/png")
+cummunity05.save!
+
+puts "...created cummunity: #{cummunity05.name}"
+
+#####
+
+file = URI.open("https://res.cloudinary.com/dvje7oyen/image/upload/v1686230450/Le%20Meme/tu-berlin-technische-universitaet-berlin-logo-vector_sjoxc4.png")
+cummunity06 = Community.create!(
+  name: 'Volleyball Club',
+  description: '
+  Das Bild zeigt die Umrisse von Berlin. In der Fläche von der Stadt sind die Umrisse eines Volleyballs zu sehen. Desweiteren ist in der Mitte das Logo von VolleyballFREAK
+  Berlin spielt Volleyball
+  Berlin ist Hauptstadt und Bundesland von Deutschland zugleich. Auf die rund 3,4 Mio Einwohner Berlins kommen aber nur ca. 185 aktive Volleyballmannschaften. Damit befindet sich der Volleyball Verband Berlin (VVB) von der Größe her innerhalb des Deutschen Volleyball Verbandes (DVV)im hinteren Feld der Landesverbände. Nichts destotrotz stellt Berlin mit BERLIN RECYCLING Volleys und dem VC Olympia Berlin (Damen und Herren) gleich 3 Teams der Volleyball Bundesliga (VBL).'
+)
+cummunity06.photo.attach(io: file, filename: "#{cummunity06.name}_logo.png", content_type: "image/png")
+cummunity06.save!
+
+puts "...created cummunity: #{cummunity06.name}"
+
+#####
+
+file = URI.open("https://res.cloudinary.com/dvje7oyen/image/upload/v1686230450/Le%20Meme/tu-berlin-technische-universitaet-berlin-logo-vector_sjoxc4.png")
+cummunity07 = Community.create!(
+  name: 'Art Affairs',
+  description: '
+  The BERLIN ART INSTITUTE is an independent art school, international artist residency & arts incubator.'
+)
+cummunity07.photo.attach(io: file, filename: "#{cummunity07.name}_logo.png", content_type: "image/png")
+cummunity07.save!
+
+puts "...created cummunity: #{cummunity07.name}"
+
 
 # # # CHALLENGES
 challenge = Challenge.create!(
@@ -139,6 +204,13 @@ membership02 = Membership.create!(
 membership02.save
 
 puts "...created a memebership for #{cummunity02.name} with user: #{user.username}"
+
+####
+
+
+
+
+
 
 # # # MEMES
 file = URI.open("https://res.cloudinary.com/dvje7oyen/image/upload/v1686043915/Le%20Meme/1685575227444_n4rrmn.jpg")
