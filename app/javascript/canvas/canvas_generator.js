@@ -145,45 +145,23 @@
 
 
 
-document.getElementById('trueSize').onchange = function(ev) {
-  if (document.getElementById('trueSize').checked) {
-    canvas.classList.remove('fullwidth');
-  } else {
-    canvas.classList.add('fullwidth');
-  }
-};
-//old download here
-// document.getElementById('export').onclick = function () {
-//     var img = canvas.toDataURL('image/png');
-//     var link = document.createElement("a");
-//     link.download = 'My Meme';
-//     link.href = img;
-//     link.click();
-
-//     var win = window.open('', '_blank');
-//     win.document.write('<img style="box-shadow: 0 0 1em 0 dimgrey;" src="' + img + '"/>');
-//     win.document.write('<h1 style="font-family: Helvetica; font-weight: 300">Right Click > Save As<h1>');
-//     win.document.body.style.padding = '1em';
-// };
-
+  document.getElementById('trueSize').onchange = function(ev) {
+    if (document.getElementById('trueSize').checked) {
+      canvas.classList.remove('fullwidth');
+    } else {
+      canvas.classList.add('fullwidth');
+    }
+  };
 
 // new download here
-// const download = document.getElementById('download');
-// download.addEventListener('click', function (e) {
-//   const link = document.createElement('a');
-//   link.download = 'download.png';
-//   link.href = canvas.toDataURL();
-//   link.click();
-//   link.delete;
-// });
-
-// download.addEventListener('click', function (e) {
-//   const link = document.createElement('a');
-//   link.download = 'download.png';
-//   link.href = canvas.toDataURL();
-//   link.click();
-//   link.delete;
-// });
+  const download = document.getElementById('download');
+  download.addEventListener('click', function (e) {
+    const link = document.createElement('a');
+    link.download = 'download.png';
+    link.href = canvas.toDataURL();
+    link.click();
+    link.delete;
+  });
 
 
 function style(font, size, align, base) {
