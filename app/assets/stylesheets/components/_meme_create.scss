@@ -1,0 +1,26 @@
+#meme-tools {
+  justify-content: space-between;
+}
+.main-creator {
+  padding: 4rem 0;
+
+  .meme-tool-boxes {
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    padding: 2rem;
+    justify-content: center;
+    max-height: 330px;
+    width: calc(50% - .25rem);  }
+}
+
+
+.create-meme-form {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 3rem;
+
+  form {
+    width: 50%;
+  }
+}
