@@ -11,11 +11,11 @@ puts "...deleting all data"
 
 # Seed data for a User
 # User.create!(email: "email@email.com", password: "password")
-# Meme.destroy_all
-# Challenge.destroy_all
-# Membership.destroy_all
-# Community.destroy_all
-# User.destroy_all
+Meme.destroy_all
+Challenge.destroy_all
+Membership.destroy_all
+Community.destroy_all
+User.destroy_all
 
 
 # # # Seed data for a Product associated with the User
