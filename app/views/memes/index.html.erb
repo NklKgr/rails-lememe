@@ -47,21 +47,22 @@
               <%= button_to '<i class="fa-solid fa-arrow-up"></i>'.html_safe, meme_vote_path(meme, vote, vote:"up"),
               method: :patch,
               remote: true,
-              class: "btn btn-primary me-1 rounded-circle #{ 'clicked-vote' if !vote.nil? && vote.voted == true }" %>
+              class: "btn btn-primary me-1 rounded-circle #{ 'clicked-vote' if vote.voted == true }" %>
               <%= button_to '<i class="fa-solid fa-arrow-down"></i>'.html_safe, meme_vote_path(meme, vote, vote:"down"),
               method: :patch,
               remote: true,
-              class: "btn btn-primary rounded-circle #{ 'clicked-vote' if !vote.nil? && vote.voted == false }" %>
+              class: "btn btn-primary rounded-circle #{ 'clicked-vote' if vote.voted == false }" %>
             <% else %>
               <%# buttons when votes NOT exists %>
               <%= button_to '<i class="fa-solid fa-arrow-up"></i>'.html_safe, meme_votes_path(meme, vote:"up"),
               method: :post,
               remote: true,
-              class: "btn btn-primary me-1 rounded-circle #{ 'clicked-vote' if vote == true  }" %>
+              data: { action: 'votings#addVoteClass' },
+              class: "btn btn-primary me-1 rounded-circle" %>
               <%= button_to '<i class="fa-solid fa-arrow-down"></i>'.html_safe, meme_votes_path(meme, vote:"down"),
               method: :post,
               remote: true,
-              class: "btn btn-primary rounded-circle #{ 'clicked-vote' if vote == false}" %>
+              class: "btn btn-primary rounded-circle" %>
             <% end %>
           </div>
           <span class="meme-comments">Comments</span>
