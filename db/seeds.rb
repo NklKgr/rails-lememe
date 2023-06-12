@@ -16,6 +16,7 @@ Membership.destroy_all
 Community.destroy_all
 User.destroy_all
 Vote.destroy_all
+Comment.destroy_all
 
 
 # # # Seed data for a Product associated with the User
@@ -445,3 +446,18 @@ meme.photo.attach(io: file, filename: "#{meme.title}.png", content_type: "image/
 meme.save
 
 puts "...Meme 5 created for #{meme.challenge.name}"
+
+Comment.create!( content: "This is a comment", meme: Meme.last, user: User.find_by(username: "memeber01"))
+Comment.create!( content: "This is also a comment", meme: Meme.last, user: User.find_by(username: "memeber01"))
+Comment.create!( content: "Is this a comment?", meme: Meme.last, user: User.find_by(username: "memeber01"))
+Comment.create!( content: "This is not a comment", meme: Meme.last, user: User.find_by(username: "memeber01"))
+Comment.create!( content: "ok, this this is not a comment", meme: Meme.last, user: User.find_by(username: "memeber01"))
+
+
+Comment.create!( content: "This is a comment", meme: Meme.first, user: User.find_by(username: "memeber01"))
+Comment.create!( content: "This is also a comment", meme: Meme.first, user: User.find_by(username: "memeber01"))
+Comment.create!( content: "Is this a comment?", meme: Meme.first, user: User.find_by(username: "memeber01"))
+Comment.create!( content: "This is not a comment", meme: Meme.first, user: User.find_by(username: "memeber01"))
+Comment.create!( content: "ok, this this is not a comment", meme: Meme.first, user: User.find_by(username: "memeber01"))
+
+puts "...created #{Comment.all.count}"
