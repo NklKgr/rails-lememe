@@ -6,6 +6,7 @@ ruby "3.1.2"
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.5"
 
+gem 'rack-cors'
 
 gem "cloudinary"
 
@@ -32,7 +33,9 @@ gem "jbuilder"
 
 gem "bootstrap", "~> 5.2"
 gem "simple_form"
-gem "sassc-rails"
+
+gem 'active_storage_base64'
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
@@ -58,6 +61,7 @@ gem "bootstrap", "~> 5.2"
 gem "devise"
 gem "autoprefixer-rails"
 gem "font-awesome-sass", "~> 6.1"
+gem "pg_search"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem

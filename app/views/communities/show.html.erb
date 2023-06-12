@@ -1,0 +1,31 @@
+
+<!-- app/views/communities/show.html.erb -->
+<div class="container border border-info">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="community-details">
+        <h2><%= @community.name %></h2>
+        <p><%= @community.description %></p>
+      </div>
+
+      <div class="memes">
+        <% @community.memes.each do |meme| %>
+          <div class="meme">
+            <h4><%= meme.title %></h4>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="col-md-4 border border-info">
+      <div class="sidebar">
+        <h3>Community Members</h3>
+        <ul>
+          <% @community.users.each do |user| %>
+            <li><%= user.name %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
