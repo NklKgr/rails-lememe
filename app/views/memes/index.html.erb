@@ -1,32 +1,37 @@
-<div class="container w-30 d-flex justify-content-center flex-wrap mt-3 flex-column align-items-center">
+
+<div class="community-tags">
     <% @communities_search.each do |community| %>
-      <div class="badge rounded-pill bg-primary mb-3">
         <%= link_to community_path(community) do %>
-          <div>
-            <span class="h6"><strong><%= community.name %></span></strong>
-          </div>
-        <% end %>
+      <div class="single-tag">
+            <span><%= community.name %></span>
       </div>
+        <% end %>
 
     <% end %>
 </div>
 
-<div class="container mt-5">
-  <div class="row">
 
-    <!-- Left Sidebar Content -->
-    <div class="col-md-2 sidebar-container" style="background-color: white">
-      <h4>My Communities</h4>
-      <div>
-        <% @communities.each do |community| %>
-          <span><strong><%= link_to community.name, memes_path(filter: community.name) %></span></strong>
-        <% end %>
-      </div>
-    </div>
+<!-- Left Sidebar Content -->
+<div class="left-sidebar">
+  <h3>My Communities</h3>
+  <div>
+    <%= link_to 'Show all', memes_path, class: "btn btn-primary mb-1 w-100" %>
+    <% @communities.each do |community| %>
+      <span><strong><%= link_to community.name, memes_path(filter: community.name), class: "btn btn-primary mb-1 w-100" %></span></strong>
+    <% end %>
+  </div>
+  <div class="create-meme">
+  <%= link_to new_meme_path, data: { turbo: false } do %>
+    <button type="button" class="btn btn-primary w-100"><i class="fa-solid fa-plus"></i> Create a new Meme</button>
+  <% end %>
+</div>
+</div>
 
+<div class="container">
+  <div class="row justify-content-center">
     <!-- Memes Feed -->
     <div class="col-md-8">
-      <div class="container w-75 d-flex justify-content-center flex-wrap mt-5 flex-column align-items-center">
+      <div class="container w-100 d-flex justify-content-center flex-wrap mt-4 flex-column align-items-center">
     <% @memes.each do | meme | %>
     <div class="meme-container">
       <div class="meme-card">
@@ -67,10 +72,75 @@
 </div>
     </div>
 
-    <div class="col-md-2 sidebar-container" style="background-color: white">
-      <!-- Right Sidebar Content -->
-      <!-- Add your right sidebar content here -->
-      <h4>Leaderboard Placeholder</h4>
+
+  </div>
+</div>
+
+<div class="right-sidebar">
+  <div class="leaderboard">
+    <h4>Leaderboard</h4>
+    <div class="leader-table">
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">username</th>
+      <th scope="col">votes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>mark_122</td>
+      <td>22</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>jacob_the_king</td>
+      <td>19</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>meme_hero007</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <th scope="row">4</th>
+      <td>tuku_is_best</td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <th scope="row">5</th>
+      <td>mickey_the_mouse</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <th scope="row">6</th>
+      <td>hahahaha_funny</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th scope="row">7</th>
+      <td>bla99</td>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table></div>
+  </div>
+
+  <div class="ruleboard">
+    <h3>Ruleboard</h3>
+    <div class="rule">
+      <h4>#1</h4>
+      <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod.</p>
+    </div>
+    <div class="rule">
+      <h4>#2</h4>
+      <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod.</p>
+    </div>
+    <div class="rule">
+      <h4>#3</h4>
+      <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod.</p>
     </div>
 
   </div>
