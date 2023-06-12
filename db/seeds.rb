@@ -42,7 +42,7 @@ file = URI.open("https://res.cloudinary.com/dvje7oyen/image/upload/v1686045830/L
 community = Community.create!(
   name: 'Le Wagon',
   description: 'Le Wagon is a coding bootcamp that teaches students to develop web applications from scratch. Our cutting-edge curriculum and world-class teachers give students all the skills and tools needed to kick-start their tech career, land a job as software developers or product managers, or launch their own startup.',
-  user_id: 1
+  user: user
 )
 community.photo.attach(io: file, filename: "#{community.name}_logo.png", content_type: "image/png")
 community.save!
@@ -57,7 +57,7 @@ file = URI.open("https://res.cloudinary.com/dvje7oyen/image/upload/v1686230459/L
 community01 = Community.create!(
   name: 'Zoo Berlin',
   description: 'Zoo Berlin is the oldest and best-known zoo in Germany. Opened in 1844 it covers 35 hectares (86.5 acres) and is located in Berlin\'s Tiergarten. With about 1,380 different species and over 20,200 animals the zoo presents one of the most comprehensive collection of species in the world.',
-  user_id: 1
+  user: user
 )
 community01.photo.attach(io: file, filename: "#{community01.name}_logo.png", content_type: "image/png")
 community01.save!
@@ -72,7 +72,7 @@ file = URI.open("https://res.cloudinary.com/dvje7oyen/image/upload/v1686230450/L
 community02 = Community.create!(
   name: 'TU Berlin',
   description: 'The Technische Universität Berlin, known as TU Berlin for short and unofficially as the Technical University of Berlin or Berlin Institute of Technology, is a research university located in Berlin, Germany.',
-  user_id: 1
+  user: user
 )
 community02.photo.attach(io: file, filename: "#{community02.name}_logo.png", content_type: "image/png")
 community02.save!
@@ -84,7 +84,8 @@ puts "...created community: #{community02.name}"
 file = URI.open("https://res.cloudinary.com/dvje7oyen/image/upload/v1686230450/Le%20Meme/tu-berlin-technische-universitaet-berlin-logo-vector_sjoxc4.png")
 community03 = Community.create!(
   name: 'Beats Berlin',
-  description: 'Perlen aus Deep & Organic House, Chill Electronica und Indie Dance. Englische News. Der perfekte Soundtrack für die Generation Nachhaltig.'
+  description: 'Perlen aus Deep & Organic House, Chill Electronica und Indie Dance. Englische News. Der perfekte Soundtrack für die Generation Nachhaltig.',
+  user: user
 )
 community03.photo.attach(io: file, filename: "#{community03.name}_logo.png", content_type: "image/png")
 community03.save!
@@ -96,7 +97,8 @@ puts "...created cummunity: #{community03.name}"
 file = URI.open("https://res.cloudinary.com/dvje7oyen/image/upload/v1686230450/Le%20Meme/tu-berlin-technische-universitaet-berlin-logo-vector_sjoxc4.png")
 community04 = Community.create!(
   name: 'Soho House',
-  description: 'Soho House is a global private members social club. The original location is at 40 Greek Street, Soho, London. The company now operates clubs, hotels and venues around the world, and in 2015 changed from SOHO House Group to Soho House & Co.'
+  description: 'Soho House is a global private members social club. The original location is at 40 Greek Street, Soho, London. The company now operates clubs, hotels and venues around the world, and in 2015 changed from SOHO House Group to Soho House & Co.',
+  user: user
 )
 community04.photo.attach(io: file, filename: "#{community04.name}_logo.png", content_type: "image/png")
 community04.save!
@@ -108,7 +110,8 @@ puts "...created cummunity: #{community04.name}"
 file = URI.open("https://res.cloudinary.com/dvje7oyen/image/upload/v1686230450/Le%20Meme/tu-berlin-technische-universitaet-berlin-logo-vector_sjoxc4.png")
 community05 = Community.create!(
   name: 'Dance Academy',
-  description: 'It is never too late to start dancing or to start again after a long break. Dancing is a great way to meet new people, have fun and of course stay in shape. You will gain a range of positive health benefits, including better flexibility, strength and stamina, and reduced stress. At BDI, we understand that dance doesn’t just help your physical well-being, it can help your self-confidence and your emotional well-being. It just makes you feel like smiling!'
+  description: 'It is never too late to start dancing or to start again after a long break. Dancing is a great way to meet new people, have fun and of course stay in shape. You will gain a range of positive health benefits, including better flexibility, strength and stamina, and reduced stress. At BDI, we understand that dance doesn’t just help your physical well-being, it can help your self-confidence and your emotional well-being. It just makes you feel like smiling!',
+  user: user
 )
 community05.photo.attach(io: file, filename: "#{community05.name}_logo.png", content_type: "image/png")
 community05.save!
@@ -123,7 +126,8 @@ community06 = Community.create!(
   description: '
   Das Bild zeigt die Umrisse von Berlin. In der Fläche von der Stadt sind die Umrisse eines Volleyballs zu sehen. Desweiteren ist in der Mitte das Logo von VolleyballFREAK
   Berlin spielt Volleyball
-  Berlin ist Hauptstadt und Bundesland von Deutschland zugleich. Auf die rund 3,4 Mio Einwohner Berlins kommen aber nur ca. 185 aktive Volleyballmannschaften. Damit befindet sich der Volleyball Verband Berlin (VVB) von der Größe her innerhalb des Deutschen Volleyball Verbandes (DVV)im hinteren Feld der Landesverbände. Nichts destotrotz stellt Berlin mit BERLIN RECYCLING Volleys und dem VC Olympia Berlin (Damen und Herren) gleich 3 Teams der Volleyball Bundesliga (VBL).'
+  Berlin ist Hauptstadt und Bundesland von Deutschland zugleich. Auf die rund 3,4 Mio Einwohner Berlins kommen aber nur ca. 185 aktive Volleyballmannschaften. Damit befindet sich der Volleyball Verband Berlin (VVB) von der Größe her innerhalb des Deutschen Volleyball Verbandes (DVV)im hinteren Feld der Landesverbände. Nichts destotrotz stellt Berlin mit BERLIN RECYCLING Volleys und dem VC Olympia Berlin (Damen und Herren) gleich 3 Teams der Volleyball Bundesliga (VBL).',
+  user: user
 )
 community06.photo.attach(io: file, filename: "#{community06.name}_logo.png", content_type: "image/png")
 community06.save!
@@ -136,7 +140,8 @@ file = URI.open("https://res.cloudinary.com/dvje7oyen/image/upload/v1686230450/L
 community07 = Community.create!(
   name: 'Art Affairs',
   description: '
-  The BERLIN ART INSTITUTE is an independent art school, international artist residency & arts incubator.'
+  The BERLIN ART INSTITUTE is an independent art school, international artist residency & arts incubator.',
+  user: user
 )
 community07.photo.attach(io: file, filename: "#{community07.name}_logo.png", content_type: "image/png")
 community07.save!
