@@ -6,7 +6,7 @@ class User < ApplicationRecord
   has_many :memes
   has_many :comments
   has_many :memberships
-  has_many :communities
+  has_many :communities # owner of communities
   validates :username, presence: true, uniqueness: true
   validates :email, presence: true, uniqueness: true
   has_one_attached :photo

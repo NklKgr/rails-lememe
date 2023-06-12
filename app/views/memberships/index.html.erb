@@ -1,0 +1,6 @@
+<h3>Membership Requests:</h3>
+
+<% @community.memberships.each do |membership| %>
+  <%= membership.user.username %>
+  <%= membership.status %>
+<% end %>

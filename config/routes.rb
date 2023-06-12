@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     resources :challenges, only: %i[index new create] do
       resources :memes, only: %i[create]
     end
+    resources :memberships, only: %i[index new create]
   end
 
   resources :memes, only: %i[new index show create] do
@@ -17,4 +18,6 @@ Rails.application.routes.draw do
   end
   # patch "memes/:meme_id/votes", to: "votes#upvote", as: :upvote
   # post "memes/:id/downvote", to: "memes#downvote", as: :downvote
+
+  resources :memberships, only: %i[edit update]
 end

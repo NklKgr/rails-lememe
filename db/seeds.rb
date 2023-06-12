@@ -111,7 +111,7 @@ file = URI.open("https://res.cloudinary.com/dvje7oyen/image/upload/v1686230450/L
 community05 = Community.create!(
   name: 'Dance Academy',
   description: 'It is never too late to start dancing or to start again after a long break. Dancing is a great way to meet new people, have fun and of course stay in shape. You will gain a range of positive health benefits, including better flexibility, strength and stamina, and reduced stress. At BDI, we understand that dance doesn’t just help your physical well-being, it can help your self-confidence and your emotional well-being. It just makes you feel like smiling!',
-  user: user
+  user: user2
 )
 community05.photo.attach(io: file, filename: "#{community05.name}_logo.png", content_type: "image/png")
 community05.save!
@@ -127,7 +127,7 @@ community06 = Community.create!(
   Das Bild zeigt die Umrisse von Berlin. In der Fläche von der Stadt sind die Umrisse eines Volleyballs zu sehen. Desweiteren ist in der Mitte das Logo von VolleyballFREAK
   Berlin spielt Volleyball
   Berlin ist Hauptstadt und Bundesland von Deutschland zugleich. Auf die rund 3,4 Mio Einwohner Berlins kommen aber nur ca. 185 aktive Volleyballmannschaften. Damit befindet sich der Volleyball Verband Berlin (VVB) von der Größe her innerhalb des Deutschen Volleyball Verbandes (DVV)im hinteren Feld der Landesverbände. Nichts destotrotz stellt Berlin mit BERLIN RECYCLING Volleys und dem VC Olympia Berlin (Damen und Herren) gleich 3 Teams der Volleyball Bundesliga (VBL).',
-  user: user
+  user: user2
 )
 community06.photo.attach(io: file, filename: "#{community06.name}_logo.png", content_type: "image/png")
 community06.save!
@@ -141,7 +141,7 @@ community07 = Community.create!(
   name: 'Art Affairs',
   description: '
   The BERLIN ART INSTITUTE is an independent art school, international artist residency & arts incubator.',
-  user: user
+  user: user2
 )
 community07.photo.attach(io: file, filename: "#{community07.name}_logo.png", content_type: "image/png")
 community07.save!
@@ -188,10 +188,11 @@ challenge03.save
 
 puts "...created challenge for #{community02.name} - #{challenge03.name}"
 
-# # # Memmbership
+# # # Membership
 membership = Membership.create!(
   user_id: user.id,
-  community_id: community.id
+  community_id: community.id,
+  status: 'active'
 )
 membership.save
 
@@ -201,7 +202,8 @@ puts "...created a memebership for #{community.name} with user: #{user.username}
 
 membership01 = Membership.create!(
   user_id: user.id,
-  community_id: community01.id
+  community_id: community01.id,
+  status: 'active'
 )
 membership01.save
 
@@ -211,7 +213,8 @@ puts "...created a memebership for #{community01.name} with user: #{user.usernam
 
 membership02 = Membership.create!(
   user_id: user2.id,
-  community_id: community02.id
+  community_id: community02.id,
+  status: 'active'
 )
 membership02.save
 
@@ -221,7 +224,8 @@ puts "...created a memebership for #{community02.name} with user: #{user2.userna
 
 membership03 = Membership.create!(
   user_id: user.id,
-  community_id: community03.id
+  community_id: community03.id,
+  status: 'active'
 )
 membership03.save
 
@@ -231,7 +235,8 @@ puts "...created a memebership for #{community03.name} with user: #{user.usernam
 
 membership04 = Membership.create!(
   user_id: user.id,
-  community_id: community04.id
+  community_id: community04.id,
+  status: 'pending'
 )
 membership04.save
 
@@ -241,7 +246,8 @@ puts "...created a memebership for #{community04.name} with user: #{user.usernam
 
 membership05 = Membership.create!(
   user_id: user.id,
-  community_id: community05.id
+  community_id: community05.id,
+  status: 'pending'
 )
 membership05.save
 
@@ -251,7 +257,8 @@ puts "...created a memebership for #{community05.name} with user: #{user.usernam
 
 membership06 = Membership.create!(
   user_id: user.id,
-  community_id: community06.id
+  community_id: community06.id,
+  status: 'pending'
 )
 membership06.save
 
@@ -260,8 +267,9 @@ puts "...created a memebership for #{community06.name} with user: #{user.usernam
 ####
 
 membership07 = Membership.create!(
-  user_id: user.id,
-  community_id: community07.id
+  user_id: user2.id,
+  community_id: community07.id,
+  status: 'pending'
 )
 membership07.save
 
