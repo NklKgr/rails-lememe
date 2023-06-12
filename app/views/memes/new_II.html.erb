@@ -1,0 +1,36 @@
+
+
+<h1>Meme Generator</h1>
+
+<div class="box row g-2 container">
+  <div class="col-6">
+    <div id="canvasWrapper">
+      <canvas id="canvas"></canvas>
+    </div>
+  </div>
+
+  <div style="position: relative;">
+    <canvas id="myCanvas"></canvas>
+    <input id="textFieldInput" type="text" style="position: absolute; left: 0; top: 0; display: none;">
+  </div>
+
+    <div class="col-6">
+      <h3><i class="fa-solid fa-pen-nib" style="color: #000000;" aria-hidden="true"></i>Pen Size</h3>
+      <label for="color">Color:</label>
+      <input type="color" id="color" value="#000000"> <br>
+      <label for="thickness">Thickness:</label>
+      <input type="range" id="thickness" min="1" max="10" value="1">
+      <span id="thicknessValue">1</span>
+    </div>
+
+
+    <div>
+      <%#=  simple_form_for @meme do |f| %>
+        <%#= f.input :challenge, collection: @challenges %>
+        <%#= f.input :title %>
+        <%#= f.button :submit, "Submit", data: { action: 'click->meme-submit#blobgrab'} %>
+      <%# end %>
+    <%# </div>
+  </div>
+</div>
+<%#= javascript_include_tag 'generator.js' %>

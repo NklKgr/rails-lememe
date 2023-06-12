@@ -9,4 +9,17 @@ class User < ApplicationRecord
   has_many :communities, through: :memberships
   validates :username, presence: true, uniqueness: true
   validates :email, presence: true, uniqueness: true
+  has_one_attached :photo
+
+  def feed
+    # memberships = Membership.where(user_id: id)
+    # memberships.map do |membership|
+    #   membership.community.challenges.map do |challenge|
+    #     challenge.memes
+    #   end
+    # end
+    Meme.joins(challenge: { community: :memberships }).where(memberships: { user_id: id }).order(created_at: :desc)
+  end
+  devise :database_authenticatable, :registerable,
+  :recoverable, :rememberable, :validatable
 end

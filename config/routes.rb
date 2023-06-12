@@ -5,4 +5,16 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+  resources :communities, only: %i[index show new create edit update] do
+    resources :challenges, only: %i[index new create] do
+      resources :memes, only: %i[create]
+    end
+  end
+
+  resources :memes, only: %i[new index show create] do
+    resources :votes, only: %i[create update]
+    resources :comments, only: %i[create]
+  end
+  # patch "memes/:meme_id/votes", to: "votes#upvote", as: :upvote
+  # post "memes/:id/downvote", to: "memes#downvote", as: :downvote
 end

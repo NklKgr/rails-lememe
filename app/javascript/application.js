@@ -4,3 +4,4 @@ import "controllers"
 import "@popperjs/core"
 import "bootstrap"
 import "../stylesheets/application.scss";
+import 'canvas/canvas_generator';

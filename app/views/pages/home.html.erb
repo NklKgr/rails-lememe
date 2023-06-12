@@ -1,89 +1,194 @@
-<nav class="bg-gray-800">
-  <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
-    <div class="relative flex h-16 items-center justify-between">
-      <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
-        <!-- Mobile menu button-->
-        <button type="button" class="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
-          <span class="sr-only">Open main menu</span>
-          <!--
-            Icon when menu is closed.
 
-            Menu open: "hidden", Menu closed: "block"
-          -->
-          <svg class="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-          </svg>
-          <!--
-            Icon when menu is open.
-
-            Menu open: "block", Menu closed: "hidden"
-          -->
-          <svg class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-          </svg>
-        </button>
-      </div>
-      <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-        <div class="flex flex-shrink-0 items-center">
-          <img class="block h-8 w-auto lg:hidden" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company">
-          <img class="hidden h-8 w-auto lg:block" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company">
-        </div>
-        <div class="hidden sm:ml-6 sm:block">
-          <div class="flex space-x-4">
-            <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-            <a href="#" class="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Dashboard</a>
-            <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Team</a>
-            <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Projects</a>
-            <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Calendar</a>
-          </div>
-        </div>
-      </div>
-      <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-        <button type="button" class="rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
-          <span class="sr-only">View notifications</span>
-          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />
-          </svg>
-        </button>
-
-        <!-- Profile dropdown -->
-        <div class="relative ml-3">
-          <div>
-            <button type="button" class="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
-              <span class="sr-only">Open user menu</span>
-              <img class="h-8 w-8 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
-            </button>
-          </div>
-
-          <!--
-            Dropdown menu, show/hide based on menu state.
-
-            Entering: "transition ease-out duration-100"
-              From: "transform opacity-0 scale-95"
-              To: "transform opacity-100 scale-100"
-            Leaving: "transition ease-in duration-75"
-              From: "transform opacity-100 scale-100"
-              To: "transform opacity-0 scale-95"
-          -->
-          <div class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
-            <!-- Active: "bg-gray-100", Not Active: "" -->
-            <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Your Profile</a>
-            <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-1">Settings</a>
-            <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-2">Sign out</a>
-          </div>
-        </div>
-      </div>
+<!-- Hero -->
+  <header class="jumbotron jumbotron-fluid text-center">
+    <div class="lc-block card border-0 text-center rounded p-4 p-lg-6" style="background:url(http://cdn.livecanvas.com/media/backgrounds/fffuelco/ffflux.svg)  center / cover no-repeat;">
+    <div class="container text-center py-4 py-md-6">
+      <h1 class="display-1">Le Meme</h1>
+      <p class="lead">Laugh, Compete, Repeat: Meme Your Way to Glory!</p>
+  <img src="https://venngage-wordpress.s3.amazonaws.com/uploads/2022/09/meme_icons_woman_yelling_cat_being_yelled_at.png"
+  class="img-fluid rounded-pill" alt="meme" style="max-width: 300px; height: auto;">
+  <br>
+ <div>
+ <a href="#" class="btn btn-primary btn-lg rounded-pill">Play Now!</a>
+ </div>
     </div>
-  </div>
+  </header>
 
-  <!-- Mobile menu, show/hide based on menu state. -->
-  <div class="sm:hidden" id="mobile-menu">
-    <div class="space-y-1 px-2 pb-3 pt-2">
-      <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-      <a href="#" class="bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium" aria-current="page">Dashboard</a>
-      <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Team</a>
-      <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Projects</a>
-      <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Calendar</a>
+<div class="container min-vh-100 d-flex align-items-center ">
+  <div class="row">
+  <h2 class=" display-6 text-center text-dark">Game Features</h2>
+            <div class="col-md-4">
+                <div class="lc-block">
+                    <div class="card shadow-lg p-3 bg-white text-dark">
+                        <img class="card-img-top" src="https://img-9gag-fun.9cache.com/photo/aQer03z_700bwp.webp" alt="Meme Photo" loading="lazy">
+                        <div class="card-body text-center">
+                            <h3 class="card-title mb-5" editable="inline">Endless Memes</h3>
+                          <p class="card-text">Get ready to explore a vast collection of hilarious coding memes.</p>
+                            <!-- <h4 class="card-subtitle" editable="inline">Card subtitle</h4> -->
+                            <a class="btn btn-primary" href="#" role="button">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- /lc-block -->
+            </div>
+            <!-- /col -->
+            <div class="col-md-4">
+                <div class="lc-block">
+                    <div class="card shadow-lg p-3 bg-white text-dark">
+                        <img class="card-img-top" src="https://i0.wp.com/boardgamechick.com/wp-content/uploads/2022/07/what-do-you-meme-game-rules.jpg?w=1024&ssl=1" alt="Photo of a card" loading="lazy">
+                        <div class="card-body text-center">
+                            <h3 class="card-title mb-5" editable="inline">Quick Rounds</h3>
+                      <p class="card-text">Test your meme knowledge in fast-paced rounds against the clock.</p>
+
+                            <!-- <h4 class="card-subtitle" editable="inline">Card subtitle</h4> -->
+                            <a class="btn btn-primary" href="#" role="button">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- /lc-block -->
+            </div>
+            <!-- /col -->
+            <div class="col-md-4">
+                <div class="lc-block">
+                    <div class="card shadow-lg p-3 bg-white text-dark">
+                        <img class="card-img-top" src="https://img.freepik.com/free-vector/leaderboard-with-abstract-background_52683-51485.jpg?w=1060&t=st=1686092955~exp=1686093555~hmac=c89e18650adaf549a897c1837432f2fbb04ef4d694df54bff38121abb3526ff3" alt="Photo of Leaderboard" loading="lazy">
+                        <div class="card-body text-center">
+                            <h3 class="card-title mb-5" editable="inline">Leaderboard</h3>
+                          <p class="card-text">Compete with other coders and climb to the top of the leaderboard.</p>
+
+                            <!-- <h4 class="card-subtitle" editable="inline">Card subtitle</h4> -->
+                            <a class="btn btn-primary" href="#" role="button">learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- /lc-block -->
+            </div>
+            <!-- /col -->
+        </div>
     </div>
-  </div>
-</nav>
+
+
+
+
+  <!-- Footer -->
+<section class="bg-dark text-light">
+        <div class="container py-5">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="lc-block mb-4">
+                        <img class="img-fluid" alt="logo" src="https://cdn.livecanvas.com/media/svg/undraw-sample/undraw_connected_world_wuay.svg" style=" max-height:10vh">
+                    </div>
+                    <div class="lc-block small">
+                        <div editable="rich">
+                            <p>I am text block. Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper matti pibus leo.</p>
+                        </div>
+                    </div>
+                    <!-- /lc-block -->
+                    <div class="lc-block py-2">
+                        <a class="text-decoration-none" href="#">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" width="1em" height="1em" lc-helper="svg-icon" fill="var(--bs-light)">
+                                <path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"></path>
+                            </svg>
+                        </a>
+                        <a class="text-decoration-none" href="#">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="1em" height="1em" lc-helper="svg-icon" fill="var(--bs-light)">
+                                <path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"></path>
+                            </svg>
+                        </a>
+                        <a class="text-decoration-none" href="#">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="1em" height="1em" lc-helper="svg-icon" fill="var(--bs-light)">
+                                <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"></path>
+                            </svg>
+                        </a>
+                        <a class="text-decoration-none" href="#">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" width="1em" height="1em" lc-helper="svg-icon" fill="var(--bs-light)">
+                                <path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"></path>
+                            </svg>
+                        </a>
+                        <a class="text-decoration-none" href="#">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="1em" height="1em" lc-helper="svg-icon" fill="var(--bs-light)">
+                                <path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"></path>
+                            </svg>
+                        </a>
+                    </div>
+
+                </div>
+                <div class="col-lg-2 offset-lg-1">
+                    <div class="lc-block mb-4">
+                        <div editable="rich">
+                            <h4>Get Started</h4>
+                        </div>
+                    </div>
+                    <!-- /lc-block -->
+                    <div class="lc-block small">
+                        <div editable="rich">
+                            <p>Tutorial</p>
+                            <p>Resources
+                                <br>
+                            </p>
+                            <p>Docs</p>
+                            <p>Example</p>
+                        </div>
+                    </div>
+                    <!-- /lc-block -->
+                </div>
+                <div class="col-lg-2 offset-lg-1">
+                    <div class="lc-block mb-4">
+                        <div editable="rich">
+                            <h4>About us</h4>
+                        </div>
+                    </div>
+                    <!-- /lc-block -->
+                    <div class="lc-block small">
+                        <div editable="rich">
+                            <p>Story</p>
+                            <p>Work with us</p>
+                            <p>Blog</p>
+                            <p>News</p>
+                        </div>
+                    </div>
+                    <!-- /lc-block -->
+                </div>
+                <div class="col-lg-2 offset-lg-1">
+                    <div class="lc-block mb-4">
+                        <div editable="rich">
+                            <h4>Downloads</h4>
+                        </div>
+                    </div>
+                    <!-- /lc-block -->
+                    <div class="lc-block small">
+                        <div editable="rich">
+                            <p>Vertex 1.2</p>
+                            <p>Templates</p>
+                            <p>Sounds</p>
+                            <p>Gradients</p>
+                        </div>
+                    </div>
+                    <!-- /lc-block -->
+                </div>
+            </div>
+        </div>
+        <div class="py-5 container">
+            <div class="row">
+                <div class="col-6 small">
+                    <div class="lc-block">
+                        <div editable="rich">
+                            <p>Copyright © Le Meme 2023</p>
+                        </div>
+                    </div>
+                    <!-- /lc-block -->
+                </div>
+                <div class="col-6 text-end small">
+                    <div class="lc-block">
+                        <div editable="rich">
+                            <p>
+                                <a class="text-decoration-none" href="#">License Details</a> -
+                                <a class="text-decoration-none" href="#">Terms &amp; Conditions</a>
+                            </p>
+                        </div>
+                    </div>
+                    <!-- /lc-block -->
+                </div>
+            </div>
+        </div>
+    </section>
