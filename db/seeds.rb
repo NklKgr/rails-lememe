@@ -9,16 +9,6 @@ require "open-uri"
 
 puts "...deleting all data"
 
-# Seed data for a User
-# User.create!(email: "email@email.com", password: "password")
-Meme.destroy_all
-Challenge.destroy_all
-Membership.destroy_all
-Community.destroy_all
-User.destroy_all
-
-
-# # # Seed data for a Product associated with the User
 
 Meme.destroy_all
 Challenge.destroy_all
@@ -61,6 +51,8 @@ community.save!
 
 puts "...created community: #{community.name}"
 
+#####
+
 file = URI.open("https://res.cloudinary.com/dvje7oyen/image/upload/v1686230459/Le%20Meme/download_peprag.jpg")
 community01 = Community.create!(
   name: 'Zoo Berlin',
@@ -74,6 +66,8 @@ community01.save!
 
 puts "...created community: #{community01.name}"
 
+#####
+
 file = URI.open("https://res.cloudinary.com/dvje7oyen/image/upload/v1686230450/Le%20Meme/tu-berlin-technische-universitaet-berlin-logo-vector_sjoxc4.png")
 community02 = Community.create!(
   name: 'TU Berlin',
@@ -84,6 +78,71 @@ community02.photo.attach(io: file, filename: "#{community02.name}_logo.png", con
 community02.save!
 
 puts "...created community: #{community02.name}"
+
+#####
+
+file = URI.open("https://res.cloudinary.com/dvje7oyen/image/upload/v1686230450/Le%20Meme/tu-berlin-technische-universitaet-berlin-logo-vector_sjoxc4.png")
+community03 = Community.create!(
+  name: 'Beats Berlin',
+  description: 'Perlen aus Deep & Organic House, Chill Electronica und Indie Dance. Englische News. Der perfekte Soundtrack für die Generation Nachhaltig.'
+)
+community03.photo.attach(io: file, filename: "#{community03.name}_logo.png", content_type: "image/png")
+community03.save!
+
+puts "...created cummunity: #{community03.name}"
+
+#####
+
+file = URI.open("https://res.cloudinary.com/dvje7oyen/image/upload/v1686230450/Le%20Meme/tu-berlin-technische-universitaet-berlin-logo-vector_sjoxc4.png")
+community04 = Community.create!(
+  name: 'Soho House',
+  description: 'Soho House is a global private members social club. The original location is at 40 Greek Street, Soho, London. The company now operates clubs, hotels and venues around the world, and in 2015 changed from SOHO House Group to Soho House & Co.'
+)
+community04.photo.attach(io: file, filename: "#{community04.name}_logo.png", content_type: "image/png")
+community04.save!
+
+puts "...created cummunity: #{community04.name}"
+
+#####
+
+file = URI.open("https://res.cloudinary.com/dvje7oyen/image/upload/v1686230450/Le%20Meme/tu-berlin-technische-universitaet-berlin-logo-vector_sjoxc4.png")
+community05 = Community.create!(
+  name: 'Dance Academy',
+  description: 'It is never too late to start dancing or to start again after a long break. Dancing is a great way to meet new people, have fun and of course stay in shape. You will gain a range of positive health benefits, including better flexibility, strength and stamina, and reduced stress. At BDI, we understand that dance doesn’t just help your physical well-being, it can help your self-confidence and your emotional well-being. It just makes you feel like smiling!'
+)
+community05.photo.attach(io: file, filename: "#{community05.name}_logo.png", content_type: "image/png")
+community05.save!
+
+puts "...created cummunity: #{community05.name}"
+
+#####
+
+file = URI.open("https://res.cloudinary.com/dvje7oyen/image/upload/v1686230450/Le%20Meme/tu-berlin-technische-universitaet-berlin-logo-vector_sjoxc4.png")
+community06 = Community.create!(
+  name: 'Volleyball Club',
+  description: '
+  Das Bild zeigt die Umrisse von Berlin. In der Fläche von der Stadt sind die Umrisse eines Volleyballs zu sehen. Desweiteren ist in der Mitte das Logo von VolleyballFREAK
+  Berlin spielt Volleyball
+  Berlin ist Hauptstadt und Bundesland von Deutschland zugleich. Auf die rund 3,4 Mio Einwohner Berlins kommen aber nur ca. 185 aktive Volleyballmannschaften. Damit befindet sich der Volleyball Verband Berlin (VVB) von der Größe her innerhalb des Deutschen Volleyball Verbandes (DVV)im hinteren Feld der Landesverbände. Nichts destotrotz stellt Berlin mit BERLIN RECYCLING Volleys und dem VC Olympia Berlin (Damen und Herren) gleich 3 Teams der Volleyball Bundesliga (VBL).'
+)
+community06.photo.attach(io: file, filename: "#{community06.name}_logo.png", content_type: "image/png")
+community06.save!
+
+puts "...created cummunity: #{community06.name}"
+
+#####
+
+file = URI.open("https://res.cloudinary.com/dvje7oyen/image/upload/v1686230450/Le%20Meme/tu-berlin-technische-universitaet-berlin-logo-vector_sjoxc4.png")
+community07 = Community.create!(
+  name: 'Art Affairs',
+  description: '
+  The BERLIN ART INSTITUTE is an independent art school, international artist residency & arts incubator.'
+)
+community07.photo.attach(io: file, filename: "#{community07.name}_logo.png", content_type: "image/png")
+community07.save!
+
+puts "...created cummunity: #{community07.name}"
+
 
 # # # CHALLENGES
 challenge = Challenge.create!(
@@ -102,7 +161,7 @@ challenge01 = Challenge.create!(
 )
 challenge01.save
 
-puts "...created challenge for #{cmmunity.name} - #{challenge01.name}"
+puts "...created challenge for #{community.name} - #{challenge01.name}"
 
 #####
 
@@ -126,8 +185,8 @@ puts "...created challenge for #{community02.name} - #{challenge03.name}"
 
 # # # Memmbership
 membership = Membership.create!(
-  user: User.first,
-  community: Community.last
+  user_id: user.id,
+  community_id: community.id
 )
 membership.save
 
@@ -151,7 +210,58 @@ membership02 = Membership.create!(
 )
 membership02.save
 
-puts "...created a memebership for #{community02.name} with user: #{user.username}"
+puts "...created a memebership for #{community02.name} with user: #{user2.username}"
+
+####
+
+membership03 = Membership.create!(
+  user_id: user.id,
+  community_id: community03.id
+)
+membership03.save
+
+puts "...created a memebership for #{community03.name} with user: #{user.username}"
+
+####
+
+membership04 = Membership.create!(
+  user_id: user.id,
+  community_id: community04.id
+)
+membership04.save
+
+puts "...created a memebership for #{community04.name} with user: #{user.username}"
+
+####
+
+membership05 = Membership.create!(
+  user_id: user.id,
+  community_id: community05.id
+)
+membership05.save
+
+puts "...created a memebership for #{community05.name} with user: #{user.username}"
+
+####
+
+membership06 = Membership.create!(
+  user_id: user.id,
+  community_id: community06.id
+)
+membership06.save
+
+puts "...created a memebership for #{community06.name} with user: #{user.username}"
+
+####
+
+membership07 = Membership.create!(
+  user_id: user.id,
+  community_id: community07.id
+)
+membership07.save
+
+puts "...created a memebership for #{community07.name} with user: #{user.username}"
+
 
 # # # MEMES
 file = URI.open("https://res.cloudinary.com/dvje7oyen/image/upload/v1686043915/Le%20Meme/1685575227444_n4rrmn.jpg")
