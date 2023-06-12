@@ -7,12 +7,12 @@ class VotesController < ApplicationController
 
     if params[:vote] == "up" && @vote.save!
       @vote.voted = true
-      @meme.update!(score: @meme.score + 1)
-      redirect_to memes_path
+      @meme.update(score: @meme.score + 1)
+      # redirect_to memes_path
     elsif params[:vote] == "down" && @vote.save!
       @vote.voted = false
-      @meme.update!(score: @meme.score - 1)
-      redirect_to memes_path
+      @meme.update(score: @meme.score - 1)
+      # redirect_to memes_path
     else
       render "memes/index", status: :unprocessable_entity
     end
