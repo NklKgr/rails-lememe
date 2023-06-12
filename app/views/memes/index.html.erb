@@ -54,37 +54,38 @@
                 <%= cl_image_tag meme.photo.key if meme.photo.attached? %>
               </div>
 <%# voting in modal function below %>
-              <div class="meme-card-infos" data-controller="votings">
-                <span data-votings-target="upvotes" class="meme-card-score"><%= meme.score %></span>
-                <div class="meme-card-vote">
-                  <% vote = meme.votes.where(user: current_user).first %>
-                  <% if meme.voted_by_current_user?(current_user) %>
+             <div class="meme-card-infos" data-controller="votings">
+          <span data-votings-target="upvotes" class="meme-card-score"><%= meme.score %></span>
+          <div class="meme-card-vote">
+            <% vote = meme.votes.where(user: current_user).first %>
+            <% if meme.voted_by_current_user?(current_user) %>
 <%# buttons when votes already exists %>
-                    <%= button_to '<i class="fa-solid fa-arrow-up"></i>'.html_safe, meme_vote_path(meme, vote, vote:"up"),
-                    method: :patch,
-                    remote: true,
-                    class: "btn btn-primary me-1 rounded-circle #{ 'clicked-vote' if !vote.nil? && vote.voted == true }" %>
-                    <%= button_to '<i class="fa-solid fa-arrow-down"></i>'.html_safe, meme_vote_path(meme, vote, vote:"down"),
-                    method: :patch,
-                    remote: true,
-                    class: "btn btn-primary rounded-circle #{ 'clicked-vote' if !vote.nil? && vote.voted == false }" %>
-                  <% else %>
+              <%= button_to '<i class="fa-solid fa-arrow-up"></i>'.html_safe, meme_vote_path(meme, vote, vote:"up"),
+              method: :patch,
+              remote: true,
+              data: { action: 'votings#addVoteClass', votings_target: 'upvoteBtn' },
+              class: "btn btn-primary me-1 rounded-circle #{ 'clicked-vote' if vote.voted == true }" %>
+              <%= button_to '<i class="fa-solid fa-arrow-down"></i>'.html_safe, meme_vote_path(meme, vote, vote:"down"),
+              method: :patch,
+              remote: true,
+              data: { action: 'votings#addVoteClassDown', votings_target: 'downvoteBtn' },
+              class: "btn btn-primary rounded-circle #{ 'clicked-vote' if vote.voted == false }" %>
+            <% else %>
 <%# buttons when votes NOT exists %>
-                    <%= button_to '<i class="fa-solid fa-arrow-up"></i>'.html_safe, meme_votes_path(meme, vote:"up"),
-                    method: :post,
-                    remote: true,
-                    class: "btn btn-primary me-1 rounded-circle #{ 'clicked-vote' if vote == true  }" %>
-                    <%= button_to '<i class="fa-solid fa-arrow-down"></i>'.html_safe, meme_votes_path(meme, vote:"down"),
-                    method: :post,
-                    remote: true,
-                    class: "btn btn-primary rounded-circle #{ 'clicked-vote' if vote == false}" %>
-                  <% end %>
-                </div>
-                <div>
-<!-- comment section in modal here -->
-                  <%# render :partial => 'comments/comment_section', :locals => {:meme => meme } %>
-                </div>
-              </div>
+              <%= button_to '<i class="fa-solid fa-arrow-up"></i>'.html_safe, meme_votes_path(meme, vote:"up"),
+              method: :post,
+              remote: true,
+              data: { action: 'votings#addVoteClass', votings_target: 'upvoteBtn' },
+              class: "btn btn-primary me-1 rounded-circle" %>
+              <%= button_to '<i class="fa-solid fa-arrow-down"></i>'.html_safe, meme_votes_path(meme, vote:"down"),
+              method: :post,
+              remote: true,
+              class: "btn btn-primary rounded-circle",
+              data: { action: 'votings#addVoteClassDown', votings_target: 'downvoteBtn' } %>
+            <% end %>
+          </div>
+          <span class="meme-comments">Comments</span>
+        </div>
               <div class="comment-container" data-comment-target="commentsContainer" >
                 <% meme.comments.all.each do |comment| %>
                 <%= render "comments/comment_section", comment: comment%>
