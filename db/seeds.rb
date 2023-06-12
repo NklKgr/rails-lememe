@@ -49,77 +49,80 @@ puts "...created user: #{user2.username}"
 
 # # # COMMUNITIES
 file = URI.open("https://res.cloudinary.com/dvje7oyen/image/upload/v1686045830/Le%20Meme/wagoners_sfb1sf.png")
-cummunity = Community.create!(
+community = Community.create!(
   name: 'Le Wagon',
-  description: 'Le Wagon is a coding bootcamp that teaches students to develop web applications from scratch. Our cutting-edge curriculum and world-class teachers give students all the skills and tools needed to kick-start their tech career, land a job as software developers or product managers, or launch their own startup.'
+  description: 'Le Wagon is a coding bootcamp that teaches students to develop web applications from scratch. Our cutting-edge curriculum and world-class teachers give students all the skills and tools needed to kick-start their tech career, land a job as software developers or product managers, or launch their own startup.',
+  user_id: 1
 )
-cummunity.photo.attach(io: file, filename: "#{cummunity.name}_logo.png", content_type: "image/png")
-cummunity.save!
+community.photo.attach(io: file, filename: "#{community.name}_logo.png", content_type: "image/png")
+community.save!
 
 #####
 
-puts "...created cummunity: #{cummunity.name}"
+puts "...created community: #{community.name}"
 
 file = URI.open("https://res.cloudinary.com/dvje7oyen/image/upload/v1686230459/Le%20Meme/download_peprag.jpg")
-cummunity01 = Community.create!(
+community01 = Community.create!(
   name: 'Zoo Berlin',
-  description: 'Zoo Berlin is the oldest and best-known zoo in Germany. Opened in 1844 it covers 35 hectares (86.5 acres) and is located in Berlin\'s Tiergarten. With about 1,380 different species and over 20,200 animals the zoo presents one of the most comprehensive collection of species in the world.'
+  description: 'Zoo Berlin is the oldest and best-known zoo in Germany. Opened in 1844 it covers 35 hectares (86.5 acres) and is located in Berlin\'s Tiergarten. With about 1,380 different species and over 20,200 animals the zoo presents one of the most comprehensive collection of species in the world.',
+  user_id: 1
 )
-cummunity01.photo.attach(io: file, filename: "#{cummunity01.name}_logo.png", content_type: "image/png")
-cummunity01.save!
+community01.photo.attach(io: file, filename: "#{community01.name}_logo.png", content_type: "image/png")
+community01.save!
 
 #####
 
-puts "...created cummunity: #{cummunity01.name}"
+puts "...created community: #{community01.name}"
 
 file = URI.open("https://res.cloudinary.com/dvje7oyen/image/upload/v1686230450/Le%20Meme/tu-berlin-technische-universitaet-berlin-logo-vector_sjoxc4.png")
-cummunity02 = Community.create!(
+community02 = Community.create!(
   name: 'TU Berlin',
-  description: 'The Technische Universität Berlin, known as TU Berlin for short and unofficially as the Technical University of Berlin or Berlin Institute of Technology, is a research university located in Berlin, Germany.'
+  description: 'The Technische Universität Berlin, known as TU Berlin for short and unofficially as the Technical University of Berlin or Berlin Institute of Technology, is a research university located in Berlin, Germany.',
+  user_id: 1
 )
-cummunity02.photo.attach(io: file, filename: "#{cummunity02.name}_logo.png", content_type: "image/png")
-cummunity02.save!
+community02.photo.attach(io: file, filename: "#{community02.name}_logo.png", content_type: "image/png")
+community02.save!
 
-puts "...created cummunity: #{cummunity02.name}"
+puts "...created community: #{community02.name}"
 
 # # # CHALLENGES
 challenge = Challenge.create!(
   name: 'Batch_1216',
-  community_id: cummunity.id
+  community_id: community.id
 )
 challenge.save
 
-puts "...created challenge for #{cummunity.name} - #{challenge.name}"
+puts "...created challenge for #{community.name} - #{challenge.name}"
 
 #####
 
 challenge01 = Challenge.create!(
   name: 'Batch_100',
-  community_id: cummunity.id
+  community_id: community.id
 )
 challenge01.save
 
-puts "...created challenge for #{cummunity.name} - #{challenge01.name}"
+puts "...created challenge for #{cmmunity.name} - #{challenge01.name}"
 
 #####
 
 challenge02 = Challenge.create!(
   name: 'Smiling Pandas',
-  community_id: cummunity01.id
+  community_id: community01.id
 )
 challenge02.save
 
-puts "...created challenge for #{cummunity02.name} - #{challenge02.name}"
+puts "...created challenge for #{community02.name} - #{challenge02.name}"
 
 ####
 
 challenge03 = Challenge.create!(
   name: 'Thinking Memes',
-  community_id: cummunity02.id
+  community_id: community02.id
 )
 challenge03.save
 
-puts "...created challenge for #{cummunity02.name} - #{challenge03.name}"
+puts "...created challenge for #{community02.name} - #{challenge03.name}"
 
 # # # Memmbership
 membership = Membership.create!(
@@ -128,27 +131,27 @@ membership = Membership.create!(
 )
 membership.save
 
-puts "...created a memebership for #{cummunity.name} with user: #{user.username}"
+puts "...created a memebership for #{community.name} with user: #{user.username}"
 
 ####
 
 membership01 = Membership.create!(
   user_id: user.id,
-  community_id: cummunity01.id
+  community_id: community01.id
 )
 membership01.save
 
-puts "...created a memebership for #{cummunity01.name} with user: #{user.username}"
+puts "...created a memebership for #{community01.name} with user: #{user.username}"
 
 ####
 
 membership02 = Membership.create!(
   user_id: user2.id,
-  community_id: cummunity02.id
+  community_id: community02.id
 )
 membership02.save
 
-puts "...created a memebership for #{cummunity02.name} with user: #{user.username}"
+puts "...created a memebership for #{community02.name} with user: #{user.username}"
 
 # # # MEMES
 file = URI.open("https://res.cloudinary.com/dvje7oyen/image/upload/v1686043915/Le%20Meme/1685575227444_n4rrmn.jpg")
