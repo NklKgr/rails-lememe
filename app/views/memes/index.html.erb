@@ -111,21 +111,22 @@
               <%= button_to '<i class="fa-solid fa-arrow-up"></i>'.html_safe, meme_vote_path(meme, vote, vote:"up"),
               method: :patch,
               remote: true,
-              class: "btn btn-primary me-1 rounded-circle #{ 'clicked-vote' if !vote.nil? && vote.voted == true }" %>
+              class: "btn btn-primary me-1 rounded-circle #{ 'clicked-vote' if vote.voted == true }" %>
               <%= button_to '<i class="fa-solid fa-arrow-down"></i>'.html_safe, meme_vote_path(meme, vote, vote:"down"),
               method: :patch,
               remote: true,
-              class: "btn btn-primary rounded-circle #{ 'clicked-vote' if !vote.nil? && vote.voted == false }" %>
+              class: "btn btn-primary rounded-circle #{ 'clicked-vote' if vote.voted == false }" %>
             <% else %>
 <%# buttons when votes NOT exists %>
               <%= button_to '<i class="fa-solid fa-arrow-up"></i>'.html_safe, meme_votes_path(meme, vote:"up"),
               method: :post,
               remote: true,
-              class: "btn btn-primary me-1 rounded-circle #{ 'clicked-vote' if vote == true  }" %>
+              data: { action: 'votings#addVoteClass' },
+              class: "btn btn-primary me-1 rounded-circle" %>
               <%= button_to '<i class="fa-solid fa-arrow-down"></i>'.html_safe, meme_votes_path(meme, vote:"down"),
               method: :post,
               remote: true,
-              class: "btn btn-primary rounded-circle #{ 'clicked-vote' if vote == false}" %>
+              class: "btn btn-primary rounded-circle" %>
             <% end %>
           </div>
           <span class="meme-comments">Comments</span>
@@ -144,53 +145,27 @@
   <div class="leaderboard">
     <h4>Leaderboard</h4>
     <div class="leader-table">
-    <table class="table">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">username</th>
-      <th scope="col">votes</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>mark_122</td>
-      <td>22</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>jacob_the_king</td>
-      <td>19</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>meme_hero007</td>
-      <td>15</td>
-    </tr>
-    <tr>
-      <th scope="row">4</th>
-      <td>tuku_is_best</td>
-      <td>13</td>
-    </tr>
-    <tr>
-      <th scope="row">5</th>
-      <td>mickey_the_mouse</td>
-      <td>9</td>
-    </tr>
-    <tr>
-      <th scope="row">6</th>
-      <td>hahahaha_funny</td>
-      <td>4</td>
-    </tr>
-    <tr>
-      <th scope="row">7</th>
-      <td>bla99</td>
-      <td>2</td>
-    </tr>
-  </tbody>
-</table></div>
-  </div>
+      <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">username</th>
+        <th scope="col">votes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @top_memes.each_with_index do |meme, index| %>
+      <tr>
+        <th scope="row"><%= index + 1 %></th>
+        <td><%= meme.user.username %></td>
+        <td><%= meme.score %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+    </div>
+
+</div>
 
   <div class="ruleboard">
     <h3>Ruleboard</h3>
