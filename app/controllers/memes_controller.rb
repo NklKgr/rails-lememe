@@ -7,6 +7,7 @@ class MemesController < ApplicationController
     @communities = current_user.communities
     @challenges = Challenge.all
     @communities_search = current_user.communities
+    @top_memes = @memes.sort_by { |meme| meme.score }.reverse.first(10)
 
     filter = params[:filter]
 
