@@ -98,7 +98,7 @@ file = URI.open("https://res.cloudinary.com/dvje7oyen/image/upload/v1686230450/L
 community04 = Community.create!(
   name: 'Soho House',
   description: 'Soho House is a global private members social club. The original location is at 40 Greek Street, Soho, London. The company now operates clubs, hotels and venues around the world, and in 2015 changed from SOHO House Group to Soho House & Co.',
-  user: user
+  user: user2
 )
 community04.photo.attach(io: file, filename: "#{community04.name}_logo.png", content_type: "image/png")
 community04.save!
@@ -192,7 +192,7 @@ puts "...created challenge for #{community02.name} - #{challenge03.name}"
 membership = Membership.create!(
   user_id: user.id,
   community_id: community.id,
-  status: 'active'
+  status: 'approved'
 )
 membership.save
 
@@ -203,7 +203,7 @@ puts "...created a memebership for #{community.name} with user: #{user.username}
 membership01 = Membership.create!(
   user_id: user.id,
   community_id: community01.id,
-  status: 'active'
+  status: 'approved'
 )
 membership01.save
 
@@ -214,7 +214,7 @@ puts "...created a memebership for #{community01.name} with user: #{user.usernam
 membership02 = Membership.create!(
   user_id: user2.id,
   community_id: community02.id,
-  status: 'active'
+  status: 'approved'
 )
 membership02.save
 
@@ -225,7 +225,7 @@ puts "...created a memebership for #{community02.name} with user: #{user2.userna
 membership03 = Membership.create!(
   user_id: user.id,
   community_id: community03.id,
-  status: 'active'
+  status: 'approved'
 )
 membership03.save
 

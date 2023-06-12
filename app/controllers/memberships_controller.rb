@@ -2,8 +2,13 @@ class MembershipsController < ApplicationController
   before_action :set_membership, only: %i[show update]
 
   def index
+    # raise
     @user = current_user
     @community = Community.includes(:memberships).find(params[:community_id])
+
+    if @community.user != @user
+      redirect_to memes_path
+    end
   end
 
   def show
@@ -27,15 +32,22 @@ class MembershipsController < ApplicationController
   end
 
   def update
-    @community = Community.includes(:memberships).find(params[:community_id])
-    @membership = @community.memberships.find(params[:id])
-    if @membership.community.user == current_user
-      @membership.update(membership_params)
+    # @community = Community.includes(:memberships).find(params[:community_id])
+    @membership = Membership.find(params[:id])
+
+    if params[:membership][:status] == "accepted"
+      @membership.status = "approved"
+      @membership.save
       flash[:notice] = 'Membership application updated successfully.'
-    else
-      flash[:alert] = 'You are not authorized to perform this action.'
     end
-      redirect_to @community_memberships_path
+
+    if params[:membership][:status] == "rejected"
+      @membership.status = "rejected"
+      @membership.save
+      flash[:notice] = 'Membership application updated successfully.'
+    end
+
+      redirect_to community_memberships_path
   end
 
   private

@@ -1,10 +1,20 @@
 <h1><%= @community.name %></h1>
 
-<% if @membership.persisted? %>
-  <%= @membership.status %>
+<% if @membership.id %>
+
+  <% if @membership.status == "approved" %>
+    <%= @membership.status %>
+
+  <% elsif @membership.status == "pending" %>
+    <%= @membership.status %>
+    <p>Please, be patient, we are processing your membership request.</p>
+  <% else %>
+    <%= @membership.status %>
+    <p>Sorry, your request was rejected.</p>
+  <% end %>
+
 <% else %>
   <%= simple_form_for [@community, @membership] do |f| %>
     <%= f.button :submit, "Apply for Membership", disabled: @membership.persisted? %>
   <% end %>
 <% end %>
-
