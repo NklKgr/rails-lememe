@@ -4,4 +4,8 @@ class Membership < ApplicationRecord
   has_many :challenges, through: :community
   has_many :memes, through: :challenge
   validates :user_id, uniqueness: { scope: :community_id }
+
+  def pending?
+    status == 'pending'
+  end
 end

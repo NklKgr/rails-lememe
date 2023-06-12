@@ -1,1 +1,10 @@
 <h1><%= @community.name %></h1>
+
+<% if @membership.persisted? %>
+  <%= @membership.status %>
+<% else %>
+  <%= simple_form_for [@community, @membership] do |f| %>
+    <%= f.button :submit, "Apply for Membership", disabled: @membership.persisted? %>
+  <% end %>
+<% end %>
+

@@ -7,6 +7,7 @@ class CommunitiesController < ApplicationController
 
   def show
     @community = Community.find(params[:id])
+    @membership = Membership.new
   end
 
   def new

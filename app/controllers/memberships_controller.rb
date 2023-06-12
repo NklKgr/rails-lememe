@@ -3,10 +3,7 @@ class MembershipsController < ApplicationController
 
   def index
     @user = current_user
-    # @communities = @user.communities.includes(:memberships)
     @community = Community.includes(:memberships).find(params[:community_id])
-
-    # @membership = Membership.find(params[:id])
   end
 
   def show
@@ -16,23 +13,24 @@ class MembershipsController < ApplicationController
   def new
     @membership = Membership.new
     @user = current_user
-    @community = Community.find(params[:id])
+    @community = Community.includes(:memberships).find(params[:community_id])
   end
 
   def create
-    @community = Community.find(params[:id])
+    @community = Community.includes(:memberships).find(params[:community_id])
     @membership = Membership.new(community: @community, user: current_user, status: 'pending')
     if @membership.save
-      redirect_to @community_memberships_path, notice: 'Application request submitted successfully.'
+      redirect_to community_path(@community), notice: 'Application request submitted successfully.'
     else
-      redirect_to @community_memberships_path, notice: 'Application request failed.'
+      redirect_to community_path(@community), notice: 'Application request failed.'
     end
   end
 
   def update
-    @membership = Membership.find(params[:id])
+    @community = Community.includes(:memberships).find(params[:community_id])
+    @membership = @community.memberships.find(params[:id])
     if @membership.community.user == current_user
-      @membership.update(status: params[:status])
+      @membership.update(membership_params)
       flash[:notice] = 'Membership application updated successfully.'
     else
       flash[:alert] = 'You are not authorized to perform this action.'
@@ -44,5 +42,9 @@ class MembershipsController < ApplicationController
 
   def set_membership
     @membership = Membership.find(params[:id])
+  end
+
+  def membership_params
+    params.require(:membership).permit(:status)
   end
 end
