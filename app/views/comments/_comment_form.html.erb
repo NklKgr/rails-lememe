@@ -1,0 +1,8 @@
+<%= simple_form_for [meme, comment],
+  data: {
+    comment_target: "form",
+    action: "submit->comment#submit"
+  } do |f| %>
+  <%= f.input :content, label: false, placeholder: "Write a comment..." %>
+  <%= f.button :submit, "Submit", class: "btn btn-primary" %>
+<% end %>
