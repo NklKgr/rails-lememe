@@ -43,26 +43,29 @@
           <div class="meme-card-vote">
             <% vote = meme.votes.where(user: current_user).first %>
             <% if meme.voted_by_current_user?(current_user) %>
-            <%# buttons when votes already exists %>
+<%# buttons when votes already exists %>
               <%= button_to '<i class="fa-solid fa-arrow-up"></i>'.html_safe, meme_vote_path(meme, vote, vote:"up"),
               method: :patch,
               remote: true,
+              data: { action: 'votings#addVoteClass', votings_target: 'upvoteBtn' },
               class: "btn btn-primary me-1 rounded-circle #{ 'clicked-vote' if vote.voted == true }" %>
               <%= button_to '<i class="fa-solid fa-arrow-down"></i>'.html_safe, meme_vote_path(meme, vote, vote:"down"),
               method: :patch,
               remote: true,
+              data: { action: 'votings#addVoteClassDown', votings_target: 'downvoteBtn' },
               class: "btn btn-primary rounded-circle #{ 'clicked-vote' if vote.voted == false }" %>
             <% else %>
-              <%# buttons when votes NOT exists %>
+<%# buttons when votes NOT exists %>
               <%= button_to '<i class="fa-solid fa-arrow-up"></i>'.html_safe, meme_votes_path(meme, vote:"up"),
               method: :post,
               remote: true,
-              data: { action: 'votings#addVoteClass' },
+              data: { action: 'votings#addVoteClass', votings_target: 'upvoteBtn' },
               class: "btn btn-primary me-1 rounded-circle" %>
               <%= button_to '<i class="fa-solid fa-arrow-down"></i>'.html_safe, meme_votes_path(meme, vote:"down"),
               method: :post,
               remote: true,
-              class: "btn btn-primary rounded-circle" %>
+              class: "btn btn-primary rounded-circle",
+              data: { action: 'votings#addVoteClassDown', votings_target: 'downvoteBtn' } %>
             <% end %>
           </div>
           <span class="meme-comments">Comments</span>
@@ -76,7 +79,6 @@
 
   </div>
 </div>
-
 <div class="right-sidebar">
   <div class="leaderboard">
     <h4>Leaderboard</h4>
