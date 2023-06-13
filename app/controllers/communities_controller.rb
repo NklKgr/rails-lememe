@@ -12,6 +12,8 @@ class CommunitiesController < ApplicationController
     if !@membership
       @membership = Membership.new
     end
+    @memes = @community.memes
+
   end
 
   def new

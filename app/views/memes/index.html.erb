@@ -1,4 +1,3 @@
-
 <div class="community-tags">
     <% @communities_search.each do |community| %>
         <%= link_to community_path(community) do %>
@@ -6,10 +5,8 @@
             <span><%= community.name %></span>
       </div>
         <% end %>
-
     <% end %>
 </div>
-
 
 <!-- Left Sidebar Content -->
 <div class="left-sidebar">
@@ -27,41 +24,113 @@
 </div>
 </div>
 
-<div class="container">
+<div class="container" data-controller="comment">
   <div class="row justify-content-center">
     <!-- Memes Feed -->
     <div class="col-md-8">
       <div class="container w-100 d-flex justify-content-center flex-wrap mt-4 flex-column align-items-center">
     <% @memes.each do | meme | %>
     <div class="meme-container">
-      <div class="meme-card">
-        <span class="meme-title"><%= meme.title %></span>
-        <%= cl_image_tag meme.photo.key if meme.photo.attached? %>
+    <!-- Button trigger modal: whole card -->
+    <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModalCenter<%= meme.id %>">
+        <div class="meme-card">
+          <span class="meme-title"><%= meme.title %></span>
+          <%= cl_image_tag meme.photo.key if meme.photo.attached? %>
+        </div>
+      </button>
+<!-- Modal -->
+      <div class="modal fade" id="exampleModalCenter<%= meme.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalCenterTitle"> <%= meme.title %> </h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="meme-card">
+                <span class="meme-title"><%= meme.title %></span>
+                <%= cl_image_tag meme.photo.key if meme.photo.attached? %>
+              </div>
+<%# voting in modal function below %>
+             <div class="meme-card-infos" data-controller="votings">
+          <span data-votings-target="upvotes" class="meme-card-score"><%= meme.score %></span>
+          <div class="meme-card-vote">
+            <% vote = meme.votes.where(user: current_user).first %>
+            <% if meme.voted_by_current_user?(current_user) %>
+<%# buttons when votes already exists %>
+              <%= button_to '<i class="fa-solid fa-arrow-up"></i>'.html_safe, meme_vote_path(meme, vote, vote:"up"),
+              method: :patch,
+              remote: true,
+              data: { action: 'votings#addVoteClass', votings_target: 'upvoteBtn' },
+              class: "btn btn-primary me-1 rounded-circle #{ 'clicked-vote' if vote.voted == true }" %>
+              <%= button_to '<i class="fa-solid fa-arrow-down"></i>'.html_safe, meme_vote_path(meme, vote, vote:"down"),
+              method: :patch,
+              remote: true,
+              data: { action: 'votings#addVoteClassDown', votings_target: 'downvoteBtn' },
+              class: "btn btn-primary rounded-circle #{ 'clicked-vote' if vote.voted == false }" %>
+            <% else %>
+<%# buttons when votes NOT exists %>
+              <%= button_to '<i class="fa-solid fa-arrow-up"></i>'.html_safe, meme_votes_path(meme, vote:"up"),
+              method: :post,
+              remote: true,
+              data: { action: 'votings#addVoteClass', votings_target: 'upvoteBtn' },
+              class: "btn btn-primary me-1 rounded-circle" %>
+              <%= button_to '<i class="fa-solid fa-arrow-down"></i>'.html_safe, meme_votes_path(meme, vote:"down"),
+              method: :post,
+              remote: true,
+              class: "btn btn-primary rounded-circle",
+              data: { action: 'votings#addVoteClassDown', votings_target: 'downvoteBtn' } %>
+            <% end %>
+          </div>
+          <span class="meme-comments">Comments</span>
+        </div>
+              <div class="comment-container" data-comment-target="commentsContainer" >
+                <% meme.comments.all.each do |comment| %>
+                <%= render "comments/comment_section", comment: comment%>
+                <% end %>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+<!-- create comment section with simple form -->
+              <%= render 'comments/comment_form', meme: meme, comment: @comment %>
+            </div>
+          </div>
+        </div>
       </div>
+
+<!-- Modal end -->
+<%# voting in feed buttons below %>
       <div class="meme-card-infos" data-controller="votings">
           <span data-votings-target="upvotes" class="meme-card-score"><%= meme.score %></span>
           <div class="meme-card-vote">
             <% vote = meme.votes.where(user: current_user).first %>
             <% if meme.voted_by_current_user?(current_user) %>
-            <%# buttons when votes already exists %>
+<%# buttons when votes already exists %>
               <%= button_to '<i class="fa-solid fa-arrow-up"></i>'.html_safe, meme_vote_path(meme, vote, vote:"up"),
               method: :patch,
               remote: true,
-              class: "btn btn-primary me-1 rounded-circle #{ 'clicked-vote' if !vote.nil? && vote.voted == true }" %>
+              data: { action: 'votings#addVoteClass', votings_target: 'upvoteBtn' },
+              class: "btn btn-primary me-1 rounded-circle #{ 'clicked-vote' if vote.voted == true }" %>
               <%= button_to '<i class="fa-solid fa-arrow-down"></i>'.html_safe, meme_vote_path(meme, vote, vote:"down"),
               method: :patch,
               remote: true,
-              class: "btn btn-primary rounded-circle #{ 'clicked-vote' if !vote.nil? && vote.voted == false }" %>
+              data: { action: 'votings#addVoteClassDown', votings_target: 'downvoteBtn' },
+              class: "btn btn-primary rounded-circle #{ 'clicked-vote' if vote.voted == false }" %>
             <% else %>
-              <%# buttons when votes NOT exists %>
+<%# buttons when votes NOT exists %>
               <%= button_to '<i class="fa-solid fa-arrow-up"></i>'.html_safe, meme_votes_path(meme, vote:"up"),
               method: :post,
               remote: true,
-              class: "btn btn-primary me-1 rounded-circle #{ 'clicked-vote' if vote == true  }" %>
+              data: { action: 'votings#addVoteClass', votings_target: 'upvoteBtn' },
+              class: "btn btn-primary me-1 rounded-circle" %>
               <%= button_to '<i class="fa-solid fa-arrow-down"></i>'.html_safe, meme_votes_path(meme, vote:"down"),
               method: :post,
               remote: true,
-              class: "btn btn-primary rounded-circle #{ 'clicked-vote' if vote == false}" %>
+              class: "btn btn-primary rounded-circle",
+              data: { action: 'votings#addVoteClassDown', votings_target: 'downvoteBtn' } %>
             <% end %>
           </div>
           <span class="meme-comments">Comments</span>
@@ -75,58 +144,31 @@
 
   </div>
 </div>
-
 <div class="right-sidebar">
   <div class="leaderboard">
     <h4>Leaderboard</h4>
     <div class="leader-table">
-    <table class="table">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">username</th>
-      <th scope="col">votes</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>mark_122</td>
-      <td>22</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>jacob_the_king</td>
-      <td>19</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>meme_hero007</td>
-      <td>15</td>
-    </tr>
-    <tr>
-      <th scope="row">4</th>
-      <td>tuku_is_best</td>
-      <td>13</td>
-    </tr>
-    <tr>
-      <th scope="row">5</th>
-      <td>mickey_the_mouse</td>
-      <td>9</td>
-    </tr>
-    <tr>
-      <th scope="row">6</th>
-      <td>hahahaha_funny</td>
-      <td>4</td>
-    </tr>
-    <tr>
-      <th scope="row">7</th>
-      <td>bla99</td>
-      <td>2</td>
-    </tr>
-  </tbody>
-</table></div>
-  </div>
+      <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">username</th>
+        <th scope="col">votes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @top_memes.each_with_index do |meme, index| %>
+      <tr>
+        <th scope="row"><%= index + 1 %></th>
+        <td><%= meme.user.username %></td>
+        <td><%= meme.score %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+    </div>
+
+</div>
 
   <div class="ruleboard">
     <h3>Ruleboard</h3>
@@ -145,3 +187,5 @@
 
   </div>
 </div>
+
+<%#= turbo_frame_tag "modal-new-community" do %>

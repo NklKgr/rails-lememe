@@ -1,6 +1,13 @@
 class MemesController < ApplicationController
   before_action :set_meme, only: [:upvote]
 
+  def show
+    @meme = Meme.find(params[:id])
+    @user = current_user
+    @communities = current_user.communities
+    @challenge = Challenge.find(params[:id])
+  end
+
   def index
     @user = current_user
     @memes = @user.feed
