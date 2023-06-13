@@ -1,0 +1,30 @@
+<div class="container w-50">
+  <h1 class="text-center">Hello, <%= @user.username %></h1>
+  <div id="comm-overview" class="container">
+    <h2>My Communities</h2>
+    <% @communities.each do |community| %>
+      <p> <%= community.name %></p>
+    <% end %>
+  </div>
+
+  <div id="chall-overview" class="container">
+    <h2>My Posted memes</h2>
+    <% @communities.each do |community| %>
+      <p> <%= community.name %></p>
+    <% end %>
+  </div>
+    <!--     <div class="row">
+
+      <div class="col-5 text-end">My username:</div>
+      <div class="col-5"><%= @user.username %></div>
+      <div class="col-2">
+      </div>
+
+      <div class="col-5 text-end">My E-Mail Address:</div>
+      <div class="col-5"><%= @user.email %></div>
+      <div class="col-2">
+      </div>
+    </div>
+    -->
+  </div>
+</div>
