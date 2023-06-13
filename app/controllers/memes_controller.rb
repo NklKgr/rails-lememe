@@ -1,31 +1,27 @@
 class MemesController < ApplicationController
   before_action :set_meme, only: [:upvote]
 
+  def show
+    @meme = Meme.find(params[:id])
+    @user = current_user
+    @communities = current_user.communities
+    @challenge = Challenge.find(params[:id])
+  end
+
   def index
     @user = current_user
     @memes = @user.feed
-    @communities = current_user.communities
+    @communities = current_user.communities + current_user.approved_community_memberships
     @challenges = Challenge.all
-    @communities_search = current_user.communities
+    @communities_search = @communities
 
-    filter = params[:filter]
-
-    query = params[:query]
-    if query.present?
-      @communities_search = Community.where("name ILIKE ?", "%#{params[:query]}%")
-      @memes = Meme.joins(:challenge).where(challenges: { community_id: @communities_search.pluck(:id) }).order(created_at: :desc)
-      # @memes = @communities_search.map(&:memes)
-      # @communities_search.map do |community|
-      #   community.memes
-      # end.flatten
-    elsif filter.present?
-      @communities_search = Community.where("name ILIKE ?", "%#{params[:filter]}%")
-      @memes = Meme.joins(:challenge).where(challenges: { community_id: @communities_search.pluck(:id) }).order(created_at: :desc)
-      # @memes = @communities_search.map do |community|
-      #   community.memes
-      # end.flatten
-    else
-      @memes = @user.feed
+    if params[:query].present? || params[:filter].present?
+      @communities_search = Community.where("name ILIKE ?", "%#{params[:query] || params[:filter]}%")
+      @memes = Meme.joins(challenge: {community: :memberships})
+                   .where(challenges: { community_id: @communities_search.pluck(:id) }, memberships: {status: "approved"})
+                   .or(Meme.joins(challenge: {community: :memberships})
+                            .where(challenges: { community_id: @communities_search.pluck(:id) }, communities: { user: current_user }))
+                   .order(created_at: :desc)
     end
   end
 
