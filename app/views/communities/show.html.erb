@@ -4,13 +4,17 @@
 
   <% if @membership.status == "approved" %>
     <%= @membership.status %>
-
   <% elsif @membership.status == "pending" %>
     <%= @membership.status %>
     <p>Please, be patient, we are processing your membership request.</p>
   <% else %>
     <%= @membership.status %>
     <p>Sorry, your request was rejected.</p>
+  <% end %>
+
+<% elsif @community.user == current_user %>
+  <%= link_to community_memberships_path(@community), data: { turbo: false } do %>
+    <button type="button" class="btn btn-primary">View Memberships</button>
   <% end %>
 
 <% else %>
