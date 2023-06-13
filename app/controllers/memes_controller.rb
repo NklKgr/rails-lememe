@@ -19,16 +19,6 @@ class MemesController < ApplicationController
     @all_memes = @memes.sort_by { |meme| meme.score }.reverse
 
     @communities_search = @communities
-
-
-    if params[:query].present? || params[:filter].present?
-      @communities_search = Community.where("name ILIKE ?", "%#{params[:query] || params[:filter]}%")
-      @memes = Meme.joins(challenge: {community: :memberships})
-                   .where(challenges: { community_id: @communities_search.pluck(:id) }, memberships: {status: "approved"})
-                   .or(Meme.joins(challenge: {community: :memberships})
-                            .where(challenges: { community_id: @communities_search.pluck(:id) }, communities: { user: current_user }))
-                   .order(created_at: :desc)
-    end
   end
 
   def new
