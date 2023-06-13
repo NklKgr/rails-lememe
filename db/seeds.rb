@@ -18,16 +18,20 @@ User.destroy_all
 Vote.destroy_all
 
 
-# # # Seed data for a Product associated with the User
-user = User.create!(
+# Seed data for a Product associated with the User
+
+### USERS
+
+# User 1 - memeber01
+user1 = User.create!(
   email: "123456@web.de",
   password: "123456",
   username: "memeber01"
 )
 
-puts "...created user: #{user.username}"
+puts "...created user: #{user1.username}"
 
-
+# User 2 - memeber02
 user2 = User.create!(
   email: "123456002@web.de",
   password: "123456",
@@ -36,17 +40,155 @@ user2 = User.create!(
 
 puts "...created user: #{user2.username}"
 
-
-# # # COMMUNITIES
-file = URI.open("https://res.cloudinary.com/dvje7oyen/image/upload/v1686045830/Le%20Meme/wagoners_sfb1sf.png")
-cummunity = Community.create!(
-  name: 'Le Wagon',
-  description: 'Le Wagon is a coding bootcamp that teaches students to develop web applications from scratch. Our cutting-edge curriculum and world-class teachers give students all the skills and tools needed to kick-start their tech career, land a job as software developers or product managers, or launch their own startup.'
+# User 3 - _gilad228
+user3 = User.create!(
+  email: "123456003@web.de",
+  password: "123456",
+  username: "_gilad"
 )
-cummunity.photo.attach(io: file, filename: "#{cummunity.name}_logo.png", content_type: "image/png")
-cummunity.save!
 
-puts "...created cummunity: #{cummunity.name}"
+puts "...created user: #{user3.username}"
+
+# User 4 - tonio228
+user4 = User.create!(
+  email: "123456004@web.de",
+  password: "123456",
+  username: "tonio228"
+)
+
+puts "...created user: #{user4.username}"
+
+# User 5 - nklkgr
+user5 = User.create!(
+  email: "123456005@web.de",
+  password: "123456",
+  username: "nklkgr"
+)
+
+puts "...created user: #{user5.username}"
+
+# User 6 - lottirusche97
+user6 = User.create!(
+  email: "123456006@web.de",
+  password: "123456",
+  username: "lottirusche97"
+)
+
+puts "...created user: #{user6.username}"
+
+# User 7 - olli
+user7 = User.create!(
+  email: "123456007@web.de",
+  password: "123456",
+  username: "olli"
+)
+
+puts "...created user: #{user7.username}"
+
+# User 8 - jamie_volley_fan
+user8 = User.create!(
+  email: "123456008@web.de",
+  password: "123456",
+  username: "jamie_volley_fan"
+)
+
+puts "...created user: #{user8.username}"
+
+# User 9 - aliceart
+user9 = User.create!(
+  email: "123456009@web.de",
+  password: "123456",
+  username: "aliceart"
+)
+
+puts "...created user: #{user9.username}"
+
+# User 10 - maximilian_jlu
+user10 = User.create!(
+  email: "123456010@web.de",
+  password: "123456",
+  username: "maximilian_jlu"
+)
+
+puts "...created user: #{user10.username}"
+
+# User 11 - juli45
+user11 = User.create!(
+  email: "123456011@web.de",
+  password: "123456",
+  username: "juli45"
+)
+
+puts "...created user: #{user11.username}"
+
+# User 12 - jazz_julia95
+user12 = User.create!(
+  email: "123456012@web.de",
+  password: "123456",
+  username: "jazz_julia95"
+)
+
+puts "...created user: #{user12.username}"
+
+# User 13 - colleeen
+user13 = User.create!(
+  email: "1234560013@web.de",
+  password: "123456",
+  username: "colleeen"
+)
+
+puts "...created user: #{user13.username}"
+
+# User 14 - antonthegamer
+user14 = User.create!(
+  email: "123456014@web.de",
+  password: "123456",
+  username: "antonthegamer"
+)
+
+puts "...created user: #{user14.username}"
+
+
+# User 15 - meme_lover44
+user15 = User.create!(
+  email: "123456015@web.de",
+  password: "123456",
+  username: "meme_lover44"
+)
+
+puts "...created user: #{user15.username}"
+
+# User 16 - christie
+user16 = User.create!(
+  email: "123456016@web.de",
+  password: "123456",
+  username: "christie"
+)
+
+puts "...created user: #{user16.username}"
+
+# User 17 - code_enthusiast
+user17 = User.create!(
+  email: "123456017@web.de",
+  password: "123456",
+  username: "code_enthusiast"
+)
+
+puts "...created user: #{user17.username}"
+
+
+### COMMUNITIES
+
+# Community 01 - Le Wagon
+file = URI.open("https://res.cloudinary.com/dvje7oyen/image/upload/v1686045830/Le%20Meme/wagoners_sfb1sf.png")
+community = Community.create!(
+  name: 'Le Wagon',
+  description: 'Le Wagon is a coding bootcamp that teaches students to develop web applications from scratch. Our cutting-edge curriculum and world-class teachers give students all the skills and tools needed to kick-start their tech career, land a job as software developers or product managers, or launch their own startup.',
+)
+community.photo.attach(io: file, filename: "#{community.name}_logo.png", content_type: "image/png")
+community.save!
+
+puts "...created cummunity: #{community.name}"
 
 #####
 
