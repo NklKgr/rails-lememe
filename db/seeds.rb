@@ -2173,7 +2173,7 @@ meme = Meme.create!(
 meme.photo.attach(io: file, filename: "#{meme.title}.png", content_type: "image/png")
 meme.save
 
-puts "...Meme 5 created for #{challenge.name}"
+puts "...Meme 5 created for #{challenge0.name}"
 
 # TU Berlin - Thinking Memes Challenge (active)
 
