@@ -1,6 +1,5 @@
 // CAN\NVAS.js plugin
 // ninivert, december 2016
-
 (function (window, document) {
   /**
   * CAN\VAS Plugin - Adding line breaks to canvas
@@ -79,7 +78,6 @@
 	};
 
   let canvas = document.createElement('canvas');/////////////////////////////////////////////////////////////////////////here is one canvas created
-  // var canvas = document.getElementById('canvas');
   var canvasWrapper = document.getElementById('canvasWrapper');
   canvasWrapper.appendChild(canvas);/////////////////////////////////////////////////////////////////////////////////////this one creates the canvas that can be painted and written on
   canvas.width = 500;
@@ -92,8 +90,7 @@
   var textSizeTop = 10;
   var textSizeBottom = 10;
   // var image = document.createElement('img');
-  var image = document.getElementById('img');////////////////////////////////////////////////////////////////////////////here is the d-none image beeng used
-
+  let image = document.getElementById('img');////////////////////////////////////////////////////////////////////////////here is the d-none image beeng used
 
   image.onload = function (ev) {
     // delete and recreate canvas do untaint it
@@ -101,7 +98,6 @@
     canvasWrapper.innerHTML = '';
     // canvas = document.createElement('canvas');////////////////////////////////////////////////////////////////////////here is one canvas created
     canvasWrapper.appendChild(canvas);
-    // console.log("generator echo", canvas);
     ctx = canvas.getContext('2d'); //here happens the magice ;)
     document.getElementById('trueSize').click();
     document.getElementById('trueSize').click();
@@ -109,7 +105,7 @@
   };
 
   document.getElementById('imgURL').oninput = function(ev) {
-    image.src = this.value;
+    image.src = this.value;/////////////////////////////////////////////////////need to paste in here the new src andd call the methodt to redraw the img on the canvas
   };
 
   document.getElementById('imgFile').onchange = function(ev) {
@@ -120,7 +116,13 @@
     reader.readAsDataURL(this.files[0]);
   };
 
-
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////new draw accoring to carousel src from here
+  document.getElementById('btn-carousel').addEventListener('click', function (event) {
+    event.preventDefault();
+    let src = document.querySelector(".active").firstElementChild.getAttribute("src");
+    console.log(src);
+    image.src = src;
+  });
 
   document.getElementById('textTop').oninput = function(ev) {
     textTop = this.value;
@@ -143,8 +145,6 @@
     document.getElementById('textSizeBottomOut').innerHTML = this.value;
   };
 
-
-
 document.getElementById('trueSize').onchange = function(ev) {
   if (document.getElementById('trueSize').checked) {
     canvas.classList.remove('fullwidth');
@@ -152,38 +152,14 @@ document.getElementById('trueSize').onchange = function(ev) {
     canvas.classList.add('fullwidth');
   }
 };
-//old download here
-// document.getElementById('export').onclick = function () {
-//     var img = canvas.toDataURL('image/png');
-//     var link = document.createElement("a");
-//     link.download = 'My Meme';
-//     link.href = img;
-//     link.click();
 
-//     var win = window.open('', '_blank');
-//     win.document.write('<img style="box-shadow: 0 0 1em 0 dimgrey;" src="' + img + '"/>');
-//     win.document.write('<h1 style="font-family: Helvetica; font-weight: 300">Right Click > Save As<h1>');
-//     win.document.body.style.padding = '1em';
-// };
-
-
-// new download here
-// const download = document.getElementById('download');
-// download.addEventListener('click', function (e) {
-//   const link = document.createElement('a');
-//   link.download = 'download.png';
-//   link.href = canvas.toDataURL();
-//   link.click();
-//   link.delete;
-// });
-
-// download.addEventListener('click', function (e) {
-//   const link = document.createElement('a');
-//   link.download = 'download.png';
-//   link.href = canvas.toDataURL();
-//   link.click();
-//   link.delete;
-// });
+download.addEventListener('click', function (e) {
+  const link = document.createElement('a');
+  link.download = 'download.png';
+  link.href = canvas.toDataURL();
+  link.click();
+  link.delete;
+});
 
 
 function style(font, size, align, base) {
@@ -203,7 +179,6 @@ function draw() {
 
   // draw the image
   ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
-  // ctx.drawImage(cl_image_tag(image, 0, 0, canvas.width, canvas.height), 0, 0);
 
   // styles
   ctx.fillStyle = '#fff';
@@ -223,8 +198,6 @@ function draw() {
   var height = ctx.drawBreakingText(bottom, 0, 0, null, 1, 'none').textHeight;
   ctx.drawBreakingText(bottom, canvas.width/2, canvas.height-padding-height, null, 1, 'fill');
   ctx.drawBreakingText(bottom, canvas.width/2, canvas.height-padding-height, null, 1, 'stroke');
-
-
 
   // painting from here on
   var isDrawing = false;
@@ -276,16 +249,11 @@ function draw() {
     thicknessValue.textContent = thickness;
   }
 }
-
-
-// image.src = 'https://imgflip.com/s/meme/The-Most-Interesting-Man-In-The-World.jpg';
 image.crossOrigin = "Anonymous";
 document.getElementById('textSizeTop').value = textSizeTop;
 document.getElementById('textSizeBottom').value = textSizeBottom;
 document.getElementById('textSizeTopOut').innerHTML = textSizeTop;
 document.getElementById('textSizeBottomOut').innerHTML = textSizeBottom;
 
-
-// dragText here
 
 }) (window, document);
