@@ -190,31 +190,31 @@ puts "...created challenge for #{community02.name} - #{challenge03.name}"
 
 # # # Membership
 membership = Membership.create!(
-  user_id: user.id,
+  user_id: user2.id,
   community_id: community.id,
   status: 'approved'
 )
 membership.save
 
-puts "...created a memebership for #{community.name} with user: #{user.username}"
+puts "...created a memebership for #{community.name} with user: #{user2.username}"
 
 ####
 
 membership01 = Membership.create!(
-  user_id: user.id,
+  user_id: user2.id,
   community_id: community01.id,
-  status: 'approved'
+  status: 'pending'
 )
 membership01.save
 
-puts "...created a memebership for #{community01.name} with user: #{user.username}"
+puts "...created a memebership for #{community01.name} with user: #{user2.username}"
 
 ####
 
 membership02 = Membership.create!(
   user_id: user2.id,
   community_id: community02.id,
-  status: 'approved'
+  status: 'pending'
 )
 membership02.save
 
@@ -223,20 +223,20 @@ puts "...created a memebership for #{community02.name} with user: #{user2.userna
 ####
 
 membership03 = Membership.create!(
-  user_id: user.id,
+  user_id: user2.id,
   community_id: community03.id,
-  status: 'approved'
+  status: 'rejected'
 )
 membership03.save
 
-puts "...created a memebership for #{community03.name} with user: #{user.username}"
+puts "...created a memebership for #{community03.name} with user: #{user2.username}"
 
 ####
 
 membership04 = Membership.create!(
   user_id: user.id,
   community_id: community04.id,
-  status: 'pending'
+  status: 'approved'
 )
 membership04.save
 
@@ -267,9 +267,9 @@ puts "...created a memebership for #{community06.name} with user: #{user.usernam
 ####
 
 membership07 = Membership.create!(
-  user_id: user2.id,
+  user_id: user.id,
   community_id: community07.id,
-  status: 'pending'
+  status: 'rejected'
 )
 membership07.save
 
