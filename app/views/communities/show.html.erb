@@ -5,27 +5,25 @@
       <div class="community-details">
         <h1><%= @community.name %></h1>
         <p><%= @community.description %></p>
-
+        <hr>
         <%#   --- CURRENT CHALLENGE ---  %>
         <% @challenge_current.each do |challenge| %>
-      <div class="col-sm">
-    <% if !challenge.memes.first.nil? %>
-      <%= cl_image_tag challenge.memes.first.photo.key %>
-    <% else %>
-      <%= image_tag "jk-placeholder-image.jpg", class: "d-block w-100" %>
-      <% end %>
-      <p><%= challenge.name %></p>
-      </div>
-    <% end %>
+        <div class="col-sm d-flex justify-content-between align-items-center">
+            <h3 class="pe-5">Active Challenge: <strong><%= challenge.name %></strong></h3>
+        <% if !challenge.memes.first.nil? %>
+          <%= cl_image_tag challenge.memes.first.photo.key %>
+        <% else %>
+          <%= image_tag "jk-placeholder-image.jpg", class: "d-block w-50" %>
+        <% end %>
+        </div>
+        <% end %>
         <%#   --- CURRENT CHALLENGE --- END  %>
-
-          <hr>
-          <div class="container">
-    <div class="row">
-
+        <hr>
+        <div class="container">
+      <div class="row">
             <%#   --- ARCHIVED CHALLENGES ---  %>
     <% @challenges.each do |challenge| %>
-      <div class="col-sm">
+      <div class="col-sm archived" data-label="Inactive">
     <% if !challenge.memes.first.nil? %>
       <%= cl_image_tag challenge.memes.first.photo.key %>
     <% else %>
@@ -45,12 +43,12 @@
       </div>
     </div>
 
-    <div class="col-md-3">
-      <div class="comm-members">
+    <div class="col-md-3 comm-members">
+      <div class="">
         <h3>Community Members</h3>
-        <ul>
+        <ul class="list-group">
           <% @community.users.each do |user| %>
-            <li><%= user.username %></li>
+            <li class="list-group-item"><%= user.username %></li>
           <% end %>
         </ul>
       </div>
