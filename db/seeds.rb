@@ -1047,18 +1047,21 @@ challenge42.save
 puts "...created challenge for #{community22.name} - #{challenge42.name}"
 
 
-# # # Membership
-membership = Membership.create!(
+##### MEMBERSHIPS
+
+# User2 - Le Wagon Membership - approved
+membership0 = Membership.create!(
   user_id: user2.id,
-  community_id: community.id,
+  community_id: community0.id,
   status: 'approved'
 )
-membership.save
+membership0.save
 
-puts "...created a memebership for #{community.name} with user: #{user2.username}"
+#####
 
-####
+puts "...created a memebership for #{community0.name} with user: #{user2.username}"
 
+# User2 - Zoo Membership - pending
 membership01 = Membership.create!(
   user_id: user2.id,
   community_id: community01.id,
@@ -1066,10 +1069,11 @@ membership01 = Membership.create!(
 )
 membership01.save
 
+#####
+
 puts "...created a memebership for #{community01.name} with user: #{user2.username}"
 
-####
-
+# User2 - TU Berlin - pending
 membership02 = Membership.create!(
   user_id: user2.id,
   community_id: community02.id,
@@ -1077,10 +1081,11 @@ membership02 = Membership.create!(
 )
 membership02.save
 
+#####
+
 puts "...created a memebership for #{community02.name} with user: #{user2.username}"
 
-####
-
+# User2 - Beats Berlin - rejected
 membership03 = Membership.create!(
   user_id: user2.id,
   community_id: community03.id,
@@ -1088,52 +1093,958 @@ membership03 = Membership.create!(
 )
 membership03.save
 
+#####
+
 puts "...created a memebership for #{community03.name} with user: #{user2.username}"
 
-####
-
+# User2 - Football Club - approved
 membership04 = Membership.create!(
-  user_id: user.id,
-  community_id: community04.id,
+  user_id: user2.id,
+  community_id: community08.id,
   status: 'approved'
 )
 membership04.save
 
-puts "...created a memebership for #{community04.name} with user: #{user.username}"
+#####
 
-####
+puts "...created a memebership for #{community08.name} with user: #{user2.username}"
 
+# User2 - Berlin Club Scene - approved
 membership05 = Membership.create!(
-  user_id: user.id,
-  community_id: community05.id,
-  status: 'pending'
+  user_id: user2.id,
+  community_id: community09.id,
+  status: 'approved'
 )
 membership05.save
 
-puts "...created a memebership for #{community05.name} with user: #{user.username}"
+#####
 
-####
+puts "...created a memebership for #{community09.name} with user: #{user2.username}"
 
+# User2 - Code School - pending
 membership06 = Membership.create!(
-  user_id: user.id,
-  community_id: community06.id,
+  user_id: user2.id,
+  community_id: community10.id,
   status: 'pending'
 )
 membership06.save
 
-puts "...created a memebership for #{community06.name} with user: #{user.username}"
+#####
 
-####
+puts "...created a memebership for #{community10.name} with user: #{user2.username}"
 
+# User2 - Live Laugh Pottery - pending
 membership07 = Membership.create!(
-  user_id: user.id,
-  community_id: community07.id,
-  status: 'rejected'
+  user_id: user2.id,
+  community_id: community11.id,
+  status: 'pending'
 )
 membership07.save
 
-puts "...created a memebership for #{community07.name} with user: #{user.username}"
+#####
 
+puts "...created a memebership for #{community11.name} with user: #{user2.username}"
+
+# User2 - Boulder Berlin - pending
+membership08 = Membership.create!(
+  user_id: user2.id,
+  community_id: community12.id,
+  status: 'pending'
+)
+membership08.save
+
+#####
+
+puts "...created a memebership for #{community12.name} with user: #{user2.username}"
+
+# User2 - Climate Matters - pending
+membership09 = Membership.create!(
+  user_id: user2.id,
+  community_id: community13.id,
+  status: 'pending'
+)
+membership09.save
+
+#####
+
+puts "...created a memebership for #{community13.name} with user: #{user2.username}"
+
+# User2 - Berlin Content Creators - pending
+membership10 = Membership.create!(
+  user_id: user2.id,
+  community_id: community14.id,
+  status: 'pending'
+)
+membership10.save
+
+#####
+
+puts "...created a memebership for #{community14.name} with user: #{user2.username}"
+
+# User2 - Dating Fails - pending
+membership11 = Membership.create!(
+  user_id: user2.id,
+  community_id: community15.id,
+  status: 'pending'
+)
+membership11.save
+
+#####
+
+puts "...created a memebership for #{community15.name} with user: #{user2.username}"
+
+# User2 - HBO Memes - approved
+membership12 = Membership.create!(
+  user_id: user2.id,
+  community_id: community16.id,
+  status: 'approved'
+)
+membership12.save
+
+#####
+
+puts "...created a memebership for #{community16.name} with user: #{user2.username}"
+
+# User2 - Disney Fantasy - approved
+membership13 = Membership.create!(
+  user_id: user2.id,
+  community_id: community17.id,
+  status: 'approved'
+)
+membership13.save
+
+#####
+
+puts "...created a memebership for #{community17.name} with user: #{user2.username}"
+
+# User2 - Forever Studying - approved
+membership14 = Membership.create!(
+  user_id: user2.id,
+  community_id: community18.id,
+  status: 'approved'
+)
+membership14.save
+
+#####
+
+puts "...created a memebership for #{community18.name} with user: #{user2.username}"
+
+# User2 - Fortnite Gamerz - approved
+membership15 = Membership.create!(
+  user_id: user2.id,
+  community_id: community19.id,
+  status: 'approved'
+)
+membership15.save
+
+#####
+
+puts "...created a memebership for #{community19.name} with user: #{user2.username}"
+
+# User2 - Young Drivers & Fast Cars - approved
+membership16 = Membership.create!(
+  user_id: user2.id,
+  community_id: community20.id,
+  status: 'approved'
+)
+membership16.save
+
+#####
+
+puts "...created a memebership for #{community20.name} with user: #{user2.username}"
+
+# User2 - LGBTQ+ - approved
+membership17 = Membership.create!(
+  user_id: user2.id,
+  community_id: community21.id,
+  status: 'approved'
+)
+membership17.save
+
+#####
+
+puts "...created a memebership for #{community21.name} with user: #{user2.username}"
+
+# User2 - #BerlinHackathon - approved
+membership18 = Membership.create!(
+  user_id: user2.id,
+  community_id: community22.id,
+  status: 'approved'
+)
+membership18.save
+
+#####
+
+puts "...created a memebership for #{community22.name} with user: #{user2.username}"
+
+
+# User 1 - Soho House - approved
+membership19 = Membership.create!(
+  user_id: user1.id,
+  community_id: community04.id,
+  status: 'approved'
+)
+membership19.save
+
+#####
+
+puts "...created a memebership for #{community04.name} with user: #{user1.username}"
+
+# User 1 - Dance Academy - pending
+membership20 = Membership.create!(
+  user_id: user1.id,
+  community_id: community05.id,
+  status: 'pending'
+)
+membership20.save
+
+#####
+
+puts "...created a memebership for #{community05.name} with user: #{user1.username}"
+
+# User 1 - Volleyball Club - pending
+membership21 = Membership.create!(
+  user_id: user1.id,
+  community_id: community06.id,
+  status: 'pending'
+)
+membership21.save
+
+#####
+
+puts "...created a memebership for #{community06.name} with user: #{user1.username}"
+
+# User 1 - Art Affairs - pending
+membership22 = Membership.create!(
+  user_id: user1.id,
+  community_id: community07.id,
+  status: 'rejected'
+)
+membership22.save
+
+#####
+
+puts "...created a memebership for #{community07.name} with user: #{user1.username}"
+
+# User1 - Football Club - approved
+membership23 = Membership.create!(
+  user_id: user1.id,
+  community_id: community08.id,
+  status: 'approved'
+)
+membership23.save
+
+#####
+
+puts "...created a memebership for #{community08.name} with user: #{user1.username}"
+
+# User1 - Berlin Club Scene - approved
+membership24 = Membership.create!(
+  user_id: user1.id,
+  community_id: community09.id,
+  status: 'approved'
+)
+membership24.save
+
+#####
+
+puts "...created a memebership for #{community09.name} with user: #{user1.username}"
+
+# User1 - Code School - pending
+membership25 = Membership.create!(
+  user_id: user1.id,
+  community_id: community10.id,
+  status: 'pending'
+)
+membership25.save
+
+#####
+
+puts "...created a memebership for #{community10.name} with user: #{user1.username}"
+
+# User1 - Live Laugh Pottery - pending
+membership26 = Membership.create!(
+  user_id: user1.id,
+  community_id: community11.id,
+  status: 'pending'
+)
+membership26.save
+
+#####
+
+puts "...created a memebership for #{community11.name} with user: #{user1.username}"
+
+# User1 - Boulder Berlin - pending
+membership27 = Membership.create!(
+  user_id: user1.id,
+  community_id: community12.id,
+  status: 'pending'
+)
+membership27.save
+
+#####
+
+puts "...created a memebership for #{community12.name} with user: #{user1.username}"
+
+# User1 - Climate Matters - pending
+membership28 = Membership.create!(
+  user_id: user1.id,
+  community_id: community13.id,
+  status: 'pending'
+)
+membership28.save
+
+#####
+
+puts "...created a memebership for #{community13.name} with user: #{user1.username}"
+
+# User1 - Berlin Content Creators - pending
+membership29 = Membership.create!(
+  user_id: user1.id,
+  community_id: community14.id,
+  status: 'pending'
+)
+membership29.save
+
+#####
+
+puts "...created a memebership for #{community14.name} with user: #{user1.username}"
+
+# User 1 - Dating Fails - approved
+membership30 = Membership.create!(
+  user_id: user1.id,
+  community_id: community15.id,
+  status: 'approved'
+)
+membership30.save
+
+#####
+
+puts "...created a memebership for #{community15.name} with user: #{user1.username}"
+
+# User 1 - HBO Memes - approved
+membership31 = Membership.create!(
+  user_id: user1.id,
+  community_id: community16.id,
+  status: 'approved'
+)
+membership31.save
+
+#####
+
+puts "...created a memebership for #{community16.name} with user: #{user1.username}"
+
+# User 1 - Disney Fantasy - approved
+membership32 = Membership.create!(
+  user_id: user1.id,
+  community_id: community17.id,
+  status: 'approved'
+)
+membership32.save
+
+#####
+
+puts "...created a memebership for #{community17.name} with user: #{user1.username}"
+
+# User 1 - Forever Studying - approved
+membership33 = Membership.create!(
+  user_id: user1.id,
+  community_id: community18.id,
+  status: 'approved'
+)
+membership33.save
+
+#####
+
+puts "...created a memebership for #{community18.name} with user: #{user1.username}"
+
+# User 1 - Fortnite Gamerz - approved
+membership34 = Membership.create!(
+  user_id: user1.id,
+  community_id: community19.id,
+  status: 'approved'
+)
+membership34.save
+
+#####
+
+puts "...created a memebership for #{community19.name} with user: #{user1.username}"
+
+# User 1 - Young Drivers & Fast Cars - approved
+membership35 = Membership.create!(
+  user_id: user1.id,
+  community_id: community20.id,
+  status: 'approved'
+)
+membership35.save
+
+#####
+
+puts "...created a memebership for #{community20.name} with user: #{user1.username}"
+
+# User 1 - LGBTQ+ - approved
+membership36 = Membership.create!(
+  user_id: user1.id,
+  community_id: community21.id,
+  status: 'approved'
+)
+membership36.save
+
+#####
+
+puts "...created a memebership for #{community21.name} with user: #{user1.username}"
+
+# User 1 - #BerlinHackathon - approved
+membership37 = Membership.create!(
+  user_id: user1.id,
+  community_id: community22.id,
+  status: 'approved'
+)
+membership37.save
+
+#####
+
+puts "...created a memebership for #{community22.name} with user: #{user1.username}"
+
+# User 3 - Le Wagon - approved
+membership38 = Membership.create!(
+  user_id: user3.id,
+  community_id: community0.id,
+  status: 'approved'
+)
+membership38.save
+
+#####
+
+puts "...created a memebership for #{community0.name} with user: #{user3.username}"
+
+# User 3 - HBO Memes - approved
+membership39 = Membership.create!(
+  user_id: user3.id,
+  community_id: community16.id,
+  status: 'approved'
+)
+membership39.save
+
+#####
+
+puts "...created a memebership for #{community16.name} with user: #{user3.username}"
+
+# User 3 - Dating Fails - approved
+membership40 = Membership.create!(
+  user_id: user3.id,
+  community_id: community15.id,
+  status: 'approved'
+)
+membership40.save
+
+#####
+
+puts "...created a memebership for #{community15.name} with user: #{user3.username}"
+
+# User 4 - Le Wagon - approved
+membership41 = Membership.create!(
+  user_id: user4.id,
+  community_id: community0.id,
+  status: 'approved'
+)
+membership41.save
+
+#####
+
+puts "...created a memebership for #{community0.name} with user: #{user4.username}"
+
+# User 4 - HBO Memes - approved
+membership42 = Membership.create!(
+  user_id: user4.id,
+  community_id: community16.id,
+  status: 'approved'
+)
+membership42.save
+
+#####
+
+puts "...created a memebership for #{community16.name} with user: #{user4.username}"
+
+# User 4 - LGBTQ+ - approved
+membership43 = Membership.create!(
+  user_id: user4.id,
+  community_id: community21.id,
+  status: 'approved'
+)
+membership43.save
+
+#####
+
+puts "...created a memebership for #{community21.name} with user: #{user4.username}"
+
+# User 5 - Le Wagon - approved
+membership44 = Membership.create!(
+  user_id: user5.id,
+  community_id: community0.id,
+  status: 'approved'
+)
+membership44.save
+
+#####
+
+puts "...created a memebership for #{community0.name} with user: #{user5.username}"
+
+# User 5 - HBO Memes - approved
+membership45 = Membership.create!(
+  user_id: user5.id,
+  community_id: community16.id,
+  status: 'approved'
+)
+membership45.save
+
+#####
+
+puts "...created a memebership for #{community16.name} with user: #{user5.username}"
+
+# User 5 - Young Drivers & Fast Cars - approved
+membership46 = Membership.create!(
+  user_id: user5.id,
+  community_id: community20.id,
+  status: 'approved'
+)
+membership46.save
+
+#####
+
+puts "...created a memebership for #{community20.name} with user: #{user5.username}"
+
+# User 6 - Le Wagon - approved
+membership47 = Membership.create!(
+  user_id: user6.id,
+  community_id: community0.id,
+  status: 'approved'
+)
+membership47.save
+
+#####
+
+puts "...created a memebership for #{community0.name} with user: #{user6.username}"
+
+# User 6 - HBO Memes - approved
+membership48 = Membership.create!(
+  user_id: user6.id,
+  community_id: community16.id,
+  status: 'approved'
+)
+membership48.save
+
+#####
+
+puts "...created a memebership for #{community16.name} with user: #{user6.username}"
+
+# User 6 - Fortnite Gamerz - approved
+membership49 = Membership.create!(
+  user_id: user6.id,
+  community_id: community19.id,
+  status: 'approved'
+)
+membership49.save
+
+#####
+
+puts "...created a memebership for #{community19.name} with user: #{user6.username}"
+
+# User 7 - Le Wagon - approved
+membership50 = Membership.create!(
+  user_id: user7.id,
+  community_id: community0.id,
+  status: 'approved'
+)
+membership50.save
+
+#####
+
+puts "...created a memebership for #{community0.name} with user: #{user7.username}"
+
+# User 7 - HBO Memes - approved
+membership50 = Membership.create!(
+  user_id: user7.id,
+  community_id: community16.id,
+  status: 'approved'
+)
+membership50.save
+
+#####
+
+puts "...created a memebership for #{community16.name} with user: #{user7.username}"
+
+# User 7 - Forever Studying - approved
+membership50 = Membership.create!(
+  user_id: user7.id,
+  community_id: community18.id,
+  status: 'approved'
+)
+membership50.save
+
+#####
+
+puts "...created a memebership for #{community18.name} with user: #{user7.username}"
+
+# User 8 - Le Wagon - approved
+membership51 = Membership.create!(
+  user_id: user8.id,
+  community_id: community0.id,
+  status: 'approved'
+)
+membership51.save
+
+#####
+
+puts "...created a memebership for #{community0.name} with user: #{user8.username}"
+
+# User 8 - HBO Memes - approved
+membership52 = Membership.create!(
+  user_id: user8.id,
+  community_id: community16.id,
+  status: 'approved'
+)
+membership52.save
+
+#####
+
+puts "...created a memebership for #{community16.name} with user: #{user8.username}"
+
+# User 8 - Disney Fantasy - approved
+membership53 = Membership.create!(
+  user_id: user8.id,
+  community_id: community17.id,
+  status: 'approved'
+)
+membership53.save
+
+#####
+
+puts "...created a memebership for #{community17.name} with user: #{user8.username}"
+
+# User 9 - Le Wagon - approved
+membership54 = Membership.create!(
+  user_id: user9.id,
+  community_id: community0.id,
+  status: 'approved'
+)
+membership54.save
+
+#####
+
+puts "...created a memebership for #{community0.name} with user: #{user9.username}"
+
+# User 9 - HBO Memes - approved
+membership54 = Membership.create!(
+  user_id: user9.id,
+  community_id: community16.id,
+  status: 'approved'
+)
+membership54.save
+
+#####
+
+puts "...created a memebership for #{community16.name} with user: #{user9.username}"
+
+# User 9 - Dating Fails - approved
+membership55 = Membership.create!(
+  user_id: user9.id,
+  community_id: community15.id,
+  status: 'approved'
+)
+membership55.save
+
+#####
+
+puts "...created a memebership for #{community15.name} with user: #{user9.username}"
+
+# User 10 - Le Wagon - approved
+membership56 = Membership.create!(
+  user_id: user10.id,
+  community_id: community0.id,
+  status: 'approved'
+)
+membership56.save
+
+#####
+
+puts "...created a memebership for #{community0.name} with user: #{user10.username}"
+
+# User 10 - HBO Memes - approved
+membership57 = Membership.create!(
+  user_id: user10.id,
+  community_id: community16.id,
+  status: 'approved'
+)
+membership57.save
+
+#####
+
+puts "...created a memebership for #{community16.name} with user: #{user10.username}"
+
+# User 10 - Dating Fails - approved
+membership58 = Membership.create!(
+  user_id: user10.id,
+  community_id: community15.id,
+  status: 'approved'
+)
+membership58.save
+
+#####
+
+puts "...created a memebership for #{community15.name} with user: #{user10.username}"
+
+# User 11 - Le Wagon - approved
+membership59 = Membership.create!(
+  user_id: user11.id,
+  community_id: community0.id,
+  status: 'approved'
+)
+membership59.save
+
+#####
+
+puts "...created a memebership for #{community0.name} with user: #{user11.username}"
+
+# User 11 - HBO Memes - approved
+membership60 = Membership.create!(
+  user_id: user11.id,
+  community_id: community16.id,
+  status: 'approved'
+)
+membership60.save
+
+#####
+
+puts "...created a memebership for #{community16.name} with user: #{user11.username}"
+
+# User 11 - Berlin Content Creators - approved
+membership61 = Membership.create!(
+  user_id: user11.id,
+  community_id: community14.id,
+  status: 'approved'
+)
+membership61.save
+
+#####
+
+puts "...created a memebership for #{community14.name} with user: #{user11.username}"
+
+# User 12 - Le Wagon - approved
+membership62 = Membership.create!(
+  user_id: user12.id,
+  community_id: community0.id,
+  status: 'approved'
+)
+membership62.save
+
+#####
+
+puts "...created a memebership for #{community0.name} with user: #{user12.username}"
+
+# User 12 - HBO Memes - approved
+membership63 = Membership.create!(
+  user_id: user12.id,
+  community_id: community16.id,
+  status: 'approved'
+)
+membership63.save
+
+#####
+
+puts "...created a memebership for #{community16.name} with user: #{user12.username}"
+
+# User 12 - Climate Matters - approved
+membership63 = Membership.create!(
+  user_id: user12.id,
+  community_id: community13.id,
+  status: 'approved'
+)
+membership63.save
+
+#####
+
+puts "...created a memebership for #{community13.name} with user: #{user12.username}"
+
+# User 13 - Le Wagon - approved
+membership64 = Membership.create!(
+  user_id: user13.id,
+  community_id: community0.id,
+  status: 'approved'
+)
+membership64.save
+
+#####
+
+puts "...created a memebership for #{community0.name} with user: #{user13.username}"
+
+# User 13 - HBO Memes - approved
+membership65 = Membership.create!(
+  user_id: user13.id,
+  community_id: community16.id,
+  status: 'approved'
+)
+membership65.save
+
+#####
+
+puts "...created a memebership for #{community16.name} with user: #{user13.username}"
+
+# User 13 - Boulder Berlin - approved
+membership66 = Membership.create!(
+  user_id: user13.id,
+  community_id: community12.id,
+  status: 'approved'
+)
+membership66.save
+
+#####
+
+puts "...created a memebership for #{community12.name} with user: #{user13.username}"
+
+# User 14 - Le Wagon - approved
+membership67 = Membership.create!(
+  user_id: user14.id,
+  community_id: community0.id,
+  status: 'approved'
+)
+membership67.save
+
+#####
+
+puts "...created a memebership for #{community0.name} with user: #{user14.username}"
+
+# User 14 - HBO Memes - approved
+membership68 = Membership.create!(
+  user_id: user14.id,
+  community_id: community16.id,
+  status: 'approved'
+)
+membership68.save
+
+#####
+
+puts "...created a memebership for #{community16.name} with user: #{user14.username}"
+
+# User 14 - Code School - approved
+membership69 = Membership.create!(
+  user_id: user14.id,
+  community_id: community10.id,
+  status: 'approved'
+)
+membership69.save
+
+#####
+
+puts "...created a memebership for #{community10.name} with user: #{user14.username}"
+
+# User 15 - Le Wagon - approved
+membership70 = Membership.create!(
+  user_id: user15.id,
+  community_id: community0.id,
+  status: 'approved'
+)
+membership70.save
+
+#####
+
+puts "...created a memebership for #{community0.name} with user: #{user15.username}"
+
+# User 15 - HBO Memes - approved
+membership71 = Membership.create!(
+  user_id: user15.id,
+  community_id: community16.id,
+  status: 'approved'
+)
+membership71.save
+
+#####
+
+puts "...created a memebership for #{community16.name} with user: #{user15.username}"
+
+# User 15 - Football Club - approved
+membership72 = Membership.create!(
+  user_id: user15.id,
+  community_id: community08.id,
+  status: 'approved'
+)
+membership72.save
+
+#####
+
+puts "...created a memebership for #{community08.name} with user: #{user15.username}"
+
+# User 16 - Le Wagon - approved
+membership73 = Membership.create!(
+  user_id: user16.id,
+  community_id: community0.id,
+  status: 'approved'
+)
+membership73.save
+
+#####
+
+puts "...created a memebership for #{community0.name} with user: #{user16.username}"
+
+# User 16 - HBO Memes - approved
+membership74 = Membership.create!(
+  user_id: user16.id,
+  community_id: community16.id,
+  status: 'approved'
+)
+membership74.save
+
+#####
+
+puts "...created a memebership for #{community16.name} with user: #{user16.username}"
+
+# User 16 - Live Laugh Pottery - approved
+membership75 = Membership.create!(
+  user_id: user16.id,
+  community_id: community11.id,
+  status: 'approved'
+)
+membership75.save
+
+#####
+
+puts "...created a memebership for #{community11.name} with user: #{user16.username}"
+
+# User 17 - Le Wagon - approved
+membership76 = Membership.create!(
+  user_id: user17.id,
+  community_id: community0.id,
+  status: 'approved'
+)
+membership76.save
+
+#####
+
+puts "...created a memebership for #{community0.name} with user: #{user17.username}"
+
+# User 17 - HBO Memes - approved
+membership77 = Membership.create!(
+  user_id: user17.id,
+  community_id: community16.id,
+  status: 'approved'
+)
+membership77.save
+
+#####
+
+puts "...created a memebership for #{community16.name} with user: #{user17.username}"
+
+# User 17 - Berlin Club Scene - approved
+membership78 = Membership.create!(
+  user_id: user17.id,
+  community_id: community09.id,
+  status: 'approved'
+)
+membership78.save
+
+#####
+
+puts "...created a memebership for #{community09.name} with user: #{user17.username}"
 
 # # # MEMES
 file = URI.open("https://res.cloudinary.com/dvje7oyen/image/upload/v1686043915/Le%20Meme/1685575227444_n4rrmn.jpg")
