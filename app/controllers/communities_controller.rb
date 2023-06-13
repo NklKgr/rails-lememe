@@ -13,6 +13,9 @@ class CommunitiesController < ApplicationController
       @membership = Membership.new
     end
     @memes = @community.memes
+    @challenge = Challenge.new
+    @challenges = @community.challenges.where(active: false).order(created_at: :desc)
+    @challenge_current = @community.challenges.where(active: true)
 
   end
 
