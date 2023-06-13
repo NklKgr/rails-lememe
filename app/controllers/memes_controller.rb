@@ -11,7 +11,7 @@ class MemesController < ApplicationController
   def index
     @user = current_user
     @memes = @user.feed
-    @communities = current_user.communities
+    @communities = current_user.communities + current_user.approved_community_memberships
     @challenges = Challenge.all
     @communities_search = current_user.communities
     @commets = Comment.where(meme_id: @memes.ids)

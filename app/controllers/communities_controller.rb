@@ -7,6 +7,11 @@ class CommunitiesController < ApplicationController
 
   def show
     @community = Community.find(params[:id])
+    @membership = current_user.memberships.where(community: @community).first
+
+    if !@membership
+      @membership = Membership.new
+    end
     @memes = @community.memes
     @challenge = Challenge.new
     @challenges = @community.challenges.where(active: false).order(created_at: :desc)
