@@ -7,7 +7,13 @@ class CommunitiesController < ApplicationController
 
   def show
     @community = Community.find(params[:id])
+    @membership = current_user.memberships.where(community: @community).first
+
+    if !@membership
+      @membership = Membership.new
+    end
     @memes = @community.memes
+
   end
 
   def new
