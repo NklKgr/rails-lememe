@@ -16,7 +16,6 @@ class CommunitiesController < ApplicationController
     @challenge = Challenge.new
     @challenges = @community.challenges.where(active: false).order(created_at: :desc)
     @challenge_current = @community.challenges.where(active: true)
-
   end
 
   def new

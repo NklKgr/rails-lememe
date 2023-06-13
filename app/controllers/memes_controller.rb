@@ -13,6 +13,11 @@ class MemesController < ApplicationController
     @memes = @user.feed
     @communities = current_user.communities + current_user.approved_community_memberships
     @challenges = Challenge.all
+    @commets = Comment.where(meme_id: @memes.ids)
+    @comment = Comment.new
+    @top_memes = @memes.sort_by { |meme| meme.score }.reverse.first(5)
+    @all_memes = @memes.sort_by { |meme| meme.score }.reverse
+
     @communities_search = @communities
 
     if params[:query].present? || params[:filter].present?

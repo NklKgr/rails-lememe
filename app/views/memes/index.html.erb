@@ -54,7 +54,7 @@
                 <%= cl_image_tag meme.photo.key if meme.photo.attached? %>
               </div>
 <%# voting in modal function below %>
-              <div class="meme-card-infos" data-controller="votings">
+        <div class="meme-card-infos" data-controller="votings">
           <span data-votings-target="upvotes" class="meme-card-score"><%= meme.score %></span>
           <div class="meme-card-vote">
             <% vote = meme.votes.where(user: current_user).first %>
@@ -166,9 +166,15 @@
     <% end %>
     </tbody>
   </table>
-    </div>
-
+  <%= link_to '<i class="fa-solid fa-ranking-star pe-2"></i>Open Leaderboard'.html_safe,
+  @meme_path,
+  class: "btn btn-light btn-lg w-100 book-button-rounded ",
+  data: { bs_target: '#leaderboardModal', bs_toggle: 'modal' } %>
+  </div>
 </div>
+
+<!-- Modal Success -->
+
 
   <div class="ruleboard">
     <h3>Ruleboard</h3>
@@ -188,4 +194,35 @@
   </div>
 </div>
 
-<%#= turbo_frame_tag "modal-new-community" do %>
+
+<div class="modal fade" id="leaderboardModal" tabindex="-1" role="dialog" aria-labelledby="leaderboardModal" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header justify-content-center">
+        <h5 class="modal-title" id="exampleModalLongTitle">The Leaderboard</h5>
+        </button>
+      </div>
+      <div class="modal-body">
+        <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">username</th>
+        <th scope="col">votes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @all_memes.each_with_index do |meme, index| %>
+      <tr>
+        <th scope="row"><%= index + 1 %></th>
+        <td><%= meme.user.username %></td>
+        <td><%= meme.score %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+      </div>
+        <%= link_to "close", memes_path, class: "btn btn-info w-100" %>
+    </div>
+  </div>
+</div>

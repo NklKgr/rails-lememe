@@ -33,9 +33,16 @@
   justify-content: center;
   background-color: #fff;
   padding: 1rem 2rem;
-  font-size: .8rem;
   height: calc(50% - 1rem);
   box-shadow: 0 0 50px rgba(0, 0, 0, 0.2);
+
+  table {
+    font-size: 1.2rem;
+  }
+
+  h4 {
+    margin-bottom: 2rem;
+  }
 }
 
 
@@ -69,4 +76,12 @@
   text-transform: uppercase;
   letter-spacing: 1px;
   }
+}
+
+table td:last-child, table th:last-child {
+  text-align: center;
+}
+
+table {
+  font-size: 1.2rem;
 }
