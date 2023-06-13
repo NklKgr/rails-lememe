@@ -4,6 +4,9 @@
 
   <% if @membership.status == "approved" %>
     <%= @membership.status %>
+
+    <%# insert page content for approved members %>
+
   <% elsif @membership.status == "pending" %>
     <%= @membership.status %>
     <p>Please, be patient, we are processing your membership request.</p>
