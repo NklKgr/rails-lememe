@@ -54,7 +54,7 @@
                 <%= cl_image_tag meme.photo.key if meme.photo.attached? %>
               </div>
 <%# voting in modal function below %>
-            <div class="meme-card-infos" data-controller="votings">
+        <div class="meme-card-infos" data-controller="votings">
           <span data-votings-target="upvotes" class="meme-card-score"><%= meme.score %></span>
           <div class="meme-card-vote">
             <% vote = meme.votes.where(user: current_user).first %>

@@ -1,0 +1,31 @@
+<h3>Membership Requests:</h3>
+
+<div class="memberships">
+  <% @community.memberships.each do |membership| %>
+    <div class="membership">
+      <div class="membership-left">
+      </div>
+      <div class="membership-info">
+        <div class="membership-info-title">
+          <%= membership.user.username %></td>
+        </div>
+        <%= membership.status %></td>
+      </div>
+      <div class="booking-actions">
+        <% if membership.pending? %>
+          <div class="d-flex">
+            <%= simple_form_for membership do |f| %>
+              <%= f.input :status, as: :hidden, input_html: { value: 'accepted'} %>
+              <%= f.submit 'Accept', class: 'btn btn-info' %>
+            <% end %>
+
+            <%= simple_form_for membership do |f| %>
+              <%= f.input :status, as: :hidden, input_html: { value: 'rejected'} %>
+              <%= f.submit 'Reject', class: 'btn btn-light' %>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>
