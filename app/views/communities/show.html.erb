@@ -1,30 +1,58 @@
 <!-- app/views/communities/show.html.erb -->
-<div class="container border border-info">
+<div id="comm-show" class="container">
   <div class="row">
-    <div class="col-md-8">
+    <div class="col-md-9">
       <div class="community-details">
-        <h2><%= @community.name %></h2>
+        <h1><%= @community.name %></h1>
         <p><%= @community.description %></p>
-      </div>
 
-      <div class="memes">
-        <% @community.memes.each do |meme| %>
-          <div class="meme">
-            <h4><%= meme.title %></h4>
-          </div>
-        <% end %>
+        <%#   --- CURRENT CHALLENGE ---  %>
+        <% @challenge_current.each do |challenge| %>
+      <div class="col-sm">
+    <% if !challenge.memes.first.nil? %>
+      <%= cl_image_tag challenge.memes.first.photo.key %>
+    <% else %>
+      <%= image_tag "jk-placeholder-image.jpg", class: "d-block w-100" %>
+      <% end %>
+      <p><%= challenge.name %></p>
+      </div>
+    <% end %>
+        <%#   --- CURRENT CHALLENGE --- END  %>
+
+          <hr>
+          <div class="container">
+    <div class="row">
+
+            <%#   --- ARCHIVED CHALLENGES ---  %>
+    <% @challenges.each do |challenge| %>
+      <div class="col-sm">
+    <% if !challenge.memes.first.nil? %>
+      <%= cl_image_tag challenge.memes.first.photo.key %>
+    <% else %>
+      <%= image_tag "jk-placeholder-image.jpg", class: "d-block w-100" %>
+      <% end %>
+      <p><%= challenge.name %></p>
+      </div>
+    <% end %>
+    <%= simple_form_for [@community, @challenge] do |f| %>
+      <span>Create a new Challenge</span>
+      <%= f.input :name, label: false, placeholder: "Please give it a name" %>
+      <%= f.button :submit, "Create", class: "btn btn-primary" %>
+    <% end %>
+          <%#   --- ARCHIVED CHALLENGES --- END  %>
+    </div>
+  </div>
       </div>
     </div>
 
-    <div class="col-md-4 border border-info">
-      <div class="sidebar">
+    <div class="col-md-3">
+      <div class="comm-members">
         <h3>Community Members</h3>
         <ul>
           <% @community.users.each do |user| %>
-            <li><%= user.name %></li>
+            <li><%= user.username %></li>
           <% end %>
         </ul>
       </div>
     </div>
-  </div>
 </div>
