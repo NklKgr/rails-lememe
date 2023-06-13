@@ -2,6 +2,13 @@
   display: flex;
   justify-content: center;
   padding-top: 2rem;
+  max-width: 650px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+
+  a {
+    margin: .15rem;
+  }
 
   .single-tag {
     margin: 0 0.5rem;
@@ -9,11 +16,12 @@
     border-radius: 0.5rem;
     background-color: $info;
     color: $light;
-    font-size: .8rem;
-    font-weight: 400;
+    font-size: 1rem;
+    font-weight: 700;
     text-transform: uppercase;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
+    text-shadow: 1px 1px 1px #0000005e;
 
     &:hover {
       background-color: $primary;

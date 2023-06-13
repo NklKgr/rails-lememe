@@ -16,7 +16,8 @@ class MemesController < ApplicationController
     @communities_search = current_user.communities
     @commets = Comment.where(meme_id: @memes.ids)
     @comment = Comment.new
-    @top_memes = @memes.sort_by { |meme| meme.score }.reverse.first(10)
+    @top_memes = @memes.sort_by { |meme| meme.score }.reverse.first(5)
+    @all_memes = @memes.sort_by { |meme| meme.score }.reverse
 
     filter = params[:filter]
     query = params[:query]
