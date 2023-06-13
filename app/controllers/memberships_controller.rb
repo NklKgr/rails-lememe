@@ -46,8 +46,7 @@ class MembershipsController < ApplicationController
       @membership.save
       flash[:notice] = 'Membership application updated successfully.'
     end
-
-      redirect_to community_memberships_path
+      redirect_to memberships_community_path(@community)
   end
 
   private
