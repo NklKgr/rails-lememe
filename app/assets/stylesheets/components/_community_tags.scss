@@ -5,26 +5,37 @@
   max-width: 650px;
   margin: 0 auto;
   flex-wrap: wrap;
+  border-bottom: 1px solid $content-color;
+  padding-bottom: 1.5rem;
 
   a {
     margin: .15rem;
   }
 
   .single-tag {
-    margin: 0 0.5rem;
+    margin: .2rem;
     padding: 0.5rem 1rem;
     border-radius: 0.5rem;
-    background-color: $info;
-    color: $light;
+    background-color: transparent;
+    color: $content-color;
     font-size: 1rem;
     font-weight: 700;
     text-transform: uppercase;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
-    text-shadow: 1px 1px 1px #0000005e;
+    border: 2px solid $content-color;
+
+    i {
+      margin-left: 0.5rem;
+    }
 
     &:hover {
-      background-color: $primary;
+      border-color: $light;
+      color: $light;
+    }
+
+    &:hover i {
+      color: $light;
     }
   }
 }

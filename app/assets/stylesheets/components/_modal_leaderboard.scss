@@ -1,11 +1,9 @@
-.modal-content {
+#leader-modal {
   background-color: rgba(255, 255, 255, 0.9);
 }
 
-.close-btn {
-  width: 70px;
-  left: 50%;
+.close {
   position: absolute;
-  bottom: -38px;
-  transform: translateX(-50%);
+  right: 0;
+  top: 0;
 }

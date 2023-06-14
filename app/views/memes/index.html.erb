@@ -2,7 +2,7 @@
     <% @communities_search.each do |community| %>
         <%= link_to community_path(community) do %>
       <div class="single-tag">
-            <span><%= community.name %></span>
+            <span><%= community.name %> <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
       </div>
         <% end %>
     <% end %>
@@ -18,6 +18,7 @@
     <% end %>
   </div>
   <div class="create-meme">
+  <%= image_tag "funny_face.png", class: "w-100" %>
   <%= link_to new_meme_path, data: { turbo: false } do %>
     <button type="button" class="btn btn-primary btn-lg w-100"><i class="fa-solid fa-plus"></i> Create a new Meme</button>
   <% end %>
@@ -41,7 +42,7 @@
 <!-- Modal -->
       <div class="modal fade" id="exampleModalCenter<%= meme.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
-          <div class="modal-content">
+          <div id="meme-card-modal" class="modal-content">
             <div class="modal-header">
               <h5 class="modal-title" id="exampleModalCenterTitle"> <%= meme.title %> </h5>
               <button type="button" class="close btn btn-primary" data-bs-dismiss="modal" aria-label="Close">
@@ -50,7 +51,6 @@
             </div>
             <div class="modal-body">
               <div class="meme-card">
-                <span class="meme-title"><%= meme.title %></span>
                 <%= cl_image_tag meme.photo.key if meme.photo.attached? %>
               </div>
 <%# voting in modal function below %>
@@ -93,7 +93,6 @@
               </div>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
 <!-- create comment section with simple form -->
               <%= render 'comments/comment_form', meme: meme, comment: @comment %>
             </div>
@@ -197,10 +196,12 @@
 
 <div class="modal fade" id="leaderboardModal" tabindex="-1" role="dialog" aria-labelledby="leaderboardModal" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
+    <div id="leader-modal" class="modal-content">
       <div class="modal-header justify-content-center">
         <h3 class="modal-title" id="exampleModalLongTitle">The Leaderboard</h3>
-        </button>
+           <button type="button" class="close btn btn-primary" data-bs-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
       </div>
       <div class="modal-body">
         <table class="table">
@@ -221,7 +222,6 @@
     <% end %>
     </tbody>
   </table>
-        <%= link_to "close", memes_path, class: "btn btn-primary close-btn" %>
     </div>
   </div>
 </div>
