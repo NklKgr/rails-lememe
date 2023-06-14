@@ -33,12 +33,14 @@
 }
 
 .boxtool {
-  padding-top: 2rem;
+  padding-top: 1rem;
   border-radius: 20px;
   color: $content-color;
   margin: 0.5rem 0;
   background: $dark-blue;
   border-color: $border-color;
+  border-width: 2px;
+  border-style: solid;
 }
 
 .text-color {
