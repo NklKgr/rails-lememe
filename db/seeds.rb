@@ -1053,13 +1053,13 @@ puts "...created challenge for #{community22.name} - #{challenge42.name}"
 
 ##### MEMBERSHIPS
 
-# User2 - Le Wagon Membership - approved
-membership0 = Membership.create!(
-  user_id: user2.id,
-  community_id: community0.id,
-  status: 'approved'
-)
-membership0.save
+# # User2 - Le Wagon Membership - approved
+# membership0 = Membership.create!(
+#   user_id: user2.id,
+#   community_id: community0.id,
+#   status: 'approved'
+# )
+# membership0.save
 
 #####
 
