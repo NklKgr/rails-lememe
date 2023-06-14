@@ -29,6 +29,6 @@ class User < ApplicationRecord
   end
 
   def approved_community_memberships
-    communities_as_member.joins(:memberships).where(memberships: { status: "approved" })
+    communities_as_member.joins(:memberships).where(memberships: { status: "approved" }).distinct
   end
 end
