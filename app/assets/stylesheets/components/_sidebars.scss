@@ -25,14 +25,18 @@
       position: relative;
       top: -1px;
       opacity: 0;
+      transition: .3s all ease-in-out;
+
     }
 
   a {
     display: block;
     font-size: 1.3rem;
     font-weight: 400;
-    margin-bottom: 1rem;
+    margin-bottom: .4rem;
     padding: .5rem 1rem;
+    transition: .3s all ease-in-out;
+
 
     &:hover {
       background-color: rgba(255, 255, 255, 0.1);
@@ -44,8 +48,31 @@
 
 
 
-
   }
+}
+
+span.active a {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+.show-all {
+  i {
+    padding-left: 1rem;
+    transition: .3s all ease-in-out;
+  }
+}
+.show-all.active {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #fff;
+
+  i {
+    opacity: 1;
+  }
+}
+
+span.active a i {
+  opacity: 1;
 }
 
   h3 {

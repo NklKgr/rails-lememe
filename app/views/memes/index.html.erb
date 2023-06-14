@@ -12,9 +12,11 @@
 <div class="left-sidebar">
   <h3 class="text-light">My Communities</h3>
   <div class="filtered">
-    <%= link_to 'Show all', memes_path, class: "w-100" %>
+    <%= link_to 'Show all <i class="fa-solid fa-list-ul"></i>'.html_safe, memes_path, class: "w-100 show-all #{params[:filter].nil? && params[:query].nil? ? 'active' : ''}" %>
     <% @communities.each do |community| %>
-      <span></i><strong><%= link_to '<i class="fa-solid fa-filter"></i>'.html_safe + community.name, memes_path(filter: community.name), class: "w-100" %></span></strong>
+      <span class="<%= params[:filter].presence == community.name || params[:query].presence == community.name ? "active" : "" %>">
+        <strong><%= link_to '<i class="fa-solid fa-arrow-right-long"></i>'.html_safe + community.name, memes_path(filter: community.name), class: "w-100" %></strong>
+      </span>
     <% end %>
   </div>
   <div class="create-meme">
