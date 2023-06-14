@@ -24,13 +24,13 @@
 </div>
 </div>
 
-<div class="container" data-controller="comment">
+<div class="container">
   <div class="row justify-content-center">
     <!-- Memes Feed -->
     <div class="col-md-8">
       <div class="container w-100 d-flex justify-content-center flex-wrap mt-4 flex-column align-items-center">
     <% @memes.each do | meme | %>
-    <div class="meme-container">
+    <div class="meme-container" data-controller="comment">
     <!-- Button trigger modal: whole card -->
     <button type="button" class="btn p-0" data-bs-toggle="modal" data-bs-target="#exampleModalCenter<%= meme.id %>">
         <div class="meme-card">

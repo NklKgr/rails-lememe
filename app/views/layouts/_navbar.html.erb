@@ -27,7 +27,7 @@
         <% if user_signed_in? %>
         </li>
         <li class="nav-item dropdown">
-          <%= image_tag "https://media.istockphoto.com/id/1345002600/de/vektor/geschlechtsneutraler-profil-avatar-frontansicht-eines-anonymen-personengesichts.jpg?s=1024x1024&w=is&k=20&c=EffilvAau-TRXNofgoFJBG66tVFMKWTqhTqiAfWu4gY=", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <%= image_tag "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1681714164/dyrov7qduicojng65ivy.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
             <%= link_to "Log out",  destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
             <%= link_to "Reset password", "#", class: "dropdown-item" %>
