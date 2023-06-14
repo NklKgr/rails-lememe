@@ -6,12 +6,14 @@
 
   .meme-tool-boxes {
     display: flex;
+    text-decoration: white;
     flex-direction: column;
-    background: #fff;
+    background: $dark-blue;
     padding: 2rem;
     justify-content: center;
     max-height: 330px;
     width: calc(50% - .25rem);  }
+    border-color: $border-color;
 }
 
 
@@ -21,6 +23,30 @@
   margin-top: 3rem;
 
   form {
-    width: 50%;
+    width: 100%;
   }
+}
+
+#meme-tools {
+  color: $content-color;
+  border-color: $border-color;
+}
+
+.boxtool {
+  padding-top: 1rem;
+  border-radius: 20px;
+  color: $content-color;
+  margin: 0.5rem 0;
+  background: $dark-blue;
+  border-color: $border-color;
+  border-width: 2px;
+  border-style: solid;
+}
+
+.text-color {
+  color: $primary;
+}
+
+.primary-carousel-arrow {
+  font-size: 40px;
 }

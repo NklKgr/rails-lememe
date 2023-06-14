@@ -1,32 +1,30 @@
 <div class="container main-creator">
-  <h1 class="text-center pb-4">Meme Generator</h1>
+  <h1 class="text-center text-color pb-4">Meme Generator</h1>
   <div class="box row g-2 container" data-controller="meme-submit">
-
-    <div class="col-6" data-action="mouseup->meme-submit#getImageUrl">
+    <div class="col-6 d-flex justify-content-center" data-action="mouseup->meme-submit#getImageUrl">
       <div id="canvasWrapper">
         <%= image_tag "meme_I.jpg", quality: 'auto', width: 500, id: "img", class: 'd-none' %>
       </div>
     </div>
-
     <div id="meme-tools" class="box col-6 row g-2 container">
-      <div class="col-6 meme-tool-boxes">
-        <h3><i class="fa fa-picture-o fa-fw" aria-hidden="true"></i>Source Image</h3>
+      <div class="col-6 boxtool meme-tool-boxes">
+        <h3><i class="fa-regular fa-image" style="color: #a3b1cd;"></i></i> Source Image</h3>
         <div class="box">
           <div>
-            <p>From URL</p>
+            <p class="mb-1rem" >From URL</p>
             <input id="imgURL" class="block" type="text" placeholder="Link to image" data-imgsrc-target="pastesrc" />
             <br>
           </div>
           <div>
-            <p>From Local Disk</p>
-            <label for="imgFile" class="btn"><i class="fa fa-upload fa-fw"></i></label>
+            <p class="mt-3">From Local Disk</p>
+            <label for="imgFile" class="btn btn-primary"><i class="fa fa-upload fa-fw"></i></label>
             <input id="imgFile" type="file" accept="image/*"/>
           </div>
         </div>
       </div>
 
-      <div class="col-6 meme-tool-boxes">
-        <h3 class="primary-font-color"><i class="fa fa-commenting-o fa-fw" aria-hidden="true"></i>Meme Text</h3>
+      <div class="col-6 boxtool meme-tool-boxes">
+        <h3><i class="fa fa-commenting fa-fw" aria-hidden="true"></i>Meme Text</h3>
         <div class="box">
           <div>
             <p>Top Text</p>
@@ -40,7 +38,7 @@
         </div>
       </div>
 
-      <div class="col-6 meme-tool-boxes">
+      <div class="col-6 boxtool meme-tool-boxes">
         <h3><i class="fa fa-text-height fa-fw" aria-hidden="true"></i>Text Size</h3>
         <div class="box">
           <div>
@@ -54,8 +52,8 @@
         </div>
       </div>
 
-      <div class="col-6 meme-tool-boxes">
-        <h3><i class="fa-solid fa-pen-nib" style="color: #000000;" aria-hidden="true"></i>Pen Size</h3>
+      <div class="col-6 boxtool meme-tool-boxes">
+        <h3><i class="fa-solid fa-pen-nib" style="color: #a3b1cd;" aria-hidden="true"></i> Pen Size</h3>
         <label for="color">Color:</label>
         <input type="color" id="color" value="#000000"> <br>
         <label for="thickness">Thickness:</label>
@@ -63,7 +61,7 @@
         <span id="thicknessValue">1</span>
       </div>
 
-      <div class="col-6 meme-tool-boxes">
+      <div class="col-6 boxtool meme-tool-boxes">
         <div>
           <h3><i class="fa fa-eye fa-fw" aria-hidden="true"></i>Preview Size</h3>
           <input id="trueSize" type="checkbox"/>
@@ -71,27 +69,27 @@
         </div>
       </div>
 
-      <div class="col-6 meme-tool-boxes">
+      <div class="col-6 boxtool meme-tool-boxes">
         <h3><i class="fa fa-download fa-fw" aria-hidden="true"></i>Export</h3>
-        <p>Coming soon</p>
         <button id="download" class="btn btn-primary"><i class="bi bi-download"></i> Download</button>
       </div>
     </div>
 
-    <div class="col-6">
-      <%= render 'memes/carousel' %>
-      <button id="btn-carousel" class="btn my-3 btn-primary"> Use this image </button>
-    </div>
-
-    <div class="create-meme-form">
-      <%=  simple_form_for @meme, html: { multipart: true } do |f| %>
-        <%= f.association :challenge, prompt: "Select a Challenge", collection: @challenges %>
-        <%= f.input :title, prompt: "Select a title" %>
-        <div class="d-none">
-          <input type="text" name="photo" data-meme-submit-target="baseurlphoto">
+    <div class="mt-2 boxtool row">
+      <div class="col-6">
+          <%= render 'memes/carousel' %>
+          <button id="btn-carousel" class="btn my-3 btn-primary"> Use this image </button>
         </div>
-        <%= f.button :submit, "Submit", class: "btn btn-primary" %>
-      <% end %>
+        <div class="col-6 mt-0 d-flex align-items-start create-meme-form">
+          <%=  simple_form_for @meme, html: { multipart: true } do |f| %>
+            <%= f.association :challenge, prompt: "Select a Challenge", collection: @challenges %>
+            <%= f.input :title, prompt: "Select a title" %>
+            <div class="d-none">
+              <input type="text" name="photo" data-meme-submit-target="baseurlphoto">
+            </div>
+            <%= f.button :submit, "Submit", class: "btn btn-primary" %>
+          <% end %>
+        </div>
+      </div>
     </div>
-  </div>
 </div>

@@ -86,8 +86,7 @@
               data: { action: 'votings#addVoteClassDown', votings_target: 'downvoteBtn' } %>
             <% end %>
           </div>
-          <span class="meme-comments">Comments</span>
-        </div>
+        </div> 
               <div class="comment-container" data-comment-target="commentsContainer" >
                 <% meme.comments.all.each do |comment| %>
                 <%= render "comments/comment_section", comment: comment%>
@@ -134,7 +133,6 @@
               data: { action: 'votings#addVoteClassDown', votings_target: 'downvoteBtn' } %>
             <% end %>
           </div>
-          <span class="meme-comments">Comments</span>
         </div>
       </div>
     <% end %>
