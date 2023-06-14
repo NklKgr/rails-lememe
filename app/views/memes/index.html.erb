@@ -11,15 +11,15 @@
 <!-- Left Sidebar Content -->
 <div class="left-sidebar">
   <h3>My Communities</h3>
-  <div>
-    <%= link_to 'Show all', memes_path, class: "btn btn-primary mb-1 w-100" %>
+  <div class="filtered">
+    <%= link_to 'Show all', memes_path, class: "w-100" %>
     <% @communities.each do |community| %>
-      <span><strong><%= link_to community.name, memes_path(filter: community.name), class: "btn btn-primary mb-1 w-100" %></span></strong>
+      <span></i><strong><%= link_to '<i class="fa-solid fa-filter"></i>'.html_safe + community.name, memes_path(filter: community.name), class: "w-100" %></span></strong>
     <% end %>
   </div>
   <div class="create-meme">
   <%= link_to new_meme_path, data: { turbo: false } do %>
-    <button type="button" class="btn btn-primary w-100"><i class="fa-solid fa-plus"></i> Create a new Meme</button>
+    <button type="button" class="btn btn-primary btn-lg w-100"><i class="fa-solid fa-plus"></i> Create a new Meme</button>
   <% end %>
 </div>
 </div>
@@ -32,7 +32,7 @@
     <% @memes.each do | meme | %>
     <div class="meme-container">
     <!-- Button trigger modal: whole card -->
-    <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModalCenter<%= meme.id %>">
+    <button type="button" class="btn p-0" data-bs-toggle="modal" data-bs-target="#exampleModalCenter<%= meme.id %>">
         <div class="meme-card">
           <span class="meme-title"><%= meme.title %></span>
           <%= cl_image_tag meme.photo.key if meme.photo.attached? %>
@@ -146,7 +146,7 @@
 </div>
 <div class="right-sidebar">
   <div class="leaderboard">
-    <h4>Leaderboard</h4>
+    <h3>Leaderboard</h3>
     <div class="leader-table">
       <table class="table">
     <thead>
@@ -168,7 +168,7 @@
   </table>
   <%= link_to '<i class="fa-solid fa-ranking-star pe-2"></i>Open Leaderboard'.html_safe,
   @meme_path,
-  class: "btn btn-light btn-lg w-100 book-button-rounded ",
+  class: "btn btn-primary w-100 book-button-rounded fw-bold text-uppercase",
   data: { bs_target: '#leaderboardModal', bs_toggle: 'modal' } %>
   </div>
 </div>
@@ -199,7 +199,7 @@
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header justify-content-center">
-        <h5 class="modal-title" id="exampleModalLongTitle">The Leaderboard</h5>
+        <h3 class="modal-title" id="exampleModalLongTitle">The Leaderboard</h3>
         </button>
       </div>
       <div class="modal-body">
@@ -221,8 +221,7 @@
     <% end %>
     </tbody>
   </table>
-      </div>
-        <%= link_to "close", memes_path, class: "btn btn-info w-100" %>
+        <%= link_to "close", memes_path, class: "btn btn-primary close-btn" %>
     </div>
   </div>
 </div>
