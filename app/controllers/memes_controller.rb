@@ -13,15 +13,24 @@ class MemesController < ApplicationController
     @memes = @user.feed
     @communities = current_user.communities + current_user.approved_community_memberships
     @challenges = Challenge.all
+    @commets = Comment.where(meme_id: @memes.ids)
+    @comment = Comment.new
+    @top_memes = @memes.sort_by { |meme| meme.score }.reverse.first(5)
+    @all_memes = @memes.sort_by { |meme| meme.score }.reverse
+
     @communities_search = @communities
+    @commets = Comment.where(meme_id: @memes.ids)
+    @comment = Comment.new
+    @top_memes = @memes.sort_by { |meme| meme.score }.reverse.first(5)
+    @all_memes = @memes.sort_by { |meme| meme.score }.reverse
 
     if params[:query].present? || params[:filter].present?
       @communities_search = Community.where("name ILIKE ?", "%#{params[:query] || params[:filter]}%")
       @memes = Meme.joins(challenge: {community: :memberships})
-                   .where(challenges: { community_id: @communities_search.pluck(:id) }, memberships: {status: "approved"})
-                   .or(Meme.joins(challenge: {community: :memberships})
+                    .where(challenges: { community_id: @communities_search.pluck(:id) }, memberships: {status: "approved"})
+                    .or(Meme.joins(challenge: {community: :memberships})
                             .where(challenges: { community_id: @communities_search.pluck(:id) }, communities: { user: current_user }))
-                   .order(created_at: :desc)
+                    .order(created_at: :desc)
     end
   end
 
