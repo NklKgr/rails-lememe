@@ -9,3 +9,9 @@
 @import "community_tags";
 @import "meme_create";
 @import "community_show";
+@import "modal_leaderboard";
+
+
+body {
+  background-color: $body-color;
+}
