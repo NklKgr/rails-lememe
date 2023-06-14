@@ -19,3 +19,14 @@ input[type='text'], input[type='range'] {
 h3 > i.fa {
   margin-right: .2em;
 }
+
+.primary-font-color {
+  color: $primary;
+}
+
+select.form-control {
+  option:checked {
+    background-color: $primary;
+    color: $primary;
+  }
+}

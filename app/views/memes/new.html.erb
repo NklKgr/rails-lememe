@@ -16,7 +16,6 @@
             <p>From URL</p>
             <input id="imgURL" class="block" type="text" placeholder="Link to image" data-imgsrc-target="pastesrc" />
             <br>
-            <a href="http://memeful.com/" target="_blank">Memeful.com</a>
           </div>
           <div>
             <p>From Local Disk</p>
@@ -27,7 +26,7 @@
       </div>
 
       <div class="col-6 meme-tool-boxes">
-        <h3><i class="fa fa-commenting-o fa-fw" aria-hidden="true"></i>Meme Text</h3>
+        <h3 class="primary-font-color"><i class="fa fa-commenting-o fa-fw" aria-hidden="true"></i>Meme Text</h3>
         <div class="box">
           <div>
             <p>Top Text</p>
@@ -46,11 +45,11 @@
         <div class="box">
           <div>
             <p>Top Text: <span id="textSizeTopOut">10</span></p>
-            <input id="textSizeTop" type="range" min="2" max="50" step="2" />
+            <input id="textSizeTop" type="range" class="form-range" min="2" max="50" step="2" />
           </div>
           <div>
             <p>Bottom Text: <span id="textSizeBottomOut">10</span></p>
-            <input id="textSizeBottom" type="range" min="2" max="50" step="2" />
+            <input id="textSizeBottom" type="range" class="form-range" min="2" max="50" step="2" />
           </div>
         </div>
       </div>
@@ -60,7 +59,7 @@
         <label for="color">Color:</label>
         <input type="color" id="color" value="#000000"> <br>
         <label for="thickness">Thickness:</label>
-        <input type="range" id="thickness" min="1" max="10" value="1">
+        <input type="range" id="thickness" min="1" max="10" value="1" class="form-range primary-range-color">
         <span id="thicknessValue">1</span>
       </div>
 
@@ -75,13 +74,13 @@
       <div class="col-6 meme-tool-boxes">
         <h3><i class="fa fa-download fa-fw" aria-hidden="true"></i>Export</h3>
         <p>Coming soon</p>
-        <button id="download" class="btn btn-success"><i class="bi bi-download"></i> Download</button>
+        <button id="download" class="btn btn-primary"><i class="bi bi-download"></i> Download</button>
       </div>
     </div>
 
     <div class="col-6">
       <%= render 'memes/carousel' %>
-      <button id="btn-carousel" class="btn my-3 btn-success"> Use this image </button>
+      <button id="btn-carousel" class="btn my-3 btn-primary"> Use this image </button>
     </div>
 
     <div class="create-meme-form">

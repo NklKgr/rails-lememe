@@ -4,17 +4,6 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static targets = ["form", "commentsContainer"]
 
-  // connect() {
-  //   console.log("Hello from connect");
-  // }
-  // submit(e) {
-  //   e.preventDefault();
-  //   console.log("Hello from submit");
-  //   let form = e.target.closest("form");
-  //   form.submit();
-
-  // }
-
   submit(event) {
     event.preventDefault();
     fetch(this.formTarget.action, {
@@ -31,6 +20,4 @@ export default class extends Controller {
         this.formTarget.outerHTML = data.form
       })
   }
-
-
 }
