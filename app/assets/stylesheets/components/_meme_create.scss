@@ -13,6 +13,7 @@
     justify-content: center;
     max-height: 330px;
     width: calc(50% - .25rem);  }
+    border-color: $border-color;
 }
 
 
@@ -28,6 +29,7 @@
 
 #meme-tools {
   color: $content-color;
+  border-color: $border-color;
 }
 
 .boxtool {
@@ -36,6 +38,7 @@
   color: $content-color;
   margin: 0.5rem 0;
   background: $dark-blue;
+  border-color: $border-color;
 }
 
 .text-color {
@@ -43,5 +46,5 @@
 }
 
 .primary-carousel-arrow {
-  color: $primary;
+  font-size: 40px;
 }
