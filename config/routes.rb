@@ -16,8 +16,6 @@ Rails.application.routes.draw do
     resources :votes, only: %i[create update]
     resources :comments, only: %i[create]
   end
-  # patch "memes/:meme_id/votes", to: "votes#upvote", as: :upvote
-  # post "memes/:id/downvote", to: "memes#downvote", as: :downvote
 
   resources :memberships, only: %i[update]
 end
