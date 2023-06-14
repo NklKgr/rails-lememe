@@ -1,34 +1,14 @@
 <!-- app/views/communities/show.html.erb -->
 <div id="comm-show" class="container">
-<h1><%= @community.name %></h1>
 
 <% if @membership.id %>
 
   <% if @membership.status == "approved" %>
-    <%= @membership.status %>
+    <span><%= @membership.status %> 🥳</span>
 
     <%# insert page content for approved members %>
 
-  <% elsif @membership.status == "pending" %>
-    <%= @membership.status %>
-    <p>Please, be patient, we are processing your membership request.</p>
-  <% else %>
-    <%= @membership.status %>
-    <p>Sorry, your request was rejected.</p>
-  <% end %>
-
-<% elsif @community.user == current_user %>
-  <%= link_to community_memberships_path(@community), data: { turbo: false } do %>
-    <button type="button" class="btn btn-primary">View Memberships</button>
-  <% end %>
-
-<% else %>
-  <%= simple_form_for [@community, @membership] do |f| %>
-    <%= f.button :submit, "Apply for Membership", disabled: @membership.persisted? %>
-  <% end %>
-<% end %>
-
-<div class="container border border-info">
+<div id="comm-profile" class="container pb-6">
   <div class="row">
     <div class="col-md-9">
       <div class="community-details">
@@ -38,7 +18,7 @@
         <%#   --- CURRENT CHALLENGE ---  %>
         <% @challenge_current.each do |challenge| %>
         <div class="col-sm d-flex justify-content-between align-items-center">
-            <h3 class="pe-5">Active Challenge: <strong><%= challenge.name %></strong></h3>
+            <h3 class="pe-5 ">Active Challenge:<br> <strong><%= challenge.name %></strong></h3>
         <% if !challenge.memes.first.nil? %>
           <%= cl_image_tag challenge.memes.first.photo.key %>
         <% else %>
@@ -83,3 +63,22 @@
       </div>
     </div>
 </div>
+
+  <% elsif @membership.status == "pending" %>
+    <%= @membership.status %>
+    <p>Please, be patient, we are processing your membership request.</p>
+  <% else %>
+    <%= @membership.status %>
+    <p>Sorry, your request was rejected.</p>
+  <% end %>
+
+<% elsif @community.user == current_user %>
+  <%= link_to community_memberships_path(@community), data: { turbo: false } do %>
+    <button type="button" class="btn btn-primary">View Memberships</button>
+  <% end %>
+
+<% else %>
+  <%= simple_form_for [@community, @membership] do |f| %>
+    <%= f.button :submit, "Apply for Membership", disabled: @membership.persisted? %>
+  <% end %>
+<% end %>

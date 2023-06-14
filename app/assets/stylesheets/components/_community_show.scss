@@ -1,3 +1,6 @@
+body {
+  color: $content-color;
+}
 #comm-show {
   padding: 3rem 0;
 
@@ -32,7 +35,7 @@
   top: 34px;
   right: 5px;
   content: '';
-  background: #283593;
+  background: darken($primary, 15%);
   height: 28px;
   width: 28px;
   transform: rotate(45deg);
@@ -44,8 +47,8 @@
   top: 11px;
   right: -1px;
   padding: 0.5rem 1rem;
-  background: #3949ab;
-  color: white;
+  background: $primary;
+  color: $night-blue;
   text-align: center;
   box-shadow: 4px 4px 15px rgba(26, 35, 126, 0.2);
 }
@@ -53,10 +56,40 @@
 .comm-members {
   position: fixed;
   right: 25px;
-  border-left: 1px solid #959494;
+  border-left: 1px solid $border-color;
   padding: 1rem;
 
   h3 {
     font-size: 1.5rem;
   }
+
+  .list-group-item {
+    background: transparent;
+    color: #fff;
+  }
 }
+
+h3 {
+  color: $content-color;
+}
+
+#comm-profile {
+  margin-top: 3rem;
+
+  p {
+    font-size: 1.2rem;
+  }
+
+  img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    object-fit: cover;
+  }
+
+  h1, h3 {
+    color: #fff;
+  }
+}
+
+
