@@ -1,20 +1,21 @@
-.sidebar-container {
-  box-shadow: 0 0 50px rgba(0, 0, 0, 0.2);
-
-}
-
 .left-sidebar, .right-sidebar {
   position: fixed;
-  width: 350px;
+  width: 290px;
   height: calc(100vh - 75px);
   padding: 3rem 2rem;
   bottom: 0;
   background-color: $dark-blue;
   color: $content-color;
+
+  h3 {
+    text-transform: uppercase;
+    font-size: 1.6rem;
+  }
 }
 
 .left-sidebar {
   left: 0;
+  border-right: 1px solid $border-color;
 
   .filtered {
 
@@ -42,6 +43,8 @@
     }
 
 
+
+
   }
 }
 
@@ -51,9 +54,10 @@
 }
 
 .right-sidebar {
-  right: 0;
+  right: 1.5rem;
   background-color: transparent;
   padding: 0;
+
 }
 
 .leaderboard {
@@ -62,8 +66,11 @@
   justify-content: center;
   background-color: $dark-blue;
   padding: 1rem 2rem;
-  height: calc(50% - 1rem);
-  box-shadow: 0 0 50px rgba(0, 0, 0, 0.2);
+  height: calc(50% - 2rem);
+  border: 1px solid $border-color;
+  margin-top: 1.5rem;
+
+
 
   table {
     font-size: 1.2rem;
@@ -83,9 +90,11 @@
   background-color: $dark-blue;
   padding: 1rem 2rem;
   font-size: .8rem;
-  height: calc(50% - 1rem);
-  margin-top: 2rem;
-  box-shadow: 0 0 50px rgba(0, 0, 0, 0.2);
+  height: calc(50% - 2rem);
+  margin-top: 1.5rem;
+  border: 1px solid $border-color;
+
+
 
   h3 {
     margin-bottom: 1rem;
@@ -105,6 +114,10 @@
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1px;
+  }
+
+  img {
+    padding: 1rem 3rem;
   }
 }
 
