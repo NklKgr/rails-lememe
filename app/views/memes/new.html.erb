@@ -1,7 +1,8 @@
 <div class="container main-creator">
   <h1 class="text-center text-color pb-4">Meme Generator</h1>
-  <div class="box row g-2 container" data-controller="meme-submit">
-    <div class="col-6 d-flex justify-content-center" data-action="mouseup->meme-submit#getImageUrl">
+  <div class="box row g-2 container" >
+    <%# <div class="col-6 d-flex justify-content-center" data-action="mouseup->meme-submit#getImageUrl"> %>
+    <div class="col-6 d-flex justify-content-center">
       <div id="canvasWrapper">
         <%= image_tag "meme_I.jpg", quality: 'auto', width: 500, id: "img", class: 'd-none' %>
       </div>
@@ -75,15 +76,15 @@
       </div>
     </div>
 
-    <div class="mt-2 boxtool row">
+    <div class="mt-2 boxtool row" data-controller="meme-submit">
       <div class="col-6">
           <%= render 'memes/carousel' %>
           <button id="btn-carousel" class="btn my-3 btn-primary"> Use this image </button>
         </div>
-        <div class="col-6 mt-0 d-flex align-items-start create-meme-form">
+        <div class="col-6 mt-0 d-flex align-items-start create-meme-form" >
           <%=  simple_form_for @meme, html: { multipart: true } do |f| %>
             <%= f.association :challenge, prompt: "Select a Challenge", collection: @challenges %>
-            <%= f.input :title, prompt: "Select a title" %>
+            <%= f.input :title, placeholder: "Select a title" , input_html: { data: { action: 'keyup->meme-submit#getImageUrl'} } %>
             <div class="d-none">
               <input type="text" name="photo" data-meme-submit-target="baseurlphoto">
             </div>

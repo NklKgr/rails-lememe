@@ -8,6 +8,11 @@
   flex-direction: column;
 }
 
+.modal-body, .modal-header, .modal-footer, .modal-dialog, .comment-container, .meme-card-infos .modal-header {
+  background-color: $dark-blue;
+  color: $content-color;
+}
+
 .meme-card {
   max-width: inherit;
   width: inherit;
@@ -35,7 +40,7 @@
   width: calc(100% - 2px);
   position: relative;
   left: 1px;
-  bottom: 1px;
+  // bottom: 1px;
 
   span {
     color: $content-color;
