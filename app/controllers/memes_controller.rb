@@ -33,7 +33,7 @@ class MemesController < ApplicationController
                     .order(created_at: :desc)
     end
   end
-
+  
   def new
     @meme = Meme.new
     @user = current_user
