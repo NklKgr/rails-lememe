@@ -49,3 +49,41 @@ flex-direction: column;
     font-weight: 700;
   }
 }
+
+
+.outro {
+  height: 100vh;
+  width: 100vw;
+  background-color: #233148;
+  position: absolute;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  display: flex;
+justify-content: center;
+align-items: center;
+padding: 10rem;
+flex-direction: column;
+
+  img {
+    max-width: 750px;
+    width: 100%;
+    box-shadow: 10px 10px 130px #0000005e;
+    border-radius: 20px;
+  }
+
+  h1 {
+    font-size: 5rem;
+    color: white;
+    text-align: center;
+    padding-bottom: .5rem;
+    strong {
+      color: $primary;
+    }
+  }
+  a {
+    color: $night-blue;
+    margin-top: 2rem;
+    font-weight: 700;
+  }
+}

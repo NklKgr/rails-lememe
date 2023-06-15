@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+  get "/outro", to: "pages#outro"
   resources :communities, only: %i[index show new create edit update] do
     resources :challenges, only: %i[index new create] do
       resources :memes, only: %i[create]
