@@ -1,9 +1,15 @@
 #leader-modal {
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: $dark-blue;
+  color: $content-color;
 }
 
 .close {
   position: absolute;
   right: 0;
   top: 0;
+}
+
+.table {
+  background-color: $dark-blue;
+  color: $content-color;
 }
