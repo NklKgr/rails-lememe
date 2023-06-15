@@ -79,6 +79,6 @@
 
 <% else %>
   <%= simple_form_for [@community, @membership] do |f| %>
-    <%= f.button :submit, "Apply for Membership", disabled: @membership.persisted? %>
+    <%= f.button :submit, "Apply for Membership", disabled: @membership.persisted?, class: "btn btn-primary" %>
   <% end %>
 <% end %>
