@@ -83,7 +83,7 @@
         </div>
         <div class="col-6 mt-0 d-flex align-items-start create-meme-form" >
           <%=  simple_form_for @meme, html: { multipart: true } do |f| %>
-            <%= f.association :challenge, prompt: "Select a Challenge", collection: @challenges %>
+            <%= f.association :challenge, prompt: "Select a Challenge", collection: @challenges, class: "decorated" %>
             <%= f.input :title, placeholder: "Select a title" , input_html: { data: { action: 'keyup->meme-submit#getImageUrl'} } %>
             <div class="d-none">
               <input type="text" name="photo" data-meme-submit-target="baseurlphoto">

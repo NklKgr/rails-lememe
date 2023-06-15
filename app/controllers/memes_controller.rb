@@ -33,11 +33,15 @@ class MemesController < ApplicationController
                     .order(created_at: :desc)
     end
   end
-  
+
   def new
     @meme = Meme.new
     @user = current_user
-    @challenges = @user.communities.includes(:challenges).flat_map {|community| community.challenges }
+    # @challenges = @user.communities.includes(:challenges).flat_map {|community| community.challenges }
+    # @challenges = @user.communities.joins(:challenges)
+    #                    .where(memberships: { status: 'approved' }, challenges: { active?: true })
+    @challenges = Challenge.joins("INNER JOIN communities ON communities.id = challenges.community_id AND challenges.active = TRUE").joins("INNER JOIN
+      memberships ON memberships.community_id = communities.id AND memberships.status = 'approved' AND memberships.user_id = #{@user.id}") + @user.communities.includes(:challenges).flat_map {|community| community.challenges }
   end
 
   def create
