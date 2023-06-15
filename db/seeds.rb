@@ -2115,6 +2115,15 @@ meme.save
 
 puts "...Meme 5 created for #{challenge0.name}"
 
+file = URI.open("https://res.cloudinary.com/dvje7oyen/image/upload/v1686043916/Le%20Meme/screenshot_20230531-075721_efgs6n.png")
+meme = Meme.create!(
+  title: '#lewagon #code #mess',
+  user: user3,
+  challenge: challenge01,
+  score: 4
+)
+meme.photo.attach(io: file, filename: "#{meme.title}.png", content_type: "image/png")
+meme.save
 
 # Zoo Berlin - Pandas Challenge (active)
 
