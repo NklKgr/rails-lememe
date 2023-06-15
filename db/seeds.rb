@@ -265,7 +265,7 @@ puts "...created community: #{community02.name}"
 community03 = Community.create!(
   name: 'Beats Berlin',
   description: 'Perlen aus Deep & Organic House, Chill Electronica und Indie Dance. Englische News. Der perfekte Soundtrack für die Generation Nachhaltig.',
-  user: user1
+  user: user2
 )
 # community03.photo.attach(io: file, filename: "#{community03.name}_logo.png", content_type: "image/png")
 community03.save!
@@ -1318,7 +1318,7 @@ puts "...created a memebership for #{community22.name} with user: #{user2.userna
 
 # puts "...created a memebership for #{community06.name} with user: #{user1.username}"
 
-# # User 1 - Art Affairs - pending
+# # User 1 - Art Affairs - rejected
 # membership22 = Membership.create!(
 #   user_id: user1.id,
 #   community_id: community07.id,
@@ -1354,7 +1354,7 @@ puts "...created a memebership for #{community22.name} with user: #{user2.userna
 
 # puts "...created a memebership for #{community09.name} with user: #{user1.username}"
 
-# User1 - Code School - pending
+# User1 - Code School - approved
 membership25 = Membership.create!(
   user_id: user1.id,
   community_id: community10.id,
@@ -1378,7 +1378,7 @@ puts "...created a memebership for #{community10.name} with user: #{user1.userna
 
 # puts "...created a memebership for #{community11.name} with user: #{user1.username}"
 
-# User1 - Boulder Berlin - pending
+# User1 - Boulder Berlin - approved
 membership27 = Membership.create!(
   user_id: user1.id,
   community_id: community12.id,
@@ -1390,17 +1390,17 @@ membership27.save
 
 puts "...created a memebership for #{community12.name} with user: #{user1.username}"
 
-# User1 - Climate Matters - pending
-membership28 = Membership.create!(
-  user_id: user1.id,
-  community_id: community13.id,
-  status: 'approved'
-)
-membership28.save
+# # User1 - Climate Matters - approved
+# membership28 = Membership.create!(
+#   user_id: user1.id,
+#   community_id: community13.id,
+#   status: 'approved'
+# )
+# membership28.save
 
 #####
 
-puts "...created a memebership for #{community13.name} with user: #{user1.username}"
+# puts "...created a memebership for #{community13.name} with user: #{user1.username}"
 
 # # User1 - Berlin Content Creators - pending
 # membership29 = Membership.create!(
