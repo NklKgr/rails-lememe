@@ -2066,6 +2066,18 @@ meme.save
 
 puts "...Meme 1 created for #{meme.challenge.name}"
 
+file = URI.open("https://res.cloudinary.com/dvje7oyen/image/upload/v1686826336/image-1_qlubw4.png")
+meme = Meme.create!(
+  title: '#finalpresentation',
+  user: user3,
+  challenge: challenge0,
+  score: 4
+)
+meme.photo.attach(io: file, filename: "#{meme.title}.png", content_type: "image/png")
+meme.save
+
+puts "...Meme 1 created for #{meme.challenge.name}"
+
 file = URI.open("https://res.cloudinary.com/dvje7oyen/image/upload/v1686043916/Le%20Meme/screenshot_20230531-075721_efgs6n.png")
 meme = Meme.create!(
   title: 'Perfect for a quick snack attack in between coding',
@@ -2206,9 +2218,9 @@ meme.save
 puts "...Meme 2 created for #{meme.challenge.name}"
 
 
-file = URI.open("https://res.cloudinary.com/dvje7oyen/image/upload/v1686234241/Le%20Meme/sub-buzz-3415-1488941815-2_irixnl.webp")
+file = URI.open("https://res.cloudinary.com/dvje7oyen/image/upload/v1686826057/meme_mx1hkg.png")
 meme = Meme.create!(
-  title: 'Energy has left the chat',
+  title: 'I need heeeelp',
   user: user13,
   challenge: challenge03,
   score: 11
@@ -2218,9 +2230,9 @@ meme.save
 
 puts "...Meme 3 created for #{meme.challenge.name}"
 
-file = URI.open("https://res.cloudinary.com/dvje7oyen/image/upload/v1686234241/Le%20Meme/2017-04-07-meme-5_mosvla.jpg")
+file = URI.open("https://res.cloudinary.com/dvje7oyen/image/upload/v1686826057/Lecture_fbyghl.png")
 meme = Meme.create!(
-  title: 'Its all a big piece of written bs pretty much',
+  title: 'like what the actual f*** ?',
   user: user4,
   challenge: challenge03,
   score: 10
@@ -2230,9 +2242,9 @@ meme.save
 
 puts "...Meme 4 created for #{meme.challenge.name}"
 
-file = URI.open("https://res.cloudinary.com/dvje7oyen/image/upload/v1686234241/Le%20Meme/1513252_411549335637089_8592911281121757959_n_h42eiq.webp")
+file = URI.open("https://res.cloudinary.com/dvje7oyen/image/upload/v1686826057/image_zysi76.png")
 meme = Meme.create!(
-  title: 'Mission impossible',
+  title: 'Weekend always',
   user: user8,
   challenge: challenge03,
   score: 4
@@ -2244,57 +2256,57 @@ puts "...Meme 5 created for #{meme.challenge.name}"
 
 # Fortnite Gamerz - Gaming Nights Challenge (active)
 
-file = URI.open("https://res.cloudinary.com/dvje7oyen/image/upload/v1686669180/Le%20Meme/Fornite%20Gamerz/2a8y2b_jhmvep.jpg")
-meme = Meme.create!(
-  title: 'Attackkk',
-  user: user14,
-  challenge: challenge36,
-  score: 6
-)
-meme.photo.attach(io: file, filename: "#{meme.title}.png", content_type: "image/png")
-meme.save
+# file = URI.open("https://res.cloudinary.com/dvje7oyen/image/upload/v1686669180/Le%20Meme/Fornite%20Gamerz/2a8y2b_jhmvep.jpg")
+# meme = Meme.create!(
+#   title: 'Attackkk',
+#   user: user14,
+#   challenge: challenge36,
+#   score: 6
+# )
+# meme.photo.attach(io: file, filename: "#{meme.title}.png", content_type: "image/png")
+# meme.save
 
-puts "...Meme 1 created for #{meme.challenge.name}"
+# puts "...Meme 1 created for #{meme.challenge.name}"
 
-file = URI.open("https://res.cloudinary.com/dvje7oyen/image/upload/v1686669180/Le%20Meme/Fornite%20Gamerz/6vgirw_izfpps.jpg")
-meme = Meme.create!(
-  title: 'Which side are you on?',
-  user: user7,
-  challenge: challenge36,
-  score: 19
-)
-meme.photo.attach(io: file, filename: "#{meme.title}.png", content_type: "image/png")
-meme.save
+# file = URI.open("https://res.cloudinary.com/dvje7oyen/image/upload/v1686669180/Le%20Meme/Fornite%20Gamerz/6vgirw_izfpps.jpg")
+# meme = Meme.create!(
+#   title: 'Which side are you on?',
+#   user: user7,
+#   challenge: challenge36,
+#   score: 19
+# )
+# meme.photo.attach(io: file, filename: "#{meme.title}.png", content_type: "image/png")
+# meme.save
 
-puts "...Meme 2 created for #{meme.challenge.name}"
+# puts "...Meme 2 created for #{meme.challenge.name}"
 
-# Fortnite Gamerz - Gamathon Challenge (inactive)
+# # Fortnite Gamerz - Gamathon Challenge (inactive)
 
-file = URI.open("https://res.cloudinary.com/dvje7oyen/image/upload/v1686669180/Le%20Meme/Fornite%20Gamerz/4mpn3w_zpj1d1.jpg")
-meme = Meme.create!(
-  title: 'Lol',
-  user: user6,
-  challenge: challenge37,
-  score: 20
-)
-meme.photo.attach(io: file, filename: "#{meme.title}.png", content_type: "image/png")
-meme.save
+# file = URI.open("https://res.cloudinary.com/dvje7oyen/image/upload/v1686669180/Le%20Meme/Fornite%20Gamerz/4mpn3w_zpj1d1.jpg")
+# meme = Meme.create!(
+#   title: 'Lol',
+#   user: user6,
+#   challenge: challenge37,
+#   score: 20
+# )
+# meme.photo.attach(io: file, filename: "#{meme.title}.png", content_type: "image/png")
+# meme.save
 
-puts "...Meme 1 created for #{meme.challenge.name}"
+# puts "...Meme 1 created for #{meme.challenge.name}"
 
 # Dance Academy - Jazz Course (active)
 
-file = URI.open("https://res.cloudinary.com/dvje7oyen/image/upload/v1686669178/Le%20Meme/Dance%20Academy/78ual9_pumwsv.jpg")
-meme = Meme.create!(
-  title: 'Oppa Gangnam Style',
-  user: user3,
-  challenge: challenge08,
-  score: 18
-)
-meme.photo.attach(io: file, filename: "#{meme.title}.png", content_type: "image/png")
-meme.save
+# file = URI.open("https://res.cloudinary.com/dvje7oyen/image/upload/v1686669178/Le%20Meme/Dance%20Academy/78ual9_pumwsv.jpg")
+# meme = Meme.create!(
+#   title: 'Oppa Gangnam Style',
+#   user: user3,
+#   challenge: challenge08,
+#   score: 18
+# )
+# meme.photo.attach(io: file, filename: "#{meme.title}.png", content_type: "image/png")
+# meme.save
 
-puts "...Meme 1 created for #{meme.challenge.name}"
+# puts "...Meme 1 created for #{meme.challenge.name}"
 
 # file = URI.open("https://res.cloudinary.com/dvje7oyen/image/upload/v1686669178/Le%20Meme/Dance%20Academy/5tjymu_p8vxjh.jpg")
 # meme = Meme.create!(
@@ -2310,223 +2322,223 @@ puts "...Meme 1 created for #{meme.challenge.name}"
 
 # Dance Academy - HipHop Crew (inactive)
 
-file = URI.open("https://res.cloudinary.com/dvje7oyen/image/upload/v1686669178/Le%20Meme/Dance%20Academy/56vsb9_ilgowg.jpg")
-meme = Meme.create!(
-  title: 'Dancy Theresa',
-  user: user6,
-  challenge: challenge09,
-  score: 3
-)
-meme.photo.attach(io: file, filename: "#{meme.title}.png", content_type: "image/png")
-meme.save
+# file = URI.open("https://res.cloudinary.com/dvje7oyen/image/upload/v1686669178/Le%20Meme/Dance%20Academy/56vsb9_ilgowg.jpg")
+# meme = Meme.create!(
+#   title: 'Dancy Theresa',
+#   user: user6,
+#   challenge: challenge09,
+#   score: 3
+# )
+# meme.photo.attach(io: file, filename: "#{meme.title}.png", content_type: "image/png")
+# meme.save
 
-puts "...Meme 1 created for #{meme.challenge.name}"
+# puts "...Meme 1 created for #{meme.challenge.name}"
 
-# Forevery Studying - Stuck in Bachelors Degree (active)
+# # Forevery Studying - Stuck in Bachelors Degree (active)
 
-file = URI.open("https://res.cloudinary.com/dvje7oyen/image/upload/v1686669180/Le%20Meme/Forever%20Studying/65tfun_fczi2v.jpg")
-meme = Meme.create!(
-  title: 'Can it get any worse?',
-  user: user13,
-  challenge: challenge34,
-  score: 11
-)
-meme.photo.attach(io: file, filename: "#{meme.title}.png", content_type: "image/png")
-meme.save
+# file = URI.open("https://res.cloudinary.com/dvje7oyen/image/upload/v1686669180/Le%20Meme/Forever%20Studying/65tfun_fczi2v.jpg")
+# meme = Meme.create!(
+#   title: 'Can it get any worse?',
+#   user: user13,
+#   challenge: challenge34,
+#   score: 11
+# )
+# meme.photo.attach(io: file, filename: "#{meme.title}.png", content_type: "image/png")
+# meme.save
 
-puts "...Meme 1 created for #{meme.challenge.name}"
+# puts "...Meme 1 created for #{meme.challenge.name}"
 
-file = URI.open("https://res.cloudinary.com/dvje7oyen/image/upload/v1686669179/Le%20Meme/Forever%20Studying/7i34ho_zl0rkt.jpg")
-meme = Meme.create!(
-  title: 'I am dead',
-  user: user9,
-  challenge: challenge34,
-  score: 13
-)
-meme.photo.attach(io: file, filename: "#{meme.title}.png", content_type: "image/png")
-meme.save
+# file = URI.open("https://res.cloudinary.com/dvje7oyen/image/upload/v1686669179/Le%20Meme/Forever%20Studying/7i34ho_zl0rkt.jpg")
+# meme = Meme.create!(
+#   title: 'I am dead',
+#   user: user9,
+#   challenge: challenge34,
+#   score: 13
+# )
+# meme.photo.attach(io: file, filename: "#{meme.title}.png", content_type: "image/png")
+# meme.save
 
-puts "...Meme 2 created for #{meme.challenge.name}"
+# puts "...Meme 2 created for #{meme.challenge.name}"
 
-# Forever Studying - Back to school (inactive)
+# # Forever Studying - Back to school (inactive)
 
-file = URI.open("https://res.cloudinary.com/dvje7oyen/image/upload/v1686669180/Le%20Meme/Forever%20Studying/6jm5j8_ysdwlh.jpg")
-meme = Meme.create!(
-  title: 'Its not at all that bad',
-  user: user8,
-  challenge: challenge35,
-  score: 16
-)
-meme.photo.attach(io: file, filename: "#{meme.title}.png", content_type: "image/png")
-meme.save
+# file = URI.open("https://res.cloudinary.com/dvje7oyen/image/upload/v1686669180/Le%20Meme/Forever%20Studying/6jm5j8_ysdwlh.jpg")
+# meme = Meme.create!(
+#   title: 'Its not at all that bad',
+#   user: user8,
+#   challenge: challenge35,
+#   score: 16
+# )
+# meme.photo.attach(io: file, filename: "#{meme.title}.png", content_type: "image/png")
+# meme.save
 
-puts "...Meme 1 created for #{meme.challenge.name}"
+# puts "...Meme 1 created for #{meme.challenge.name}"
 
-# Football Club  - Worldcup 2022 (active)
+# # Football Club  - Worldcup 2022 (active)
 
-file = URI.open("https://res.cloudinary.com/dvje7oyen/image/upload/v1686669180/Le%20Meme/Football%20Club/29z9mf_lazfpu.jpg")
-meme = Meme.create!(
-  title: 'well..',
-  user: user7,
-  challenge: challenge14,
-  score: 14
-)
-meme.photo.attach(io: file, filename: "#{meme.title}.png", content_type: "image/png")
-meme.save
+# file = URI.open("https://res.cloudinary.com/dvje7oyen/image/upload/v1686669180/Le%20Meme/Football%20Club/29z9mf_lazfpu.jpg")
+# meme = Meme.create!(
+#   title: 'well..',
+#   user: user7,
+#   challenge: challenge14,
+#   score: 14
+# )
+# meme.photo.attach(io: file, filename: "#{meme.title}.png", content_type: "image/png")
+# meme.save
 
-puts "...Meme 1 created for #{meme.challenge.name}"
+# puts "...Meme 1 created for #{meme.challenge.name}"
 
-file = URI.open("https://res.cloudinary.com/dvje7oyen/image/upload/v1686669179/Le%20Meme/Football%20Club/7bdqm6_cfklhg.jpg")
-meme = Meme.create!(
-  title: 'Winner winner chicken dinner, I heard?',
-  user: user11,
-  challenge: challenge14,
-  score: 4
-)
-meme.photo.attach(io: file, filename: "#{meme.title}.png", content_type: "image/png")
-meme.save
+# file = URI.open("https://res.cloudinary.com/dvje7oyen/image/upload/v1686669179/Le%20Meme/Football%20Club/7bdqm6_cfklhg.jpg")
+# meme = Meme.create!(
+#   title: 'Winner winner chicken dinner, I heard?',
+#   user: user11,
+#   challenge: challenge14,
+#   score: 4
+# )
+# meme.photo.attach(io: file, filename: "#{meme.title}.png", content_type: "image/png")
+# meme.save
 
-puts "...Meme 2 created for #{meme.challenge.name}"
+# puts "...Meme 2 created for #{meme.challenge.name}"
 
-# Football Club  - Goalkeepers (inactive)
+# # Football Club  - Goalkeepers (inactive)
 
-file = URI.open("https://res.cloudinary.com/dvje7oyen/image/upload/v1686669179/Le%20Meme/Football%20Club/5lx5ax_p9hyzt.jpg")
-meme = Meme.create!(
-  title: 'Literally a sin',
-  user: user12,
-  challenge: challenge15,
-  score: 9
-)
-meme.photo.attach(io: file, filename: "#{meme.title}.png", content_type: "image/png")
-meme.save
+# file = URI.open("https://res.cloudinary.com/dvje7oyen/image/upload/v1686669179/Le%20Meme/Football%20Club/5lx5ax_p9hyzt.jpg")
+# meme = Meme.create!(
+#   title: 'Literally a sin',
+#   user: user12,
+#   challenge: challenge15,
+#   score: 9
+# )
+# meme.photo.attach(io: file, filename: "#{meme.title}.png", content_type: "image/png")
+# meme.save
 
-puts "...Meme 1 created for #{meme.challenge.name}"
+# puts "...Meme 1 created for #{meme.challenge.name}"
 
-# Fast Cars  - Fast & Curious (active)
+# # Fast Cars  - Fast & Curious (active)
 
-file = URI.open("https://res.cloudinary.com/dvje7oyen/image/upload/v1686669179/Le%20Meme/Fast%20Cars/23cfmq_ghmbwp.jpg")
-meme = Meme.create!(
-  title: 'Short cut, anyone?',
-  user: user15,
-  challenge: challenge38,
-  score: 8
-)
-meme.photo.attach(io: file, filename: "#{meme.title}.png", content_type: "image/png")
-meme.save
+# file = URI.open("https://res.cloudinary.com/dvje7oyen/image/upload/v1686669179/Le%20Meme/Fast%20Cars/23cfmq_ghmbwp.jpg")
+# meme = Meme.create!(
+#   title: 'Short cut, anyone?',
+#   user: user15,
+#   challenge: challenge38,
+#   score: 8
+# )
+# meme.photo.attach(io: file, filename: "#{meme.title}.png", content_type: "image/png")
+# meme.save
 
-puts "...Meme 1 created for #{meme.challenge.name}"
+# puts "...Meme 1 created for #{meme.challenge.name}"
 
-file = URI.open("https://res.cloudinary.com/dvje7oyen/image/upload/v1686669179/Le%20Meme/Fast%20Cars/1zop92_sxygfu.jpg")
-meme = Meme.create!(
-  title: 'Fake it till you make it',
-  user: user16,
-  challenge: challenge38,
-  score: 15
-)
-meme.photo.attach(io: file, filename: "#{meme.title}.png", content_type: "image/png")
-meme.save
+# file = URI.open("https://res.cloudinary.com/dvje7oyen/image/upload/v1686669179/Le%20Meme/Fast%20Cars/1zop92_sxygfu.jpg")
+# meme = Meme.create!(
+#   title: 'Fake it till you make it',
+#   user: user16,
+#   challenge: challenge38,
+#   score: 15
+# )
+# meme.photo.attach(io: file, filename: "#{meme.title}.png", content_type: "image/png")
+# meme.save
 
-puts "...Meme 2 created for #{meme.challenge.name}"
+# puts "...Meme 2 created for #{meme.challenge.name}"
 
-# Fast Cars - Porsche Challenge (inactive)
+# # Fast Cars - Porsche Challenge (inactive)
 
-file = URI.open("https://res.cloudinary.com/dvje7oyen/image/upload/v1686669179/Le%20Meme/Fast%20Cars/5f33tw_i7qmd4.jpg")
-meme = Meme.create!(
-  title: 'hehehe',
-  user: user5,
-  challenge: challenge39,
-  score: 8
-)
-meme.photo.attach(io: file, filename: "#{meme.title}.png", content_type: "image/png")
-meme.save
+# file = URI.open("https://res.cloudinary.com/dvje7oyen/image/upload/v1686669179/Le%20Meme/Fast%20Cars/5f33tw_i7qmd4.jpg")
+# meme = Meme.create!(
+#   title: 'hehehe',
+#   user: user5,
+#   challenge: challenge39,
+#   score: 8
+# )
+# meme.photo.attach(io: file, filename: "#{meme.title}.png", content_type: "image/png")
+# meme.save
 
-puts "...Meme 1 created for #{meme.challenge.name}"
+# puts "...Meme 1 created for #{meme.challenge.name}"
 
-# Dating Fails - Cinema Dates (active)
+# # Dating Fails - Cinema Dates (active)
 
-file = URI.open("https://res.cloudinary.com/dvje7oyen/image/upload/v1686669179/Le%20Meme/Dating%20%20Fails/7b77oz_cbatsh.jpg")
-meme = Meme.create!(
-  title: 'sorry for that #dinnerdates',
-  user: user10,
-  challenge: challenge28,
-  score: 9
-)
-meme.photo.attach(io: file, filename: "#{meme.title}.png", content_type: "image/png")
-meme.save
+# file = URI.open("https://res.cloudinary.com/dvje7oyen/image/upload/v1686669179/Le%20Meme/Dating%20%20Fails/7b77oz_cbatsh.jpg")
+# meme = Meme.create!(
+#   title: 'sorry for that #dinnerdates',
+#   user: user10,
+#   challenge: challenge28,
+#   score: 9
+# )
+# meme.photo.attach(io: file, filename: "#{meme.title}.png", content_type: "image/png")
+# meme.save
 
-puts "...Meme 1 created for #{meme.challenge.name}"
+# puts "...Meme 1 created for #{meme.challenge.name}"
 
-file = URI.open("https://res.cloudinary.com/dvje7oyen/image/upload/v1686669178/Le%20Meme/Dating%20%20Fails/3hrb15_x0b1rv.jpg")
-meme = Meme.create!(
-  title: 'just to clarify what are we?',
-  user: user10,
-  challenge: challenge28,
-  score: 12
-)
-meme.photo.attach(io: file, filename: "#{meme.title}.png", content_type: "image/png")
-meme.save
+# file = URI.open("https://res.cloudinary.com/dvje7oyen/image/upload/v1686669178/Le%20Meme/Dating%20%20Fails/3hrb15_x0b1rv.jpg")
+# meme = Meme.create!(
+#   title: 'just to clarify what are we?',
+#   user: user10,
+#   challenge: challenge28,
+#   score: 12
+# )
+# meme.photo.attach(io: file, filename: "#{meme.title}.png", content_type: "image/png")
+# meme.save
 
-puts "...Meme 2 created for #{meme.challenge.name}"
+# puts "...Meme 2 created for #{meme.challenge.name}"
 
-# Dating Fails - Dinner Dates (inactive)
+# # Dating Fails - Dinner Dates (inactive)
 
-file = URI.open("https://res.cloudinary.com/dvje7oyen/image/upload/v1686669178/Le%20Meme/Dating%20%20Fails/3m6i5u_s4qeto.jpg")
-meme = Meme.create!(
-  title: 'the worst.',
-  user: user14,
-  challenge: challenge29,
-  score: 21
-)
-meme.photo.attach(io: file, filename: "#{meme.title}.png", content_type: "image/png")
-meme.save
+# file = URI.open("https://res.cloudinary.com/dvje7oyen/image/upload/v1686669178/Le%20Meme/Dating%20%20Fails/3m6i5u_s4qeto.jpg")
+# meme = Meme.create!(
+#   title: 'the worst.',
+#   user: user14,
+#   challenge: challenge29,
+#   score: 21
+# )
+# meme.photo.attach(io: file, filename: "#{meme.title}.png", content_type: "image/png")
+# meme.save
 
-puts "...Meme 1 created for #{meme.challenge.name}"
+# puts "...Meme 1 created for #{meme.challenge.name}"
 
-# Disney Fantasy - Childhood Favorites (active)
+# # Disney Fantasy - Childhood Favorites (active)
 
-file = URI.open("https://res.cloudinary.com/dvje7oyen/image/upload/v1686669179/Le%20Meme/Disney%20Fantasy/2d2o81_bz2tvy.jpg")
-meme = Meme.create!(
-  title: 'oh man.. #disney',
-  user: user12,
-  challenge: challenge32,
-  score: 32
-)
-meme.photo.attach(io: file, filename: "#{meme.title}.png", content_type: "image/png")
-meme.save
+# file = URI.open("https://res.cloudinary.com/dvje7oyen/image/upload/v1686669179/Le%20Meme/Disney%20Fantasy/2d2o81_bz2tvy.jpg")
+# meme = Meme.create!(
+#   title: 'oh man.. #disney',
+#   user: user12,
+#   challenge: challenge32,
+#   score: 32
+# )
+# meme.photo.attach(io: file, filename: "#{meme.title}.png", content_type: "image/png")
+# meme.save
 
-puts "...Meme 1 created for #{meme.challenge.name}"
+# puts "...Meme 1 created for #{meme.challenge.name}"
 
-file = URI.open("https://res.cloudinary.com/dvje7oyen/image/upload/v1686669179/Le%20Meme/Disney%20Fantasy/37an7i_nkfbae.jpg")
-meme = Meme.create!(
-  title: 'genieee',
-  user: user13,
-  challenge: challenge32,
-  score: 27
-)
-meme.photo.attach(io: file, filename: "#{meme.title}.png", content_type: "image/png")
-meme.save
+# file = URI.open("https://res.cloudinary.com/dvje7oyen/image/upload/v1686669179/Le%20Meme/Disney%20Fantasy/37an7i_nkfbae.jpg")
+# meme = Meme.create!(
+#   title: 'genieee',
+#   user: user13,
+#   challenge: challenge32,
+#   score: 27
+# )
+# meme.photo.attach(io: file, filename: "#{meme.title}.png", content_type: "image/png")
+# meme.save
 
-puts "...Meme 2 created for #{meme.challenge.name}"
+# puts "...Meme 2 created for #{meme.challenge.name}"
 
-# Disney Fantasy - Lion King (inactive)
+# # Disney Fantasy - Lion King (inactive)
 
-file = URI.open("https://res.cloudinary.com/dvje7oyen/image/upload/v1686669178/Le%20Meme/Disney%20Fantasy/633doc_bsa8aq.jpg")
-meme = Meme.create!(
-  title: '#thelionking problems',
-  user: user14,
-  challenge: challenge33,
-  score: 6
-)
-meme.photo.attach(io: file, filename: "#{meme.title}.png", content_type: "image/png")
-meme.save
+# file = URI.open("https://res.cloudinary.com/dvje7oyen/image/upload/v1686669178/Le%20Meme/Disney%20Fantasy/633doc_bsa8aq.jpg")
+# meme = Meme.create!(
+#   title: '#thelionking problems',
+#   user: user14,
+#   challenge: challenge33,
+#   score: 6
+# )
+# meme.photo.attach(io: file, filename: "#{meme.title}.png", content_type: "image/png")
+# meme.save
 
-puts "...Meme 1 created for #{meme.challenge.name}"
+# puts "...Meme 1 created for #{meme.challenge.name}"
 
 # Code School - Python Challenge (active)
 
-file = URI.open("https://res.cloudinary.com/dvje7oyen/image/upload/v1686669178/Le%20Meme/Code%20School/5qikpc_y5uk2o.jpg")
+file = URI.open("https://res.cloudinary.com/dvje7oyen/image/upload/v1686826056/Image_from_iOS_ssp1ae.jpg")
 meme = Meme.create!(
-  title: 'david can help! #python',
+  title: 'Lets just stay on holidays?!',
   user: user15,
   challenge: challenge18,
   score: 4
@@ -2536,9 +2548,9 @@ meme.save
 
 puts "...Meme 1 created for #{meme.challenge.name}"
 
-file = URI.open("https://res.cloudinary.com/dvje7oyen/image/upload/v1686669178/Le%20Meme/Code%20School/4br2oa_bqowyc.jpg")
+file = URI.open("https://res.cloudinary.com/dvje7oyen/image/upload/v1686826056/Screenshot_20230526_164857_Instagram_ewkn3h.jpg")
 meme = Meme.create!(
-  title: 'lol me neither',
+  title: 'ChatGPT <3',
   user: user16,
   challenge: challenge18,
   score: 15
@@ -2550,9 +2562,9 @@ puts "...Meme 2 created for #{meme.challenge.name}"
 
 # Code School - Rails Forever (inactive)
 
-file = URI.open("https://res.cloudinary.com/dvje7oyen/image/upload/v1686669178/Le%20Meme/Code%20School/5r58kl_vvmntb.jpg")
+file = URI.open("https://res.cloudinary.com/dvje7oyen/image/upload/v1686826056/File_r6f5el.jpg")
 meme = Meme.create!(
-  title: 'so much trust #railschallenge',
+  title: 'nothing makes sense anymore',
   user: user17,
   challenge: challenge19,
   score: 23
