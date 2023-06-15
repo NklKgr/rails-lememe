@@ -65,11 +65,11 @@
 </div>
 
   <% elsif @membership.status == "pending" %>
-    <%= @membership.status %>
-    <p>Please, be patient, we are processing your membership request.</p>
+    <h3 class="text-capitalize"> <%= @membership.status %> </h3>
+    <h3>Please, be patient, we are processing your membership request.</h3>
   <% else %>
-    <%= @membership.status %>
-    <p>Sorry, your request was rejected.</p>
+    <h3 class="text-capitalize"> <%= @membership.status %> </h3>
+    <h3>Sorry, your request was rejected.</h3>
   <% end %>
 
 <% elsif @community.user == current_user %>
