@@ -32,7 +32,7 @@
     <!-- Memes Feed -->
     <div class="col-md-8">
       <div class="container w-100 d-flex justify-content-center flex-wrap mt-4 flex-column align-items-center">
-    <% @memes.each do | meme | %>
+    <% @memes.uniq.each do | meme | %>
     <div class="meme-container" data-controller="comment">
     <!-- Button trigger modal: whole card -->
     <button type="button" class="btn p-0" data-bs-toggle="modal" data-bs-target="#exampleModalCenter<%= meme.id %>">
@@ -86,7 +86,7 @@
               data: { action: 'votings#addVoteClassDown', votings_target: 'downvoteBtn' } %>
             <% end %>
           </div>
-        </div> 
+        </div>
               <div class="comment-container" data-comment-target="commentsContainer" >
                 <% meme.comments.all.each do |comment| %>
                 <%= render "comments/comment_section", comment: comment%>
