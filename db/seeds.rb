@@ -543,7 +543,7 @@ puts "...created community: #{community21.name}"
 # Community 22 - #BerlinHackathon
 # file = URI.open("https://res.cloudinary.com/dvje7oyen/image/upload/v1686230450/Le%20Meme/tu-berlin-technische-universitaet-berlin-logo-vector_sjoxc4.png")
 community22 = Community.create!(
-  name: '#BerlinHackathon',
+  name: '#Hackathon',
   description: 'All the geek heads and computer programmers, Hackathons in Berlin is where you got to be. The Hackathon events in Berlin are for all the creators, developers and entrepreneurs who are in search of a platform where they can develop or learn a thing or two about a skill. There are meetups, games and coding competitions that are organized at this Hackathon events near you. Be a part of these events to learn about the trends, developments and get the insights from the fellow programmers, developers and attendees. Discover all the upcoming Hackathons in Berlin with us and find the best suitable one for yourself.',
   user: user17
 )
