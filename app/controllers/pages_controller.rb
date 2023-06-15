@@ -7,4 +7,7 @@ class PagesController < ApplicationController
   def after_sign_in_path_for
     redirect_to(memes_path)
   end
+
+  def outro
+  end
 end
