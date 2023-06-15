@@ -43,7 +43,7 @@
     <% end %>
     <%= simple_form_for [@community, @challenge] do |f| %>
       <span>Create a new Challenge</span>
-      <%= f.input :name, label: false, placeholder: "Please give it a name" %>
+      <%= f.input :name, label: false, placeholder: "Name the Challange" %>
       <%= f.button :submit, "Create", class: "btn btn-primary" %>
     <% end %>
           <%#   --- ARCHIVED CHALLENGES --- END  %>
