@@ -214,7 +214,7 @@ puts "...created user: #{user17.username}"
 
 ##### COMMUNITIES
 
-# Community 0 - Le Wagon
+# Community 0 - Le Wagon - Creator is User 2 and User 1 asks to join
 # file = URI.open("https://res.cloudinary.com/dvje7oyen/image/upload/v1686045830/Le%20Meme/wagoners_sfb1sf.png")
 community0 = Community.create!(
   name: 'Le Wagon Bali',
@@ -237,7 +237,7 @@ puts "...created community: #{community0.name}"
 community01 = Community.create!(
   name: 'Zoo Berlin',
   description: 'Zoo Berlin is the oldest and best-known zoo in Germany. Opened in 1844 it covers 35 hectares (86.5 acres) and is located in Berlin\'s Tiergarten. With about 1,380 different species and over 20,200 animals the zoo presents one of the most comprehensive collection of species in the world.',
-  user: user2
+  user: user1
 )
 # community01.photo.attach(io: file, filename: "#{community01.name}_logo.png", content_type: "image/png")
 community01.save!
