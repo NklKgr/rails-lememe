@@ -214,7 +214,7 @@ puts "...created user: #{user17.username}"
 
 ##### COMMUNITIES
 
-# Community 0 - Le Wagon
+# Community 0 - Le Wagon - Creator is User 2 and User 1 asks to join
 # file = URI.open("https://res.cloudinary.com/dvje7oyen/image/upload/v1686045830/Le%20Meme/wagoners_sfb1sf.png")
 community0 = Community.create!(
   name: 'Le Wagon Bali',
@@ -223,7 +223,7 @@ community0 = Community.create!(
   This page is all fun and games 👾 Apply to become part of the community and see vote for your favorite artworks! 🎨 😍
 
   If you did not know, Le Wagon is a coding bootcamp that teaches students to develop web applications from scratch. Our cutting-edge curriculum and world-class teachers give students all the skills and tools needed to kick-start their tech career, land a job as software developers or product managers, or launch their own startup.',
-  user: user1
+  user: user2
 )
 # community0.photo.attach(io: file, filename: "#{community0.name}_logo.png", content_type: "image/png")
 community0.save!
@@ -232,7 +232,7 @@ community0.save!
 
 puts "...created community: #{community0.name}"
 
-# Community 01 - Zoo Berlin
+# Community 01 - Zoo Berlin - Creator is User 2 and User 1 asks to join
 # file = URI.open("https://res.cloudinary.com/dvje7oyen/image/upload/v1686230459/Le%20Meme/download_peprag.jpg")
 community01 = Community.create!(
   name: 'Zoo Berlin',
@@ -265,7 +265,7 @@ puts "...created community: #{community02.name}"
 community03 = Community.create!(
   name: 'Beats Berlin',
   description: 'Perlen aus Deep & Organic House, Chill Electronica und Indie Dance. Englische News. Der perfekte Soundtrack für die Generation Nachhaltig.',
-  user: user1
+  user: user2
 )
 # community03.photo.attach(io: file, filename: "#{community03.name}_logo.png", content_type: "image/png")
 community03.save!
@@ -1282,29 +1282,29 @@ membership18.save
 puts "...created a memebership for #{community22.name} with user: #{user2.username}"
 
 
-# User 1 - Soho House - approved
-membership19 = Membership.create!(
-  user_id: user1.id,
-  community_id: community04.id,
-  status: 'approved'
-)
-membership19.save
+# # User 1 - Soho House - approved
+# membership19 = Membership.create!(
+#   user_id: user1.id,
+#   community_id: community04.id,
+#   status: 'approved'
+# )
+# membership19.save
 
-#####
+# #####
 
-puts "...created a memebership for #{community04.name} with user: #{user1.username}"
+# puts "...created a memebership for #{community04.name} with user: #{user1.username}"
 
-# User 1 - Dance Academy - pending
-membership20 = Membership.create!(
-  user_id: user1.id,
-  community_id: community05.id,
-  status: 'pending'
-)
-membership20.save
+# # User 1 - Dance Academy - pending
+# membership20 = Membership.create!(
+#   user_id: user1.id,
+#   community_id: community05.id,
+#   status: 'pending'
+# )
+# membership20.save
 
-#####
+# #####
 
-puts "...created a memebership for #{community05.name} with user: #{user1.username}"
+# puts "...created a memebership for #{community05.name} with user: #{user1.username}"
 
 # # User 1 - Volleyball Club - pending
 # membership21 = Membership.create!(
@@ -1318,7 +1318,7 @@ puts "...created a memebership for #{community05.name} with user: #{user1.userna
 
 # puts "...created a memebership for #{community06.name} with user: #{user1.username}"
 
-# # User 1 - Art Affairs - pending
+# # User 1 - Art Affairs - rejected
 # membership22 = Membership.create!(
 #   user_id: user1.id,
 #   community_id: community07.id,
@@ -1342,23 +1342,23 @@ puts "...created a memebership for #{community05.name} with user: #{user1.userna
 
 # puts "...created a memebership for #{community08.name} with user: #{user1.username}"
 
-# User1 - Berlin Club Scene - approved
-membership24 = Membership.create!(
-  user_id: user1.id,
-  community_id: community09.id,
-  status: 'approved'
-)
-membership24.save
+# # User1 - Berlin Club Scene - approved
+# membership24 = Membership.create!(
+#   user_id: user1.id,
+#   community_id: community09.id,
+#   status: 'approved'
+# )
+# membership24.save
 
-#####
+# #####
 
-puts "...created a memebership for #{community09.name} with user: #{user1.username}"
+# puts "...created a memebership for #{community09.name} with user: #{user1.username}"
 
-# User1 - Code School - pending
+# User1 - Code School - approved
 membership25 = Membership.create!(
   user_id: user1.id,
   community_id: community10.id,
-  status: 'pending'
+  status: 'approved'
 )
 membership25.save
 
@@ -1366,23 +1366,23 @@ membership25.save
 
 puts "...created a memebership for #{community10.name} with user: #{user1.username}"
 
-# User1 - Live Laugh Pottery - pending
-membership26 = Membership.create!(
-  user_id: user1.id,
-  community_id: community11.id,
-  status: 'pending'
-)
-membership26.save
+# # User1 - Live Laugh Pottery - pending
+# membership26 = Membership.create!(
+#   user_id: user1.id,
+#   community_id: community11.id,
+#   status: 'pending'
+# )
+# membership26.save
 
-#####
+# #####
 
-puts "...created a memebership for #{community11.name} with user: #{user1.username}"
+# puts "...created a memebership for #{community11.name} with user: #{user1.username}"
 
-# User1 - Boulder Berlin - pending
+# User1 - Boulder Berlin - approved
 membership27 = Membership.create!(
   user_id: user1.id,
   community_id: community12.id,
-  status: 'pending'
+  status: 'approved'
 )
 membership27.save
 
@@ -1390,41 +1390,41 @@ membership27.save
 
 puts "...created a memebership for #{community12.name} with user: #{user1.username}"
 
-# User1 - Climate Matters - pending
-membership28 = Membership.create!(
-  user_id: user1.id,
-  community_id: community13.id,
-  status: 'pending'
-)
-membership28.save
+# # User1 - Climate Matters - approved
+# membership28 = Membership.create!(
+#   user_id: user1.id,
+#   community_id: community13.id,
+#   status: 'approved'
+# )
+# membership28.save
 
 #####
 
-puts "...created a memebership for #{community13.name} with user: #{user1.username}"
+# puts "...created a memebership for #{community13.name} with user: #{user1.username}"
 
-# User1 - Berlin Content Creators - pending
-membership29 = Membership.create!(
-  user_id: user1.id,
-  community_id: community14.id,
-  status: 'pending'
-)
-membership29.save
+# # User1 - Berlin Content Creators - pending
+# membership29 = Membership.create!(
+#   user_id: user1.id,
+#   community_id: community14.id,
+#   status: 'pending'
+# )
+# membership29.save
 
-#####
+# #####
 
-puts "...created a memebership for #{community14.name} with user: #{user1.username}"
+# puts "...created a memebership for #{community14.name} with user: #{user1.username}"
 
-# User 1 - Dating Fails - approved
-membership30 = Membership.create!(
-  user_id: user1.id,
-  community_id: community15.id,
-  status: 'approved'
-)
-membership30.save
+# # User 1 - Dating Fails - approved
+# membership30 = Membership.create!(
+#   user_id: user1.id,
+#   community_id: community15.id,
+#   status: 'approved'
+# )
+# membership30.save
 
-#####
+# #####
 
-puts "...created a memebership for #{community15.name} with user: #{user1.username}"
+# puts "...created a memebership for #{community15.name} with user: #{user1.username}"
 
 # User 1 - HBO Memes - approved
 membership31 = Membership.create!(
@@ -1438,53 +1438,53 @@ membership31.save
 
 puts "...created a memebership for #{community16.name} with user: #{user1.username}"
 
-# User 1 - Disney Fantasy - approved
-membership32 = Membership.create!(
-  user_id: user1.id,
-  community_id: community17.id,
-  status: 'approved'
-)
-membership32.save
+# # User 1 - Disney Fantasy - approved
+# membership32 = Membership.create!(
+#   user_id: user1.id,
+#   community_id: community17.id,
+#   status: 'approved'
+# )
+# membership32.save
 
-#####
+# #####
 
-puts "...created a memebership for #{community17.name} with user: #{user1.username}"
+# puts "...created a memebership for #{community17.name} with user: #{user1.username}"
 
-# User 1 - Forever Studying - approved
-membership33 = Membership.create!(
-  user_id: user1.id,
-  community_id: community18.id,
-  status: 'approved'
-)
-membership33.save
+# # User 1 - Forever Studying - approved
+# membership33 = Membership.create!(
+#   user_id: user1.id,
+#   community_id: community18.id,
+#   status: 'approved'
+# )
+# membership33.save
 
-#####
+# #####
 
-puts "...created a memebership for #{community18.name} with user: #{user1.username}"
+# puts "...created a memebership for #{community18.name} with user: #{user1.username}"
 
-# User 1 - Fortnite Gamerz - approved
-membership34 = Membership.create!(
-  user_id: user1.id,
-  community_id: community19.id,
-  status: 'approved'
-)
-membership34.save
+# # User 1 - Fortnite Gamerz - approved
+# membership34 = Membership.create!(
+#   user_id: user1.id,
+#   community_id: community19.id,
+#   status: 'approved'
+# )
+# membership34.save
 
-#####
+# #####
 
-puts "...created a memebership for #{community19.name} with user: #{user1.username}"
+# puts "...created a memebership for #{community19.name} with user: #{user1.username}"
 
-# User 1 - Young Drivers & Fast Cars - approved
-membership35 = Membership.create!(
-  user_id: user1.id,
-  community_id: community20.id,
-  status: 'approved'
-)
-membership35.save
+# # User 1 - Young Drivers & Fast Cars - approved
+# membership35 = Membership.create!(
+#   user_id: user1.id,
+#   community_id: community20.id,
+#   status: 'approved'
+# )
+# membership35.save
 
-#####
+# #####
 
-puts "...created a memebership for #{community20.name} with user: #{user1.username}"
+# puts "...created a memebership for #{community20.name} with user: #{user1.username}"
 
 # User 1 - LGBTQ+ - approved
 membership36 = Membership.create!(
@@ -2296,17 +2296,17 @@ meme.save
 
 puts "...Meme 1 created for #{meme.challenge.name}"
 
-file = URI.open("https://res.cloudinary.com/dvje7oyen/image/upload/v1686669178/Le%20Meme/Dance%20Academy/5tjymu_p8vxjh.jpg")
-meme = Meme.create!(
-  title: 'But we also like them, ok??',
-  user: user5,
-  challenge: challenge08,
-  score: 14
-)
-meme.photo.attach(io: file, filename: "#{meme.title}.png", content_type: "image/png")
-meme.save
+# file = URI.open("https://res.cloudinary.com/dvje7oyen/image/upload/v1686669178/Le%20Meme/Dance%20Academy/5tjymu_p8vxjh.jpg")
+# meme = Meme.create!(
+#   title: 'But we also like them, ok??',
+#   user: user5,
+#   challenge: challenge08,
+#   score: 14
+# )
+# meme.photo.attach(io: file, filename: "#{meme.title}.png", content_type: "image/png")
+# meme.save
 
-puts "...Meme 2 created for #{meme.challenge.name}"
+# puts "...Meme 2 created for #{meme.challenge.name}"
 
 # Dance Academy - HipHop Crew (inactive)
 
