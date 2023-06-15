@@ -1,4 +1,5 @@
-
+<%# LANDING PAGE %>
+<%#
 <!-- Hero -->
 <div class="lc-block card border-0 text-center rounded p-4 p-lg-6"
   style="background:url(http://cdn.livecanvas.com/media/backgrounds/fffuelco/ffflux.svg)  center / cover no-repeat;">
@@ -113,7 +114,7 @@
                     <div class="lc-block mb-2">
                     <p class="m-0 fs-2 text-info">Le<strong class="text-primary">Meme</strong></p>
                         <%# <img alt="logo" class="img-fluid" src="https://cdn.livecanvas.com/media/logos/logo-2.svg" style="height:10vh"> %>
-                    </div>
+                    <%# </div>
                     <div class="lc-block text-light mb-2">
                         <div editable="rich">
                             <h4>
@@ -161,4 +162,11 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> %>
+
+<%# DEMO PAGE %>
+<div class="demo">
+  <h1>Le<strong>Meme</strong></h1>
+  <%= image_tag "demo_intro.png" %>
+  <%= link_to "START DEMO", memes_path, class: "btn btn-primary btn-lg" %>
+</div>
